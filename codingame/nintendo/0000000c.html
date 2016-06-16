@@ -1,7 +1,15 @@
-<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000001010000010100010100010101010001000000010001<br>a = 0x0000050514551011<br>a = x<sup>42</sup> + x<sup>40</sup> + x<sup>34</sup> + x<sup>32</sup> + x<sup>28</sup> + x<sup>26</sup> + x<sup>22</sup> + x<sup>20</sup> + x<sup>18</sup> + x<sup>16</sup> + x<sup>12</sup> + x<sup>4</sup> + 1<br></tt><br><tt>b = b0000000000000000000000010100010001010001010101010000010101000001<br>b = 0x0000014451550541<br>b = x<sup>40</sup> + x<sup>38</sup> + x<sup>34</sup> + x<sup>30</sup> + x<sup>28</sup> + x<sup>24</sup> + x<sup>22</sup> + x<sup>20</sup> + x<sup>18</sup> + x<sup>16</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>6</sup> + 1<br></tt><br><tt><pre>  1010000010100010100010101010001000000010001 | 10100010001010001010101010000010101000001
-- 10100010001010001010101010000010101000001   | 1
-  ------------------------------------------- |
-        1010001010001000000010000010100010101 |
--  00000000000000000000000000000000000000000  | 0
--   00000000000000000000000000000000000000000 | 0
-</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000000000100<br>c<sub>quotient</sub> = 0x0000000000000004<br>c<sub>quotient</sub> = x<sup>2</sup><br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000001010001010001000000010000010100010101<br>c<sub>remainder</sub> = 0x0000001451010515<br>c<sub>remainder</sub> = x<sup>36</sup> + x<sup>34</sup> + x<sup>30</sup> + x<sup>28</sup> + x<sup>24</sup> + x<sup>16</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>4</sup> + x<sup>2</sup> + 1<br></tt></body></html>
+<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000000010101000000000101000000000100000100000101<br>a = 0x0000015005004105<br>a = x<sup>40</sup> + x<sup>38</sup> + x<sup>36</sup> + x<sup>26</sup> + x<sup>24</sup> + x<sup>14</sup> + x<sup>8</sup> + x<sup>2</sup> + 1<br></tt><br><tt>b = b0000000000000000000000000000000101010001010101000000010100000001<br>b = 0x0000000151540501<br>b = x<sup>32</sup> + x<sup>30</sup> + x<sup>28</sup> + x<sup>24</sup> + x<sup>22</sup> + x<sup>20</sup> + x<sup>18</sup> + x<sup>10</sup> + x<sup>8</sup> + 1<br></tt><br><tt><pre>  10101000000000101000000000100000100000101 | 101010001010101000000010100000001
+- 101010001010101000000010100000001         | 1
+  ----------------------------------------- |
+          101010001000001010100000000000101 |
+-  000000000000000000000000000000000        | 0
+-   000000000000000000000000000000000       | 0
+-    000000000000000000000000000000000      | 0
+-     000000000000000000000000000000000     | 0
+-      000000000000000000000000000000000    | 0
+-       000000000000000000000000000000000   | 0
+-        000000000000000000000000000000000  | 0
+-         101010001010101000000010100000001 | 1
+  ----------------------------------------- |
+                    10100010100010100000100 |
+</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000100000001<br>c<sub>quotient</sub> = 0x0000000000000101<br>c<sub>quotient</sub> = x<sup>8</sup> + 1<br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000000000000000000010100010100010100000100<br>c<sub>remainder</sub> = 0x0000000000514504<br>c<sub>remainder</sub> = x<sup>22</sup> + x<sup>20</sup> + x<sup>16</sup> + x<sup>14</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>2</sup><br></tt></body></html>

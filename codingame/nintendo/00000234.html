@@ -1,15 +1,15 @@
-<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000000010101000000000101000000000100000100000101<br>a = 0x0000015005004105<br>a = x<sup>40</sup> + x<sup>38</sup> + x<sup>36</sup> + x<sup>26</sup> + x<sup>24</sup> + x<sup>14</sup> + x<sup>8</sup> + x<sup>2</sup> + 1<br></tt><br><tt>b = b0000000000000000000000000000000101010001010101000000010100000001<br>b = 0x0000000151540501<br>b = x<sup>32</sup> + x<sup>30</sup> + x<sup>28</sup> + x<sup>24</sup> + x<sup>22</sup> + x<sup>20</sup> + x<sup>18</sup> + x<sup>10</sup> + x<sup>8</sup> + 1<br></tt><br><tt><pre>  10101000000000101000000000100000100000101 | 101010001010101000000010100000001
-- 101010001010101000000010100000001         | 1
-  ----------------------------------------- |
-          101010001000001010100000000000101 |
--  000000000000000000000000000000000        | 0
--   000000000000000000000000000000000       | 0
--    000000000000000000000000000000000      | 0
--     000000000000000000000000000000000     | 0
--      000000000000000000000000000000000    | 0
--       000000000000000000000000000000000   | 0
--        000000000000000000000000000000000  | 0
--         101010001010101000000010100000001 | 1
-  ----------------------------------------- |
-                    10100010100010100000100 |
-</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000100000001<br>c<sub>quotient</sub> = 0x0000000000000101<br>c<sub>quotient</sub> = x<sup>8</sup> + 1<br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000000000000000000010100010100010100000100<br>c<sub>remainder</sub> = 0x0000000000514504<br>c<sub>remainder</sub> = x<sup>22</sup> + x<sup>20</sup> + x<sup>16</sup> + x<sup>14</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>2</sup><br></tt></body></html>
+<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b00000000000000000100000000000000<br>a = 0x00004000<br>a = x<sup>14</sup><br></tt><br><tt>b = b00000000000000000000000101110001<br>b = 0x00000171<br>b = x<sup>8</sup> + x<sup>6</sup> + x<sup>5</sup> + x<sup>4</sup> + 1<br></tt><br><tt><pre>  100000000000000 | 101110001
+- 101110001       | 1
+  --------------- |
+    1110001000000 |
+-  000000000      | 0
+-   101110001     | 1
+  --------------- |
+     101101010000 |
+-    101110001    | 1
+  --------------- |
+         11011000 |
+-     000000000   | 0
+-      000000000  | 0
+-       000000000 | 0
+</pre></tt><br><tt>c<sub>quotient</sub> = b00000000000000000000000001011000<br>c<sub>quotient</sub> = 0x00000058<br>c<sub>quotient</sub> = x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup><br></tt><br><tt>c<sub>remainder</sub> = b00000000000000000000000011011000<br>c<sub>remainder</sub> = 0x000000d8<br>c<sub>remainder</sub> = x<sup>7</sup> + x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup><br></tt></body></html>

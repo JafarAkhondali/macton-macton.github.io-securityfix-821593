@@ -1,9 +1,209 @@
-<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000001000001010100010100010100000000000000000000<br>a = 0x0000041514500000<br>a = x<sup>42</sup> + x<sup>36</sup> + x<sup>34</sup> + x<sup>32</sup> + x<sup>28</sup> + x<sup>26</sup> + x<sup>22</sup> + x<sup>20</sup><br></tt><br><tt>b = b0000000000000000000000000100000100000100000001010101000100010101<br>b = 0x0000004104055115<br>b = x<sup>38</sup> + x<sup>32</sup> + x<sup>26</sup> + x<sup>18</sup> + x<sup>16</sup> + x<sup>14</sup> + x<sup>12</sup> + x<sup>8</sup> + x<sup>4</sup> + x<sup>2</sup> + 1<br></tt><br><tt><pre>  1000001010100010100010100000000000000000000 | 100000100000100000001010101000100010101
-- 100000100000100000001010101000100010101     | 1
-  ------------------------------------------- |
-          10101010100000001010001000101010000 |
--  000000000000000000000000000000000000000    | 0
--   000000000000000000000000000000000000000   | 0
--    000000000000000000000000000000000000000  | 0
--     000000000000000000000000000000000000000 | 0
-</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000000010000<br>c<sub>quotient</sub> = 0x0000000000000010<br>c<sub>quotient</sub> = x<sup>4</sup><br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000000010101010100000001010001000101010000<br>c<sub>remainder</sub> = 0x0000000554051150<br>c<sub>remainder</sub> = x<sup>34</sup> + x<sup>32</sup> + x<sup>30</sup> + x<sup>28</sup> + x<sup>26</sup> + x<sup>18</sup> + x<sup>16</sup> + x<sup>12</sup> + x<sup>8</sup> + x<sup>6</sup> + x<sup>4</sup><br></tt></body></html>
+<html><body style="white-space: nowrap;"><h2>Transform M into row reduced echelon form (rref)</h2><i>Gauss-Jordan Elimination</i><br><br>Mark first row (*) as next result row<br><div style="margin-left:4em;"><tt><pre>M = * 00000000000000000000000000000001
+      00000000000000000000110000000010
+      00000000000000000010100000000100
+      00000000000000001001000000001000
+      00000000000000001100001000010000
+      00000000000000010010101000100000
+      00000000000000001110110001000000
+      00000000000000001011000010000000
+</div></pre></tt>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M = * 000000000000000<span style="color:red">0</span>0000000000000001
+      000000000000000<span style="color:red">0</span>0000110000000010
+      000000000000000<span style="color:red">0</span>0010100000000100
+      000000000000000<span style="color:red">0</span>1001000000001000
+      000000000000000<span style="color:red">0</span>1100001000010000
+      <span style="color:red">000000000000000<span style="color:red">1</span>0010101000100000</span>
+      000000000000000<span style="color:red">0</span>1110110001000000
+      000000000000000<span style="color:red">0</span>1011000010000000
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   <span style="color:red">000000000000000<span style="color:red">1</span>0010101000100000</span>
+    * 000000000000000<span style="color:red">0</span>0000110000000010
+      000000000000000<span style="color:red">0</span>0010100000000100
+      000000000000000<span style="color:red">0</span>1001000000001000
+      000000000000000<span style="color:red">0</span>1100001000010000
+      <span style="color:red">000000000000000<span style="color:red">0</span>0000000000000001</span>
+      000000000000000<span style="color:red">0</span>1110110001000000
+      000000000000000<span style="color:red">0</span>1011000010000000
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   <span style="color:red">000000000000000<span style="color:red">1</span>0010101000100000</span>
+    * 000000000000000<span style="color:red">0</span>0000110000000010
+      000000000000000<span style="color:red">0</span>0010100000000100
+      000000000000000<span style="color:red">0</span>1001000000001000
+      000000000000000<span style="color:red">0</span>1100001000010000
+      000000000000000<span style="color:red">0</span>0000000000000001
+      000000000000000<span style="color:red">0</span>1110110001000000
+      000000000000000<span style="color:red">0</span>1011000010000000
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001<span style="color:red">0</span>010101000100000
+    * 0000000000000000<span style="color:red">0</span>000110000000010
+      0000000000000000<span style="color:red">0</span>010100000000100
+      <span style="color:red">0000000000000000<span style="color:red">1</span>001000000001000</span>
+      0000000000000000<span style="color:red">1</span>100001000010000
+      0000000000000000<span style="color:red">0</span>000000000000001
+      0000000000000000<span style="color:red">1</span>110110001000000
+      0000000000000000<span style="color:red">1</span>011000010000000
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001<span style="color:red">0</span>010101000100000
+      <span style="color:red">0000000000000000<span style="color:red">1</span>001000000001000</span>
+    * 0000000000000000<span style="color:red">0</span>010100000000100
+      <span style="color:red">0000000000000000<span style="color:red">0</span>000110000000010</span>
+      0000000000000000<span style="color:red">1</span>100001000010000
+      0000000000000000<span style="color:red">0</span>000000000000001
+      0000000000000000<span style="color:red">1</span>110110001000000
+      0000000000000000<span style="color:red">1</span>011000010000000
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001<span style="color:red">0</span>010101000100000
+      <span style="color:red">0000000000000000<span style="color:red">1</span>001000000001000</span>
+    * 0000000000000000<span style="color:red">0</span>010100000000100
+      0000000000000000<span style="color:red">0</span>000110000000010
+      0000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span>
+      0000000000000000<span style="color:red">0</span>000000000000001
+      0000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span>
+      0000000000000000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span>
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010<span style="color:red">0</span>10101000100000
+      00000000000000001<span style="color:red">0</span>01000000001000
+    * 00000000000000000<span style="color:red">0</span>10100000000100
+      00000000000000000<span style="color:red">0</span>00110000000010
+      <span style="color:red">00000000000000000<span style="color:red">1</span>01001000011000</span>
+      00000000000000000<span style="color:red">0</span>00000000000001
+      00000000000000000<span style="color:red">1</span>11110001001000
+      00000000000000000<span style="color:red">0</span>10000010001000
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010<span style="color:red">0</span>10101000100000
+      00000000000000001<span style="color:red">0</span>01000000001000
+      <span style="color:red">00000000000000000<span style="color:red">1</span>01001000011000</span>
+    * 00000000000000000<span style="color:red">0</span>00110000000010
+      <span style="color:red">00000000000000000<span style="color:red">0</span>10100000000100</span>
+      00000000000000000<span style="color:red">0</span>00000000000001
+      00000000000000000<span style="color:red">1</span>11110001001000
+      00000000000000000<span style="color:red">0</span>10000010001000
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010<span style="color:red">0</span>10101000100000
+      00000000000000001<span style="color:red">0</span>01000000001000
+      <span style="color:red">00000000000000000<span style="color:red">1</span>01001000011000</span>
+    * 00000000000000000<span style="color:red">0</span>00110000000010
+      00000000000000000<span style="color:red">0</span>10100000000100
+      00000000000000000<span style="color:red">0</span>00000000000001
+      00000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span>
+      00000000000000000<span style="color:red">0</span>10000010001000
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100<span style="color:red">1</span>0101000100000
+      000000000000000010<span style="color:red">0</span>1000000001000
+      000000000000000001<span style="color:red">0</span>1001000011000
+    * 000000000000000000<span style="color:red">0</span>0110000000010
+      <span style="color:red">000000000000000000<span style="color:red">1</span>0100000000100</span>
+      000000000000000000<span style="color:red">0</span>0000000000001
+      000000000000000000<span style="color:red">1</span>0111001010000
+      000000000000000000<span style="color:red">1</span>0000010001000
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100<span style="color:red">1</span>0101000100000
+      000000000000000010<span style="color:red">0</span>1000000001000
+      000000000000000001<span style="color:red">0</span>1001000011000
+      <span style="color:red">000000000000000000<span style="color:red">1</span>0100000000100</span>
+    * <span style="color:red">000000000000000000<span style="color:red">0</span>0110000000010</span>
+      000000000000000000<span style="color:red">0</span>0000000000001
+      000000000000000000<span style="color:red">1</span>0111001010000
+      000000000000000000<span style="color:red">1</span>0000010001000
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
+      000000000000000010<span style="color:red">0</span>1000000001000
+      000000000000000001<span style="color:red">0</span>1001000011000
+      <span style="color:red">000000000000000000<span style="color:red">1</span>0100000000100</span>
+    * 000000000000000000<span style="color:red">0</span>0110000000010
+      000000000000000000<span style="color:red">0</span>0000000000001
+      000000000000000000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
+      000000000000000000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010000<span style="color:red">0</span>01000100100
+      00000000000000001001<span style="color:red">0</span>00000001000
+      00000000000000000101<span style="color:red">0</span>01000011000
+      00000000000000000010<span style="color:red">1</span>00000000100
+    * <span style="color:red">00000000000000000000<span style="color:red">1</span>10000000010</span>
+      00000000000000000000<span style="color:red">0</span>00000000001
+      00000000000000000000<span style="color:red">0</span>11001010100
+      00000000000000000000<span style="color:red">1</span>00010001100
+</div></pre></tt><br>Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010000001000100100
+      00000000000000001001000000001000
+      00000000000000000101001000011000
+      00000000000000000010100000000100
+      <span style="color:red">00000000000000000000110000000010</span>
+    * 00000000000000000000000000000001
+      00000000000000000000011001010100
+      00000000000000000000100010001100
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010000<span style="color:red">0</span>01000100100
+      00000000000000001001<span style="color:red">0</span>00000001000
+      00000000000000000101<span style="color:red">0</span>01000011000
+      00000000000000000010<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
+      <span style="color:red">00000000000000000000<span style="color:red">1</span>10000000010</span>
+    * 00000000000000000000<span style="color:red">0</span>00000000001
+      00000000000000000000<span style="color:red">0</span>11001010100
+      00000000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100000<span style="color:red">0</span>1000100100
+      000000000000000010010<span style="color:red">0</span>0000001000
+      000000000000000001010<span style="color:red">0</span>1000011000
+      000000000000000000100<span style="color:red">1</span>0000000110
+      000000000000000000001<span style="color:red">1</span>0000000010
+    * 000000000000000000000<span style="color:red">0</span>0000000001
+      <span style="color:red">000000000000000000000<span style="color:red">1</span>1001010100</span>
+      000000000000000000000<span style="color:red">1</span>0010001110
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100000<span style="color:red">0</span>1000100100
+      000000000000000010010<span style="color:red">0</span>0000001000
+      000000000000000001010<span style="color:red">0</span>1000011000
+      000000000000000000100<span style="color:red">1</span>0000000110
+      000000000000000000001<span style="color:red">1</span>0000000010
+      <span style="color:red">000000000000000000000<span style="color:red">1</span>1001010100</span>
+    * <span style="color:red">000000000000000000000<span style="color:red">0</span>0000000001</span>
+      000000000000000000000<span style="color:red">1</span>0010001110
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000100000<span style="color:red">0</span>1000100100
+      000000000000000010010<span style="color:red">0</span>0000001000
+      000000000000000001010<span style="color:red">0</span>1000011000
+      000000000000000000100<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span>
+      000000000000000000001<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
+      <span style="color:red">000000000000000000000<span style="color:red">1</span>1001010100</span>
+    * 000000000000000000000<span style="color:red">0</span>0000000001
+      000000000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span>
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001000000<span style="color:red">1</span>000100100
+      0000000000000000100100<span style="color:red">0</span>000001000
+      0000000000000000010100<span style="color:red">1</span>000011000
+      0000000000000000001000<span style="color:red">1</span>001010010
+      0000000000000000000010<span style="color:red">1</span>001010110
+      0000000000000000000001<span style="color:red">1</span>001010100
+    * 0000000000000000000000<span style="color:red">0</span>000000001
+      <span style="color:red">0000000000000000000000<span style="color:red">1</span>011011010</span>
+</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001000000<span style="color:red">1</span>000100100
+      0000000000000000100100<span style="color:red">0</span>000001000
+      0000000000000000010100<span style="color:red">1</span>000011000
+      0000000000000000001000<span style="color:red">1</span>001010010
+      0000000000000000000010<span style="color:red">1</span>001010110
+      0000000000000000000001<span style="color:red">1</span>001010100
+      <span style="color:red">0000000000000000000000<span style="color:red">1</span>011011010</span>
+    * <span style="color:red">0000000000000000000000<span style="color:red">0</span>000000001</span>
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001000000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
+      0000000000000000100100<span style="color:red">0</span>000001000
+      0000000000000000010100<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span>
+      0000000000000000001000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span>
+      0000000000000000000010<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
+      0000000000000000000001<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
+      <span style="color:red">0000000000000000000000<span style="color:red">1</span>011011010</span>
+    * 0000000000000000000000<span style="color:red">0</span>000000001
+</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001000000001111111<span style="color:red">0</span>
+      0000000000000000100100000000100<span style="color:red">0</span>
+      0000000000000000010100001100001<span style="color:red">0</span>
+      0000000000000000001000001000100<span style="color:red">0</span>
+      0000000000000000000010001000110<span style="color:red">0</span>
+      0000000000000000000001001000111<span style="color:red">0</span>
+      0000000000000000000000101101101<span style="color:red">0</span>
+    * <span style="color:red">0000000000000000000000000000000<span style="color:red">1</span></span>
+</div></pre></tt><br>Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000010000000011111110
+      00000000000000001001000000001000
+      00000000000000000101000011000010
+      00000000000000000010000010001000
+      00000000000000000000100010001100
+      00000000000000000000010010001110
+      00000000000000000000001011011010
+      <span style="color:red">00000000000000000000000000000001</span>
+</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000001000000001111111<span style="color:red">0</span>
+      0000000000000000100100000000100<span style="color:red">0</span>
+      0000000000000000010100001100001<span style="color:red">0</span>
+      0000000000000000001000001000100<span style="color:red">0</span>
+      0000000000000000000010001000110<span style="color:red">0</span>
+      0000000000000000000001001000111<span style="color:red">0</span>
+      0000000000000000000000101101101<span style="color:red">0</span>
+      <span style="color:red">0000000000000000000000000000000<span style="color:red">1</span></span>
+</div></pre></tt><br>Done.<br><div style="margin-left:4em;"><tt><pre>M = 00000000000000010000000011111110
+    00000000000000001001000000001000
+    00000000000000000101000011000010
+    00000000000000000010000010001000
+    00000000000000000000100010001100
+    00000000000000000000010010001110
+    00000000000000000000001011011010
+    00000000000000000000000000000001
+</div></pre></tt><br><hr>See also:<ul><li><a href='http://pages.pacificcoast.net/~cazelais/251/gauss-jordan.pdf'>http://pages.pacificcoast.net/~cazelais/251/gauss-jordan.pdf</a></li><li><a href='http://matrix.reshish.com/gauss-jordanElimination.php'>http://matrix.reshish.com/gauss-jordanElimination.php</a></li></ul></body></html>

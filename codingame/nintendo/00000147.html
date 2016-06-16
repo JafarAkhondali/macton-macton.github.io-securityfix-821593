@@ -1,1 +1,64 @@
-</body></html>
+<html><body style="white-space: nowrap;"><h2>gf(2) Berlekamp Algorithm</h2><i>If possible, factor polynomial, including at least one irreducible factor.</i><br><br><div style="margin-left:4em;"><tt>f = b0000000000000000000000000000000000000000001001111000101010011001<br>f = 0x0000000000278a99<br>f = x<sup>21</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>11</sup> + x<sup>9</sup> + x<sup>7</sup> + x<sup>4</sup> + x<sup>3</sup> + 1<br></tt><br></div>Calculate v<sub>n</sub> = x<sup>2n</sup> (mod f) for n=0 to 21<br><br><div style="margin-left:4em;"><a href='00000149.html'>v<sub>0</sub> = x<sup>0</sup> (mod f)</a><br><tt>v<sub>0</sub> = b0000000000000000000000000000000000000000000000000000000000000001<br>v<sub>0</sub> = 0x0000000000000001<br>v<sub>0</sub> = 1<br></tt><br><a href='0000014b.html'>v<sub>1</sub> = x<sup>2</sup> (mod f)</a><br><tt>v<sub>1</sub> = b0000000000000000000000000000000000000000000000000000000000000100<br>v<sub>1</sub> = 0x0000000000000004<br>v<sub>1</sub> = x<sup>2</sup><br></tt><br><a href='0000014d.html'>v<sub>2</sub> = x<sup>4</sup> (mod f)</a><br><tt>v<sub>2</sub> = b0000000000000000000000000000000000000000000000000000000000010000<br>v<sub>2</sub> = 0x0000000000000010<br>v<sub>2</sub> = x<sup>4</sup><br></tt><br><a href='0000014f.html'>v<sub>3</sub> = x<sup>6</sup> (mod f)</a><br><tt>v<sub>3</sub> = b0000000000000000000000000000000000000000000000000000000001000000<br>v<sub>3</sub> = 0x0000000000000040<br>v<sub>3</sub> = x<sup>6</sup><br></tt><br><a href='00000151.html'>v<sub>4</sub> = x<sup>8</sup> (mod f)</a><br><tt>v<sub>4</sub> = b0000000000000000000000000000000000000000000000000000000100000000<br>v<sub>4</sub> = 0x0000000000000100<br>v<sub>4</sub> = x<sup>8</sup><br></tt><br><a href='00000153.html'>v<sub>5</sub> = x<sup>10</sup> (mod f)</a><br><tt>v<sub>5</sub> = b0000000000000000000000000000000000000000000000000000010000000000<br>v<sub>5</sub> = 0x0000000000000400<br>v<sub>5</sub> = x<sup>10</sup><br></tt><br><a href='00000155.html'>v<sub>6</sub> = x<sup>12</sup> (mod f)</a><br><tt>v<sub>6</sub> = b0000000000000000000000000000000000000000000000000001000000000000<br>v<sub>6</sub> = 0x0000000000001000<br>v<sub>6</sub> = x<sup>12</sup><br></tt><br><a href='00000157.html'>v<sub>7</sub> = x<sup>14</sup> (mod f)</a><br><tt>v<sub>7</sub> = b0000000000000000000000000000000000000000000000000100000000000000<br>v<sub>7</sub> = 0x0000000000004000<br>v<sub>7</sub> = x<sup>14</sup><br></tt><br><a href='00000159.html'>v<sub>8</sub> = x<sup>16</sup> (mod f)</a><br><tt>v<sub>8</sub> = b0000000000000000000000000000000000000000000000010000000000000000<br>v<sub>8</sub> = 0x0000000000010000<br>v<sub>8</sub> = x<sup>16</sup><br></tt><br><a href='0000015b.html'>v<sub>9</sub> = x<sup>18</sup> (mod f)</a><br><tt>v<sub>9</sub> = b0000000000000000000000000000000000000000000001000000000000000000<br>v<sub>9</sub> = 0x0000000000040000<br>v<sub>9</sub> = x<sup>18</sup><br></tt><br><a href='0000015d.html'>v<sub>10</sub> = x<sup>20</sup> (mod f)</a><br><tt>v<sub>10</sub> = b0000000000000000000000000000000000000000000100000000000000000000<br>v<sub>10</sub> = 0x0000000000100000<br>v<sub>10</sub> = x<sup>20</sup><br></tt><br><a href='0000015f.html'>v<sub>11</sub> = x<sup>22</sup> (mod f)</a><br><tt>v<sub>11</sub> = b0000000000000000000000000000000000000000000011110001010100110010<br>v<sub>11</sub> = 0x00000000000f1532<br>v<sub>11</sub> = x<sup>19</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>12</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>5</sup> + x<sup>4</sup> + x<br></tt><br><a href='00000161.html'>v<sub>12</sub> = x<sup>24</sup> (mod f)</a><br><tt>v<sub>12</sub> = b0000000000000000000000000000000000000000000110111101111001010001<br>v<sub>12</sub> = 0x00000000001bde51<br>v<sub>12</sub> = x<sup>20</sup> + x<sup>19</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>12</sup> + x<sup>11</sup> + x<sup>10</sup> + x<sup>9</sup> + x<sup>6</sup> + x<sup>4</sup> + 1<br></tt><br><a href='00000163.html'>v<sub>13</sub> = x<sup>26</sup> (mod f)</a><br><tt>v<sub>13</sub> = b0000000000000000000000000000000000000000000001111110011011101111<br>v<sub>13</sub> = 0x000000000007e6ef<br>v<sub>13</sub> = x<sup>18</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>13</sup> + x<sup>10</sup> + x<sup>9</sup> + x<sup>7</sup> + x<sup>6</sup> + x<sup>5</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1<br></tt><br><a href='00000165.html'>v<sub>14</sub> = x<sup>28</sup> (mod f)</a><br><tt>v<sub>14</sub> = b0000000000000000000000000000000000000000000111111001101110111100<br>v<sub>14</sub> = 0x00000000001f9bbc<br>v<sub>14</sub> = x<sup>20</sup> + x<sup>19</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>12</sup> + x<sup>11</sup> + x<sup>9</sup> + x<sup>8</sup> + x<sup>7</sup> + x<sup>5</sup> + x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup><br></tt><br><a href='00000167.html'>v<sub>15</sub> = x<sup>30</sup> (mod f)</a><br><tt>v<sub>15</sub> = b0000000000000000000000000000000000000000000101101111000101011011<br>v<sub>15</sub> = 0x000000000016f15b<br>v<sub>15</sub> = x<sup>20</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>13</sup> + x<sup>12</sup> + x<sup>8</sup> + x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup> + x + 1<br></tt><br><a href='00000169.html'>v<sub>16</sub> = x<sup>32</sup> (mod f)</a><br><tt>v<sub>16</sub> = b0000000000000000000000000000000000000000000101001101000001011110<br>v<sub>16</sub> = 0x000000000014d05e<br>v<sub>16</sub> = x<sup>20</sup> + x<sup>18</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>12</sup> + x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x<br></tt><br><a href='0000016b.html'>v<sub>17</sub> = x<sup>34</sup> (mod f)</a><br><tt>v<sub>17</sub> = b0000000000000000000000000000000000000000000111000101010001001010<br>v<sub>17</sub> = 0x00000000001c544a<br>v<sub>17</sub> = x<sup>20</sup> + x<sup>19</sup> + x<sup>18</sup> + x<sup>14</sup> + x<sup>12</sup> + x<sup>10</sup> + x<sup>6</sup> + x<sup>3</sup> + x<br></tt><br><a href='0000016d.html'>v<sub>18</sub> = x<sup>36</sup> (mod f)</a><br><tt>v<sub>18</sub> = b0000000000000000000000000000000000000000000110011100111010000011<br>v<sub>18</sub> = 0x000000000019ce83<br>v<sub>18</sub> = x<sup>20</sup> + x<sup>19</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>11</sup> + x<sup>10</sup> + x<sup>9</sup> + x<sup>7</sup> + x + 1<br></tt><br><a href='0000016f.html'>v<sub>19</sub> = x<sup>38</sup> (mod f)</a><br><tt>v<sub>19</sub> = b0000000000000000000000000000000000000000000011111010010110100111<br>v<sub>19</sub> = 0x00000000000fa5a7<br>v<sub>19</sub> = x<sup>19</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>13</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>7</sup> + x<sup>5</sup> + x<sup>2</sup> + x + 1<br></tt><br><a href='00000171.html'>v<sub>20</sub> = x<sup>40</sup> (mod f)</a><br><tt>v<sub>20</sub> = b0000000000000000000000000000000000000000000110010001110000000101<br>v<sub>20</sub> = 0x0000000000191c05<br>v<sub>20</sub> = x<sup>20</sup> + x<sup>19</sup> + x<sup>16</sup> + x<sup>12</sup> + x<sup>11</sup> + x<sup>10</sup> + x<sup>2</sup> + 1<br></tt><br></div>Represent v<sub>0</sub>-v<sub>20</sub> as matrix Q<br><tt><pre><div style="margin-left:4em;">Q = 000000000000000000001
+    000000000000000000100
+    000000000000000010000
+    000000000000001000000
+    000000000000100000000
+    000000000010000000000
+    000000001000000000000
+    000000100000000000000
+    000010000000000000000
+    001000000000000000000
+    100000000000000000000
+    011110001010100110010
+    110111101111001010001
+    001111110011011101111
+    111111001101110111100
+    101101111000101011011
+    101001101000001011110
+    111000101010001001010
+    110011100111010000011
+    011111010010110100111
+    110010001110000000101
+</div></pre></tt>Represent 21x21 identity matrix I<br><tt><pre><div style="margin-left:4em;">I = 000000000000000000001
+    000000000000000000010
+    000000000000000000100
+    000000000000000001000
+    000000000000000010000
+    000000000000000100000
+    000000000000001000000
+    000000000000010000000
+    000000000000100000000
+    000000000001000000000
+    000000000010000000000
+    000000000100000000000
+    000000001000000000000
+    000000010000000000000
+    000000100000000000000
+    000001000000000000000
+    000010000000000000000
+    000100000000000000000
+    001000000000000000000
+    010000000000000000000
+    100000000000000000000
+</div></pre></tt>M = Q-I<br><tt><pre><div style="margin-left:4em;">M = 000000000000000000000
+    000000000000000000110
+    000000000000000010100
+    000000000000001001000
+    000000000000100010000
+    000000000010000100000
+    000000001000001000000
+    000000100000010000000
+    000010000000100000000
+    001000000001000000000
+    100000000010000000000
+    011110001110100110010
+    110111100111001010001
+    001111100011011101111
+    111111101101110111100
+    101100111000101011011
+    101011101000001011110
+    111100101010001001010
+    111011100111010000011
+    001111010010110100111
+    010010001110000000101
+</div></pre></tt><a href='0000019d.html'>Find null basis vectors of M</a><br><br><div style="margin-left:4em;"><tt>nv<sub>0</sub> = b0000000000000000000000000000000000000000000000000000000000000001<br>nv<sub>0</sub> = 0x0000000000000001<br>nv<sub>0</sub> = 1<br></tt><br></div>Only null basis is trivial 1, so f is irreducible.<br><hr>See also:<ul><li><a href='https://en.wikipedia.org/wiki/Berlekamp%27s_algorithm'>https://en.wikipedia.org/wiki/Berlekamp%27s_algorithm</a></li><li><a href='http://johnkerl.org/doc/iw2009/berlekamp.pdf'>http://johnkerl.org/doc/iw2009/berlekamp.pdf</a></li><li><a href='http://www.cecm.sfu.ca/CAG/theses/chelsea.pdf'>http://www.cecm.sfu.ca/CAG/theses/chelsea.pdf</a></li><li><a href='http://www.science.unitn.it/~degraaf/compalg/polfact.pdf'>http://www.science.unitn.it/~degraaf/compalg/polfact.pdf</a></li></ul></body></html>

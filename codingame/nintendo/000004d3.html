@@ -1,86 +1,9 @@
-<html><body style="white-space: nowrap;"><h2>Transform M into row reduced echelon form (rref)</h2><i>Gauss-Jordan Elimination</i><br><br>Mark first row (*) as next result row<br><div style="margin-left:4em;"><tt><pre>M = * 00000000000000000000000000000001
-      00000000000000000000000110000010
-      00000000000000000000010100000100
-      00000000000000000000010110001000
-      00000000000000000000011001010000
-</div></pre></tt>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M = * 000000000000000000000<span style="color:red">0</span>0000000001
-      000000000000000000000<span style="color:red">0</span>0110000010
-      <span style="color:red">000000000000000000000<span style="color:red">1</span>0100000100</span>
-      000000000000000000000<span style="color:red">1</span>0110001000
-      000000000000000000000<span style="color:red">1</span>1001010000
-</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   <span style="color:red">000000000000000000000<span style="color:red">1</span>0100000100</span>
-    * 000000000000000000000<span style="color:red">0</span>0110000010
-      <span style="color:red">000000000000000000000<span style="color:red">0</span>0000000001</span>
-      000000000000000000000<span style="color:red">1</span>0110001000
-      000000000000000000000<span style="color:red">1</span>1001010000
-</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   <span style="color:red">000000000000000000000<span style="color:red">1</span>0100000100</span>
-    * 000000000000000000000<span style="color:red">0</span>0110000010
-      000000000000000000000<span style="color:red">0</span>0000000001
-      000000000000000000000<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
-      000000000000000000000<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span>
-</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000000000001<span style="color:red">0</span>100000100
-    * 0000000000000000000000<span style="color:red">0</span>110000010
-      0000000000000000000000<span style="color:red">0</span>000000001
-      0000000000000000000000<span style="color:red">0</span>010001100
-      <span style="color:red">0000000000000000000000<span style="color:red">1</span>101010100</span>
-</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   0000000000000000000001<span style="color:red">0</span>100000100
-      <span style="color:red">0000000000000000000000<span style="color:red">1</span>101010100</span>
-    * 0000000000000000000000<span style="color:red">0</span>000000001
-      0000000000000000000000<span style="color:red">0</span>010001100
-      <span style="color:red">0000000000000000000000<span style="color:red">0</span>110000010</span>
-</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000000000001<span style="color:red">0</span>100000100
-      <span style="color:red">0000000000000000000000<span style="color:red">1</span>101010100</span>
-    * 0000000000000000000000<span style="color:red">0</span>000000001
-      0000000000000000000000<span style="color:red">0</span>010001100
-      0000000000000000000000<span style="color:red">0</span>110000010
-</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000000000010<span style="color:red">1</span>00000100
-      00000000000000000000001<span style="color:red">1</span>01010100
-    * 00000000000000000000000<span style="color:red">0</span>00000001
-      00000000000000000000000<span style="color:red">0</span>10001100
-      <span style="color:red">00000000000000000000000<span style="color:red">1</span>10000010</span>
-</div></pre></tt><br>Swap pivot row and next result row; Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000000000010<span style="color:red">1</span>00000100
-      00000000000000000000001<span style="color:red">1</span>01010100
-      <span style="color:red">00000000000000000000000<span style="color:red">1</span>10000010</span>
-    * 00000000000000000000000<span style="color:red">0</span>10001100
-      <span style="color:red">00000000000000000000000<span style="color:red">0</span>00000001</span>
-</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   00000000000000000000010<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
-      00000000000000000000001<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
-      <span style="color:red">00000000000000000000000<span style="color:red">1</span>10000010</span>
-    * 00000000000000000000000<span style="color:red">0</span>10001100
-      00000000000000000000000<span style="color:red">0</span>00000001
-</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000000000100<span style="color:red">1</span>0000110
-      000000000000000000000010<span style="color:red">1</span>1010110
-      000000000000000000000001<span style="color:red">1</span>0000010
-    * <span style="color:red">000000000000000000000000<span style="color:red">1</span>0001100</span>
-      000000000000000000000000<span style="color:red">0</span>0000001
-</div></pre></tt><br>Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000000000010010000110
-      00000000000000000000001011010110
-      00000000000000000000000110000010
-      <span style="color:red">00000000000000000000000010001100</span>
-    * 00000000000000000000000000000001
-</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   000000000000000000000100<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span>
-      000000000000000000000010<span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">0</span>
-      000000000000000000000001<span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">0</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">1</span><span style="color:red">0</span>
-      <span style="color:red">000000000000000000000000<span style="color:red">1</span>0001100</span>
-    * 000000000000000000000000<span style="color:red">0</span>0000001
-</div></pre></tt><br>Highlight next pivot row and column<br><i>Find first row with leftmost bit set starting from next result row.</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000000000001000000101<span style="color:red">0</span>
-      0000000000000000000000100101101<span style="color:red">0</span>
-      0000000000000000000000010000111<span style="color:red">0</span>
-      0000000000000000000000001000110<span style="color:red">0</span>
-    * <span style="color:red">0000000000000000000000000000000<span style="color:red">1</span></span>
-</div></pre></tt><br>Increment next result row.<br><div style="margin-left:4em;"><tt><pre>M =   00000000000000000000010000001010
-      00000000000000000000001001011010
-      00000000000000000000000100001110
-      00000000000000000000000010001100
-      <span style="color:red">00000000000000000000000000000001</span>
-</div></pre></tt><br>Clear pivot column.<br><i>Add pivot row to all other rows with bit set in pivot column</i><br><div style="margin-left:4em;"><tt><pre>M =   0000000000000000000001000000101<span style="color:red">0</span>
-      0000000000000000000000100101101<span style="color:red">0</span>
-      0000000000000000000000010000111<span style="color:red">0</span>
-      0000000000000000000000001000110<span style="color:red">0</span>
-      <span style="color:red">0000000000000000000000000000000<span style="color:red">1</span></span>
-</div></pre></tt><br>Done.<br><div style="margin-left:4em;"><tt><pre>M = 00000000000000000000010000001010
-    00000000000000000000001001011010
-    00000000000000000000000100001110
-    00000000000000000000000010001100
-    00000000000000000000000000000001
-</div></pre></tt><br><hr>See also:<ul><li><a href='http://pages.pacificcoast.net/~cazelais/251/gauss-jordan.pdf'>http://pages.pacificcoast.net/~cazelais/251/gauss-jordan.pdf</a></li><li><a href='http://matrix.reshish.com/gauss-jordanElimination.php'>http://matrix.reshish.com/gauss-jordanElimination.php</a></li></ul></body></html>
+<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b00110101001011110110101011111111010101011110110000100000100101000101100000111000111010011110110101001011101100101011010101011000<br>a = 0x352f6aff55ec20945838e9ed4bb2b558<br>a = x<sup>125</sup> + x<sup>124</sup> + x<sup>122</sup> + x<sup>120</sup> + x<sup>117</sup> + x<sup>115</sup> + x<sup>114</sup> + x<sup>113</sup> + x<sup>112</sup> + x<sup>110</sup> + x<sup>109</sup> + x<sup>107</sup> + x<sup>105</sup> + x<sup>103</sup> + x<sup>102</sup> + x<sup>101</sup> + x<sup>100</sup> + x<sup>99</sup> + x<sup>98</sup> + x<sup>97</sup> + x<sup>96</sup> + x<sup>94</sup> + x<sup>92</sup> + x<sup>90</sup> + x<sup>88</sup> + x<sup>87</sup> + x<sup>86</sup> + x<sup>85</sup> + x<sup>83</sup> + x<sup>82</sup> + x<sup>77</sup> + x<sup>71</sup> + x<sup>68</sup> + x<sup>66</sup> + x<sup>62</sup> + x<sup>60</sup> + x<sup>59</sup> + x<sup>53</sup> + x<sup>52</sup> + x<sup>51</sup> + x<sup>47</sup> + x<sup>46</sup> + x<sup>45</sup> + x<sup>43</sup> + x<sup>40</sup> + x<sup>39</sup> + x<sup>38</sup> + x<sup>37</sup> + x<sup>35</sup> + x<sup>34</sup> + x<sup>32</sup> + x<sup>30</sup> + x<sup>27</sup> + x<sup>25</sup> + x<sup>24</sup> + x<sup>23</sup> + x<sup>21</sup> + x<sup>20</sup> + x<sup>17</sup> + x<sup>15</sup> + x<sup>13</sup> + x<sup>12</sup> + x<sup>10</sup> + x<sup>8</sup> + x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup><br></tt><br><tt>b = b00001111101100001011111000100100101000001110101000000100011100011101011001101001100010100011000101100100010000111110000111111001<br>b = 0x0fb0be24a0ea0471d6698a316443e1f9<br>b = x<sup>123</sup> + x<sup>122</sup> + x<sup>121</sup> + x<sup>120</sup> + x<sup>119</sup> + x<sup>117</sup> + x<sup>116</sup> + x<sup>111</sup> + x<sup>109</sup> + x<sup>108</sup> + x<sup>107</sup> + x<sup>106</sup> + x<sup>105</sup> + x<sup>101</sup> + x<sup>98</sup> + x<sup>95</sup> + x<sup>93</sup> + x<sup>87</sup> + x<sup>86</sup> + x<sup>85</sup> + x<sup>83</sup> + x<sup>81</sup> + x<sup>74</sup> + x<sup>70</sup> + x<sup>69</sup> + x<sup>68</sup> + x<sup>64</sup> + x<sup>63</sup> + x<sup>62</sup> + x<sup>60</sup> + x<sup>58</sup> + x<sup>57</sup> + x<sup>54</sup> + x<sup>53</sup> + x<sup>51</sup> + x<sup>48</sup> + x<sup>47</sup> + x<sup>43</sup> + x<sup>41</sup> + x<sup>37</sup> + x<sup>36</sup> + x<sup>32</sup> + x<sup>30</sup> + x<sup>29</sup> + x<sup>26</sup> + x<sup>22</sup> + x<sup>17</sup> + x<sup>16</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>13</sup> + x<sup>8</sup> + x<sup>7</sup> + x<sup>6</sup> + x<sup>5</sup> + x<sup>4</sup> + x<sup>3</sup> + 1<br></tt><br><tt><pre>  110101001011110110101011111111010101011110110000100000100101000101100000111000111010011110110101001011101100101011010101011000 | 1111101100001011111000100100101000001110101000000100011100011101011001101001100010100011000101100100010000111110000111111001
+- 1111101100001011111000100100101000001110101000000100011100011101011001101001100010100011000101100100010000111110000111111001   | 1
+  ------------------------------------------------------------------------------------------------------------------------------ |
+    1011111011011001001001101101110101100100010000110001010100110000000110011110110000010010100011011010101111010011001010111100 |
+-  0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000  | 0
+-   1111101100001011111000100100101000001110101000000100011100011101011001101001100010100011000101100100010000111110000111111001 | 1
+  ------------------------------------------------------------------------------------------------------------------------------ |
+     100010111010010110001001001011101101010111000110101001000101101011111110111010010110001100110111110111111101101001101000101 |
+</pre></tt><br><tt>c<sub>quotient</sub> = b00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101<br>c<sub>quotient</sub> = 0x00000000000000000000000000000005<br>c<sub>quotient</sub> = x<sup>2</sup> + 1<br></tt><br><tt>c<sub>remainder</sub> = b00000100010111010010110001001001011101101010111000110101001000101101011111110111010010110001100110111110111111101101001101000101<br>c<sub>remainder</sub> = 0x045d2c4976ae3522d7f74b19befed345<br>c<sub>remainder</sub> = x<sup>122</sup> + x<sup>118</sup> + x<sup>116</sup> + x<sup>115</sup> + x<sup>114</sup> + x<sup>112</sup> + x<sup>109</sup> + x<sup>107</sup> + x<sup>106</sup> + x<sup>102</sup> + x<sup>99</sup> + x<sup>96</sup> + x<sup>94</sup> + x<sup>93</sup> + x<sup>92</sup> + x<sup>90</sup> + x<sup>89</sup> + x<sup>87</sup> + x<sup>85</sup> + x<sup>83</sup> + x<sup>82</sup> + x<sup>81</sup> + x<sup>77</sup> + x<sup>76</sup> + x<sup>74</sup> + x<sup>72</sup> + x<sup>69</sup> + x<sup>65</sup> + x<sup>63</sup> + x<sup>62</sup> + x<sup>60</sup> + x<sup>58</sup> + x<sup>57</sup> + x<sup>56</sup> + x<sup>55</sup> + x<sup>54</sup> + x<sup>53</sup> + x<sup>52</sup> + x<sup>50</sup> + x<sup>49</sup> + x<sup>48</sup> + x<sup>46</sup> + x<sup>43</sup> + x<sup>41</sup> + x<sup>40</sup> + x<sup>36</sup> + x<sup>35</sup> + x<sup>32</sup> + x<sup>31</sup> + x<sup>29</sup> + x<sup>28</sup> + x<sup>27</sup> + x<sup>26</sup> + x<sup>25</sup> + x<sup>23</sup> + x<sup>22</sup> + x<sup>21</sup> + x<sup>20</sup> + x<sup>19</sup> + x<sup>18</sup> + x<sup>17</sup> + x<sup>15</sup> + x<sup>14</sup> + x<sup>12</sup> + x<sup>9</sup> + x<sup>8</sup> + x<sup>6</sup> + x<sup>2</sup> + 1<br></tt></body></html>

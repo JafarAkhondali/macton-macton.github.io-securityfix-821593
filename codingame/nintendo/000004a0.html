@@ -1,0 +1,9 @@
+<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000000000000000000000000000000000000000100001001<br>a = 0x0000000000000109<br>a = x<sup>8</sup> + x<sup>3</sup> + 1<br></tt><br><tt>b = b0000000000000000000000000000000000000000000000000000000001011110<br>b = 0x000000000000005e<br>b = x<sup>6</sup> + x<sup>4</sup> + x<sup>3</sup> + x<sup>2</sup> + x<br></tt><br><tt><pre>  100001001 | 1011110
+- 1011110   | 1
+  --------- |
+    1110001 |
+-  0000000  | 0
+-   1011110 | 1
+  --------- |
+     101111 |
+</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000000000101<br>c<sub>quotient</sub> = 0x0000000000000005<br>c<sub>quotient</sub> = x<sup>2</sup> + 1<br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000000000000000000000000000000000000101111<br>c<sub>remainder</sub> = 0x000000000000002f<br>c<sub>remainder</sub> = x<sup>5</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1<br></tt></body></html>

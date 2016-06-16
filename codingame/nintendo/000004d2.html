@@ -1,0 +1,31 @@
+<html><body style="white-space: nowrap;"><h2>gf(2) Find null basis vectors of M</h2><div style="margin-left:4em;"><tt><pre>M = 00000
+    00110
+    10100
+    10110
+    11001
+</div></pre></tt>Augment M with identity (I) of same size<br><div style="margin-left:4em;"><tt><pre>M = 00000 00001
+    00110 00010
+    10100 00100
+    10110 01000
+    11001 10000
+</div></pre></tt>M expressed in convenient bit depth<br><div style="margin-left:4em;"><tt><pre>M = 00000000000000000000000000000001
+    00000000000000000000000110000010
+    00000000000000000000010100000100
+    00000000000000000000010110001000
+    00000000000000000000011001010000
+</div></pre></tt><a href='000004d3.html'>Transform M into row reduced echelon form (rref)</a><br><div style="margin-left:4em;"><tt><pre>M = 00000000000000000000010000001010
+    00000000000000000000001001011010
+    00000000000000000000000100001110
+    00000000000000000000000010001100
+    00000000000000000000000000000001
+</div></pre></tt>M in augmented form<br><div style="margin-left:4em;"><tt><pre>M = 10000 01010
+    01001 11010
+    00100 01110
+    00010 01100
+    00000 00001
+</div></pre></tt>Highlight null basis vectors (where left side of row is zero)<br><div style="margin-left:4em;"><tt><pre>M = 10000 01010
+    01001 11010
+    00100 01110
+    00010 01100
+    <span style="color:red">00000 00001</span>
+</div></pre></tt>Null basis vectors<br><br><div style="margin-left:4em;"><tt>nv<sub>0</sub> = b00000000000000000000000000000001<br>nv<sub>0</sub> = 0x00000001<br>nv<sub>0</sub> = 1<br></tt><br></div><hr>See also:<ul><li><a href='http://math.stackexchange.com/questions/1612616/how-to-find-null-space-basis-directly-by-matrix-calculation'>http://math.stackexchange.com/questions/1612616/how-to-find-null-space-basis-directly-by-matrix-calculation</a></li><li><a href='http://people.tamu.edu/~aestrugo/data/null_space.pdf'>http://people.tamu.edu/~aestrugo/data/null_space.pdf</a></li></ul></body></html>

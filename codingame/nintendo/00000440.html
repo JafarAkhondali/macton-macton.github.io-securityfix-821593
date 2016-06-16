@@ -1,0 +1,23 @@
+<html><body style="white-space: nowrap;"><h2>gf(2) mod</h2>c = a % b<br><br>Calculate c = a/b, result is c<sub>remainder</sub><br><h2>gf(2) Polynomial long division</h2>c = a/b<br><br><tt>a = b0000000000000000000000000000000000000000000000000011111101110010<br>a = 0x0000000000003f72<br>a = x<sup>13</sup> + x<sup>12</sup> + x<sup>11</sup> + x<sup>10</sup> + x<sup>9</sup> + x<sup>8</sup> + x<sup>6</sup> + x<sup>5</sup> + x<sup>4</sup> + x<br></tt><br><tt>b = b0000000000000000000000000000000000000000000000000000000000101111<br>b = 0x000000000000002f<br>b = x<sup>5</sup> + x<sup>3</sup> + x<sup>2</sup> + x + 1<br></tt><br><tt><pre>  11111101110010 | 101111
+- 101111         | 1
+  -------------- |
+   1000001110010 |
+-  101111        | 1
+  -------------- |
+     11111110010 |
+-   000000       | 0
+-    101111      | 1
+  -------------- |
+      1000010010 |
+-     101111     | 1
+  -------------- |
+        11100010 |
+-      000000    | 0
+-       101111   | 1
+  -------------- |
+         1011110 |
+-        101111  | 1
+  -------------- |
+               0 |
+-         000000 | 0
+</pre></tt><br><tt>c<sub>quotient</sub> = b0000000000000000000000000000000000000000000000000000000110110110<br>c<sub>quotient</sub> = 0x00000000000001b6<br>c<sub>quotient</sub> = x<sup>8</sup> + x<sup>7</sup> + x<sup>5</sup> + x<sup>4</sup> + x<sup>2</sup> + x<br></tt><br><tt>c<sub>remainder</sub> = b0000000000000000000000000000000000000000000000000000000000000000<br>c<sub>remainder</sub> = 0x0000000000000000<br>c<sub>remainder</sub> = 0<br></tt></body></html>

@@ -5,7 +5,6 @@
 requirejs.config({
     "baseUrl": "js/lib",
     "paths": {
-      "data": "../../data",
       "app": "../app",
       "jquery": "//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min"
     }

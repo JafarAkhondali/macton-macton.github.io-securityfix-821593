@@ -1,0 +1,8 @@
+
+[
+  [ "Describe", "Lilah starts work at the donut shop." ],
+  [ "AddToMap", "Table", "table" ],
+  [ "AddToMap", "Behind counter", "behind_counter" ],
+  [ "AddToMap", "Counter", "counter" ],
+  [ "AddToMap", "Sam", "sam" ]
+]

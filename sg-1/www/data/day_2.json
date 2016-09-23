@@ -11,7 +11,9 @@
               "config": {},
               "child": {
                 "counter": {
-                  "config": {},
+                  "config": {
+                    "DeleteSelfWhenEmpty": true
+                  },
                   "child": {
                     "list": {
                       "config": {},
@@ -65,7 +67,7 @@
                           ],
                           [
                             "Read",
-                            "List",
+                            "Scribbled on the list",
                             "CLEAN IN BETWEEN THE COUNTER AND THE ICE CREAM CABINET PLEASE!!!"
                           ],
                           [
@@ -80,6 +82,21 @@
                           ],
                           [
                             "ClearLine"
+                          ]
+                        ]
+                      ]
+                    },
+                    "register": {
+                      "config": {
+                        "DeleteSelfWhenDone": true
+                      },
+                      "child": {},
+                      "text": [
+                        [
+                          [
+                            "Think",
+                            "Lilah",
+                            "I've never used a register before, but I think it's just a calculator mixed with a safe."
                           ]
                         ]
                       ]

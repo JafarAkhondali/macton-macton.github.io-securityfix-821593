@@ -20,6 +20,10 @@ define(function (require) {
       debug.log("think [" + speaker + "] \"" + line + "\"" );
       map.setBlind( 'Line', [ speaker, line, 'dialogue-think' ] );
     }, 
+    "Read": function( speaker, line ) {
+      debug.log("read [" + speaker + "] \"" + line + "\"" );
+      map.setBlind( 'Line', [ speaker, line, 'dialogue-read' ] );
+    }, 
     "ClearLine": function( speaker, line ) {
       debug.log("clear_line");
       map.setBlind( 'Line', [ '', '', '' ] );

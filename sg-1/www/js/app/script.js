@@ -11,6 +11,8 @@ define(function (require) {
   var debug = require('./debug');
   var script;
 
+  var yield_instructions = [ 'Think', 'Speak', 'Read', 'ClearLine' ];
+      
   function nodeFromPath( script_path ) {
     var node       = script;       
     var path_split = script_path.split(path.sep);
@@ -53,16 +55,7 @@ define(function (require) {
       return node.text[ variation_ndx ];
     },
     isYieldInstruction: function( instruction ) {
-      if ( instruction[0] == 'Think' ) {
-        return true;
-      }
-      if ( instruction[0] == 'Speak' ) {
-        return true;
-      }
-      if ( instruction[0] == 'ClearLine' ) {
-        return true;
-      }
-      return false;
+      return (yield_instructions.indexOf(instruction[0]) > -1);
     },
     config: function( script_path ) {
       var node = nodeFromPath( script_path );

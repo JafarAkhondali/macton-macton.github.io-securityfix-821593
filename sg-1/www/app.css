@@ -92,6 +92,9 @@ body {
  font-style: italic;
 }
 
+.dialogue-read {
+}
+
 #next-line {
   text-decoration: none;
   padding: 4px; 

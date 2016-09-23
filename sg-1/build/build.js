@@ -41,7 +41,7 @@ dir('day_2',function( err, files ) {
     }
   });
 
-  fs.writeFileSync( 'day_2.json', JSON.stringify( root, null, 2 ), 'utf8' );
+  fs.writeFileSync( '../www/data/day_2.json', JSON.stringify( root, null, 2 ), 'utf8' );
 });
 
 

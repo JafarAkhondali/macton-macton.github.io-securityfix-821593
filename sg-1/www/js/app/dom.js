@@ -31,7 +31,9 @@ define(function (require) {
     }; 
 
     self.appendChild = function(parent_element, child_element) {
-      parent_element.appendChild( child_element );
+      if (child_element) {
+        parent_element.appendChild( child_element );
+      }
     };
 
     self.empty = function(element) {

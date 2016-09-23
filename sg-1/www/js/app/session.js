@@ -18,12 +18,20 @@ define(function (require) {
     }, 
     "Think": function( speaker, line ) {
       debug.log("think [" + speaker + "] \"" + line + "\"" );
-      map.setBlind( 'Line', [ speaker, line ] );
+      map.setBlind( 'Line', [ speaker, line, 'dialogue-think' ] );
+    }, 
+    "ClearLine": function( speaker, line ) {
+      debug.log("clear_line");
+      map.setBlind( 'Line', [ '', '', '' ] );
     }, 
   };
 
   events.on( 'open-map-element', function( dir, name ) {
     map.pushd( dir, name );
+    session.next();
+  });
+
+  events.on( 'next-line', function() {
     session.next();
   });
 

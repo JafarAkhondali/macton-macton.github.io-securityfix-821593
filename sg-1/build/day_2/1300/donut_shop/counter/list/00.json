@@ -1,0 +1,15 @@
+[
+  [ "AddToMap", "Label Donuts", "label_donuts" ],
+  [ "AddToMap", "Disinfect Scoops", "disinfect_scoops" ],
+  [ "AddToMap", "Sweep", "sweep" ],
+  [ "AddToMap", "Wipe Counters", "wipe_counters" ],
+  [ "AddToMap", "Clean Bathroom", "clean_bathroom" ],
+  [ "AddToMap", "Clean Sink", "clean_sink" ],
+  [ "AddToMap", "Clean Espresso Machine", "clean_espresso_machine" ],
+  [ "AddToMap", "Take Out Trash", "take_out_trash" ],
+  [ "Think", "Lilah", "Someone scribbled something on the bottom" ],
+  [ "Read", "List", "CLEAN IN BETWEEN THE COUNTER AND THE ICE CREAM CABINET PLEASE!!!" ],
+  [ "Think", "Lilah", "I guess that someone is me." ],
+  [ "AddToMap", "Clean Out Gap", "clean_out_gap" ],
+  [ "ClearLine" ]
+]

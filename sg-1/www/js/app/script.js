@@ -59,6 +59,9 @@ define(function (require) {
       if ( instruction[0] == 'Speak' ) {
         return true;
       }
+      if ( instruction[0] == 'ClearLine' ) {
+        return true;
+      }
       return false;
     },
     config: function( script_path ) {

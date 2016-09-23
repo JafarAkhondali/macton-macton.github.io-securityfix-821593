@@ -28,6 +28,19 @@ define(function (require) {
   });
 
   events.on( 'map-back', function() {
+    var cwd = map.cwd();
+    var config = script.config( cwd );
+
+    if ( config.DeleteSelfWhenDone ) {
+      if ( instruction_stream.eof() ) {
+        map.rm( cwd );
+      }
+    }
+    if ( config.DeleteSelfWhenEmpty ) {
+      if ( map.subFolderCount() == 0 ) {
+        map.rm( cwd );
+      }
+    }
     map.popd();
     session.next();
   });

@@ -61,6 +61,13 @@ define(function (require) {
       }
       return false;
     },
+    config: function( script_path ) {
+      var node = nodeFromPath( script_path );
+      if (!node) {
+        return {};
+      }
+      return node.config;
+    },
   };
 
 });

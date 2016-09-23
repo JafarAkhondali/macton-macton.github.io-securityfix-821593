@@ -44,5 +44,12 @@ define(function (require) {
       
       return next_instructions;
     },
+    eof: function() {
+      var working_dir       = map.cwd();
+      var instruction_ndx   = pc[ working_dir ][1];
+      var instruction_end   = end[ working_dir ][1];
+
+      return ( instruction_ndx >= instruction_end );
+    },
   };
 });

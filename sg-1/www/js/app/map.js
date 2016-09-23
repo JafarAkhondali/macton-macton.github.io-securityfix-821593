@@ -43,6 +43,17 @@ define(function (require) {
     cwd: function() {
       return working_dir;
     },
+    rm: function( dir ) {
+      var dirname  = path.dirname( dir );
+      var basename = path.basename( dir );
+      debug.log('rm ' + dir );
+      for (var i=0;i<max_slots;i++) {
+        if ( sub_folders[dirname][i] && ( sub_folders[dirname][i][0] == dir ) ) {
+          sub_folders[dirname][i] = null;
+          return;
+        }
+      }
+    },
     title: function() {
       if (description && (description.length > 0)) {
         return description;
@@ -72,6 +83,15 @@ define(function (require) {
     },
     getBlind: function( key ) {
       return blind[key];
+    },
+    subFolderCount: function() {
+      var count = 0;
+      for (var i=0;i<max_slots;i++) {
+        if ( sub_folders[working_dir][i] ) {
+          count++;
+        }
+      }
+      return count;
     },
   };
 

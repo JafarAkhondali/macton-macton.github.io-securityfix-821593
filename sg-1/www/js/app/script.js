@@ -8,19 +8,22 @@
 
 define(function (require) {
   var path = require('path');
+  var debug = require('./debug');
   var script;
 
   function nodeFromPath( script_path ) {
-    var node = script;       
+    var node       = script;       
     var path_split = script_path.split(path.sep);
-    script_path.split(path.sep).forEach( function( sub_dir ) {
-      if (!node.child.hasOwnProperty( sub_dir )) {
-        return null;
-      }
-      if (sub_dir.length) {
+
+    for (var i=0;i<path_split.length;i++) {
+      var sub_dir = path_split[i];
+      if ( sub_dir.length ) {
+        if (!node.child.hasOwnProperty( sub_dir )) {
+          return null;
+        }
         node = node.child[ sub_dir ];
       }
-    });
+    }
     return node;
   }
 

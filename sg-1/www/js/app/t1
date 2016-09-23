@@ -1,14 +1,2 @@
-      <div id="app-container">
-        <div id="map-box">
-          <div id="map-description">
-            Map title
-          </div>
-        </div>
-        <div id="dialogue-box">
-          <div id="dialogue-speaker">
-            Speaker
-          </div>
-          <div id="dialogue-line">
-            Line
-          </div>
-        </div>
+    self.forEach = function( elements, func ) {
+    self.addClickListenerPreventDefault = function( element, func ) {

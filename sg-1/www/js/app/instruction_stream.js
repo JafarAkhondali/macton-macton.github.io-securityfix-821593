@@ -1,6 +1,7 @@
 define(function (require) {
   var map         = require('./map');
   var script      = require('./script');
+  var debug       = require('./debug');
   var path        = require('path');
   var pc          = {};
   var end         = {};
@@ -8,6 +9,7 @@ define(function (require) {
   return {
     incToYield: function() {
       var working_dir       = map.cwd();
+      debug.log('inc instructions ' + working_dir );
 
       if ( !pc.hasOwnProperty( working_dir ) ) {
         pc[ working_dir ]  = [ 0, 0 ];
@@ -37,8 +39,8 @@ define(function (require) {
         }
       }
 
-      pc[ working_dir ]  = [ instruction_ndx, variation_ndx ];
-      end[ working_dir ] = [ instruction_end, variation_end ];
+      pc[ working_dir ]  = [ variation_ndx, instruction_ndx ];
+      end[ working_dir ] = [ variation_end, instruction_end ];
       
       return next_instructions;
     },

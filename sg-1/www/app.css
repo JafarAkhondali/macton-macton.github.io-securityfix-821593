@@ -1,0 +1,57 @@
+#app-container {
+  width: 800px;
+  margin: auto;
+}
+
+body {
+}
+
+.map-element {
+  border: 2px solid #73AD21;
+  width: 33%;
+  height: 1em;
+}
+
+#map-box {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px; 
+  width: 100%;
+  height: 150px; 
+  font-size: 1.5em;
+}
+
+#map-description {
+  border-radius: 1px;
+  border-bottom: 2px dotted #73AD21;
+  width: 100%;
+  height: 1em;
+}
+
+#dialogue-box {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px; 
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#dialogue-line {
+  border-radius: 1px;
+  border-top: 2px dotted #73AD21;
+  width: 100%;
+  height: 2.5em; 
+}
+
+#dialogue-speaker {
+  width: 25%;
+  height: 1em; 
+}
+
+#debug-box {
+  border-radius: 25px;
+  border: 2px dotted black;
+  padding: 20px; 
+  width: 100%;
+  height: 250px; 
+}

@@ -11,14 +11,10 @@
               "config": {},
               "child": {
                 "behind_counter": {
-                  "config": {
-                    "DeleteSelfWhenEmpty": true
-                  },
+                  "config": {},
                   "child": {
                     "cabinets": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -36,9 +32,7 @@
                       ]
                     },
                     "speakers": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -51,9 +45,7 @@
                       ]
                     },
                     "wall": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -87,14 +79,10 @@
                   ]
                 },
                 "table": {
-                  "config": {
-                    "DeleteSelfWhenEmpty": true
-                  },
+                  "config": {},
                   "child": {
                     "crumpled_up_napkins": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -107,9 +95,7 @@
                       ]
                     },
                     "spilled_ice_cream": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -138,14 +124,10 @@
                   ]
                 },
                 "counter": {
-                  "config": {
-                    "DeleteSelfWhenEmpty": true
-                  },
+                  "config": {},
                   "child": {
                     "register": {
-                      "config": {
-                        "DeleteSelfWhenDone": true
-                      },
+                      "config": {},
                       "child": {},
                       "text": [
                         [
@@ -158,9 +140,7 @@
                       ]
                     },
                     "list": {
-                      "config": {
-                        "DeleteSelfWhenEmpty": true
-                      },
+                      "config": {},
                       "child": {
                         "clean_bathroom": {
                           "config": {

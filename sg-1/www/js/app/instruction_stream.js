@@ -7,6 +7,12 @@ define(function (require) {
   var end         = {};
 
   return {
+    reset: function() {
+      var working_dir       = map.cwd();
+      debug.log('reset instructions ' + working_dir );
+
+      pc[ working_dir ][1] = 0;
+    },
     incToYield: function() {
       var working_dir       = map.cwd();
       debug.log('inc instructions ' + working_dir );

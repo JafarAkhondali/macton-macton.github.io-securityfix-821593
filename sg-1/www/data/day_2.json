@@ -10,6 +10,82 @@
             "donut_shop": {
               "config": {},
               "child": {
+                "behind_counter": {
+                  "config": {
+                    "DeleteSelfWhenEmpty": true
+                  },
+                  "child": {
+                    "cabinets": {
+                      "config": {
+                        "DeleteSelfWhenDone": true
+                      },
+                      "child": {},
+                      "text": [
+                        [
+                          [
+                            "Think",
+                            "Lilah",
+                            "There is some tampons and a sweater in here. This must be where the employees keep their stuff."
+                          ],
+                          [
+                            "Think",
+                            "Lilah",
+                            "I shouldn't touch it."
+                          ]
+                        ]
+                      ]
+                    },
+                    "speakers": {
+                      "config": {
+                        "DeleteSelfWhenDone": true
+                      },
+                      "child": {},
+                      "text": [
+                        [
+                          [
+                            "Think",
+                            "Lilah",
+                            "Looks like someone can just plug their phone in and play music. That must be nice."
+                          ]
+                        ]
+                      ]
+                    },
+                    "wall": {
+                      "config": {
+                        "DeleteSelfWhenDone": true
+                      },
+                      "child": {},
+                      "text": [
+                        [
+                          [
+                            "Think",
+                            "Lilah",
+                            "There are so many stains here it almost looks like the wall paper."
+                          ]
+                        ]
+                      ]
+                    }
+                  },
+                  "text": [
+                    [
+                      [
+                        "AddToMap",
+                        "Cabinets",
+                        "cabinets"
+                      ],
+                      [
+                        "AddToMap",
+                        "Speakers",
+                        "speakers"
+                      ],
+                      [
+                        "AddToMap",
+                        "Wall",
+                        "wall"
+                      ]
+                    ]
+                  ]
+                },
                 "table": {
                   "config": {
                     "DeleteSelfWhenEmpty": true

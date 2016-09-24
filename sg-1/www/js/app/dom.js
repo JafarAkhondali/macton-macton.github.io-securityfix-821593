@@ -53,6 +53,26 @@ define(function (require) {
       return element[ attribute_name ] = value;
     };
 
+    self.removeAttribute = function( element, attribute_name ) {
+      element.removeAttribute( attribute_name );
+    };
+
+    self.addClass = function( element, class_name ) {
+      if (element.classList) {
+        element.classList.add(class_name);
+      } else {
+        element.className += ' ' + class_name;
+      }
+    };
+
+    self.removeClass = function( element, class_name ) {
+      if (element.classList) {
+        element.classList.remove(class_name);
+      } else {
+        element.className = element.className.replace(new RegExp('(^|\\b)' + class_name.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+      }
+    };
+
     self.hide = function( element ) {
       element.style.display = 'none';
     };

@@ -47,16 +47,22 @@ define(function (require) {
     var cwd = map.cwd();
     var config = script.config( cwd );
 
-    if ( config.DeleteSelfWhenDone ) {
-      if ( instruction_stream.eof() ) {
-        map.rm( cwd );
-      }
-    }
     if ( config.DeleteSelfWhenEmpty ) {
       if ( map.subFolderCount() == 0 ) {
         map.rm( cwd );
       }
+    } else if ( config.DeleteSelfWhenDone ) {
+      if ( instruction_stream.eof() ) {
+        map.unlink( cwd );
+      }
+    } else {
+      // Default: ResetWhenDone
+      if ( instruction_stream.eof() ) {
+        map.subFolders().forEach( function( subFolder ) { map.rm( subFolder[0] ); } );
+        instruction_stream.reset();
+      }
     }
+
     map.popd();
     session.next();
   });

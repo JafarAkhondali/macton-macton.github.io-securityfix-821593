@@ -55,22 +55,43 @@ define(function (require) {
             var sub_folder_name   = sub_folder[1];
   
             dom.setChildHtml( map_elements[i], sub_folder_name );
-            dom.setAttribute( map_elements[i], 'href', sub_folder_target );
+
+            if (instruction_stream.eof()) {
+              if (sub_folder_target == null ) {
+                dom.removeAttribute( map_elements[i], 'href' );
+                dom.addClass( map_elements[i], 'border-gray' );
+                dom.addClass( map_elements[i], 'strikethrough' );
+              } else {
+                dom.setAttribute( map_elements[i], 'href', sub_folder_target );
+                dom.removeClass( map_elements[i], 'border-gray' );
+                dom.removeClass( map_elements[i], 'strikethrough' );
+              }
+            } else {
+              dom.removeAttribute( map_elements[i], 'href' );
+              dom.addClass( map_elements[i], 'border-gray' );
+              dom.removeClass( map_elements[i], 'strikethrough' );
+            }
+
             dom.show( map_elements[i] );
           }
         }
   
-        var map_dirs = map.dirs();
-        if (map_dirs.length == 0) {
-          dom.hide( map_back );
-        } else {
-          dom.show( map_back );
-        }
+        dom.hide( map_back );
+
+        var showBack = function() {
+          var map_dirs = map.dirs();
+          if (map_dirs.length > 0) {
+            if (instruction_stream.eof()) {
+              dom.show( map_back );
+            }
+          }
+        };
   
         var line = map.getBlind('Line');
         if ( line == null ) {
           dom.empty( dialogue_line );
           dom.empty( dialogue_speaker );
+          showBack();
         } else {
           var line_speaker  = line[0];
           var line_text     = line[1];
@@ -79,7 +100,6 @@ define(function (require) {
           var line_text_len = line_text.length;
   
           dom.setChildHtml( dialogue_speaker, line_speaker );
-          // dom.setChildHtml( dialogue_line, '<span class="' + line_class + '">' + line_text + '</span>' );
 
           var typeLine = function() {
             window.requestAnimationFrame( function() {
@@ -89,6 +109,8 @@ define(function (require) {
               } else {
                 if (!instruction_stream.eof()) {
                   dom.show( next_line );
+                } else {
+                  showBack();
                 }
               }
             });

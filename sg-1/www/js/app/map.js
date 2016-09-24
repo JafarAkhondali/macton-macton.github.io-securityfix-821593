@@ -54,6 +54,17 @@ define(function (require) {
         }
       }
     },
+    unlink: function( dir ) {
+      var dirname  = path.dirname( dir );
+      var basename = path.basename( dir );
+      debug.log('unlink ' + dir );
+      for (var i=0;i<max_slots;i++) {
+        if ( sub_folders[dirname][i] && ( sub_folders[dirname][i][0] == dir ) ) {
+          sub_folders[dirname][i][0] = null;
+          return;
+        }
+      }
+    },
     title: function() {
       if (description && (description.length > 0)) {
         return description;

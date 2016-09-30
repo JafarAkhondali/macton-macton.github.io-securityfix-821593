@@ -1,0 +1,12 @@
+inc entry_count
+
+title "Table"
+
+if entry_count == 1
+  wait 100
+  mkdir "Crumpled up napkins"
+  wait 100
+  mkdir "Spilled ice cream"
+endif
+
+show back

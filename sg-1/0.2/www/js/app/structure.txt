@@ -14,9 +14,9 @@ fs.js
   - Manage directories (add, edit, delete)
 
 main.js
-  - require('working_dir')
+  - require('workingDir')
   - require('render')
-  - working_dir.update()
+  - workingDir.update()
   - render.update()
 
 env.js
@@ -25,12 +25,12 @@ env.js
 
 term.js
   - require('scripts')
-  - async push to $(working_dir)/.events
+  - async push to $(workingDir)/.events
 
 scene.js
   - current state of scene
 
-working_dir.js
+workingDir.js
   - require('fs')
   - require('scripts')
   - require('scene')
@@ -57,5 +57,5 @@ render.js
   - require('dom')
   - require('scripts')
   - draw current state of scene
-  - async push to $(working_dir)/.events
+  - async push to $(workingDir)/.events
 

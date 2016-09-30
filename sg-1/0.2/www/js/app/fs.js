@@ -3,7 +3,7 @@ define(function (require) {
   var log   = require('./log');
 
   var files = [
-    { children: [], meta: {} }
+    { children: [], meta: {}, permissions: "rwx" }
   ];
 
   var file_ids = {
@@ -35,7 +35,8 @@ define(function (require) {
       file_ids[ child_path ] = child_id;
       files[ child_id ]      = {
         children: [],
-        meta: {}
+        meta: {},
+        permissions: "rwx"
       };
   
       next_file_id++;
@@ -58,14 +59,61 @@ define(function (require) {
       var target_id = file_ids[ target_path ];
       files[ target_id ].meta[key] = value;
     },
-    getMeta: function( target_path, key, value ) {
+    getMeta: function( target_path, key ) {
       if ( !(target_path in file_ids) ) {
         log.err('file not found "' + target_path + '"' );
          return [];
       }
 
       var target_id = file_ids[ target_path ];
-      return files[ target_id ].meta[key];
+      if ( key == null ) {
+        return files[ target_id ].meta;
+      } else {
+        return files[ target_id ].meta[key];
+      }
+    },
+    getPermissions: function( target_path ) {
+      if ( !(target_path in file_ids) ) {
+        log.err('file not found "' + target_path + '"' );
+         return [];
+      }
+
+      var target_id = file_ids[ target_path ];
+      return files[ target_id ].permissions;
+    },
+    setPermissions: function( target_path, permissions ) {
+      if ( !(target_path in file_ids) ) {
+        log.err('file not found "' + target_path + '"' );
+         return [];
+      }
+
+      var target_id = file_ids[ target_path ];
+      var result    = files[ target_id ].permissions;
+
+      for ( var i=0;i<permissions.length;i++) {
+        if ( result.indexOf( permissions[i] ) == -1 ) {
+          result += permissions[i];
+        }
+      }
+
+      files[ target_id ].permissions = result;
+    },
+    clearPermissions: function( target_path, permissions ) {
+      if ( !(target_path in file_ids) ) {
+        log.err('file not found "' + target_path + '"' );
+         return [];
+      }
+
+      var target_id = file_ids[ target_path ];
+      var result    = '';
+
+      for ( var i=0;i<files[target_id].permissions.length;i++) {
+        if ( permissions.indexOf( files[target_id].permissions[i] ) == -1 ) {
+          result += files[target_id].permissions[i];
+        }
+      }
+
+      files[ target_id ].permissions = result;
     },
     exists: function( target_path ) {
       return (target_path in file_ids);

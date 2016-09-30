@@ -98,6 +98,11 @@ define(function (require) {
       dom.appendChildHtml( parent_element, child_html );
     },
 
+    setChild: function( parent_element, child_element ) {
+      dom.empty( parent_element );
+      dom.appendChild( parent_element, child_element );
+    },
+
     forEach: function( elements, func ) {
       Array.prototype.forEach.call( elements, func );
     },

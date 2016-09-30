@@ -13,6 +13,7 @@ define(function (require) {
     this.write(
       [
         '%c(@yellowgreen)**** SG-1 TERMINAL ****',
+        'Type "help" for list of commands',
       ]
     );
     this.textColor = '#009900';
@@ -28,12 +29,13 @@ define(function (require) {
   }
 
   var term = new Terminal( {
-    cols:        180,
+    cols:        120,
     termDiv:     'term',
     bgColor:     '#232e45',
     initHandler: initHandler,
     handler:     handler,
-    exitHandler: exitHandler
+    exitHandler: exitHandler,
+    fontClass:   'term-font'
   });
 
   term.open();
@@ -42,7 +44,7 @@ define(function (require) {
     update: function( dt ) {
       var log_pending = log.get();
       if ( log_pending.length > 0 ) {
-        term.write( log_pending );
+        term.write( log_pending, ( log_pending.length > 20 )?true:null );
         log.empty();
       }
       if (is_pending_script) {

@@ -1,0 +1,24 @@
+inc entry_count
+
+
+if entry_count == 1
+  tab title-card
+  title-card "Day 2, 1:00pm%nLilah starts work at the donut shop."
+  wait 1000
+  tab folders
+  title "Donut Shop"
+  wait 100
+  mkdir "Table"
+  wait 100
+  mkdir "Behind Counter"
+  wait 100
+  mkdir "Counter"
+  wait 100
+  mkdir "Sam"
+  wait 100
+  mkdir "Customer"
+endif
+
+if entry_count > 1
+  title "Donut Shop"
+endif

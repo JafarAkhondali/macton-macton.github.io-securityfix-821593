@@ -1,0 +1,7 @@
+[
+  [ "/Home/.on_enter", "on_enter.sgs" ],
+  [ "/Home/Day 2/1:00pm/Donut Shop/.on_enter", "day_2/1300/donut_shop/on_enter.sgs" ],
+  [ "/Home/Day 2/1:00pm/Donut Shop/Table/.on_enter", "day_2/1300/donut_shop/table/on_enter.sgs" ],
+  [ "/Home/Day 2/1:00pm/Donut Shop/Table/Spilled ice cream/.on_enter", "day_2/1300/donut_shop/table/spilled_ice_cream/on_enter.sgs" ],
+  [ "/Home/Day 2/1:00pm/Donut Shop/Table/Crumpled up napkins/.on_enter", "day_2/1300/donut_shop/table/crumpled_up_napkins/on_enter.sgs" ]
+]

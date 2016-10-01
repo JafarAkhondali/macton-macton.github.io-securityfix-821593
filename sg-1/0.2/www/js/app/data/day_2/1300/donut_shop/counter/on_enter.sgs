@@ -1,0 +1,10 @@
+inc entry_count
+
+title "Counter"
+
+if entry_count == 1
+  mkdir "List"
+  mkdir "Register"
+endif
+
+show back

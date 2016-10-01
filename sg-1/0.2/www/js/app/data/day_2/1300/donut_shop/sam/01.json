@@ -1,7 +1,0 @@
-[
-  [ "Speak", "Customer/Woman", "I'd like a glazed donut please." ],
-  [ "Speak", "Sam", "I'd offer you a cinnamon roll to go with it but you seem like you already have perfectly baked buns." ],
-  [ "Speak", "Customer/Woman", "....hahaha." ],
-  [ "Think", "Lilah", "I take back what I said earlier." ],
-  [ "Think", "Lilah", "That woman's laugh could not have been more forced." ]
-]

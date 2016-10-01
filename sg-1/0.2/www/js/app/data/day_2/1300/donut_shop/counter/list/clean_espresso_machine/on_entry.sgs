@@ -1,0 +1,18 @@
+title "Clean out the espresso machine"
+line "Lilah" "I've never used one of these before." think
+wait next-line
+line "Lilah" "I'm not sure what I'm doing..." think
+wait next-line
+line "Espresso Machine" "Boiling water suddenly spouted out of the machine." read
+wait next-line
+line "Lilah" "SHIT."
+wait next-line
+line "Sam" "Are you okay?"
+wait next-line
+line "Lilah" "Yeah, I'm fine!"
+wait next-line
+line "Lilah" "I think the water burnt a hole in my shirt..." think
+wait next-line
+line "Lilah" "I didn't know water could do that." think
+chmod -x .
+show back

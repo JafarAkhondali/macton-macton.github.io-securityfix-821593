@@ -1,0 +1,8 @@
+title "Clean the sink"
+
+line "Lilah" "It's pretty clean back here. The employees seem really on top of everything." think
+wait next-line
+line "Lilah" "Well, not that guy. He doesn't look like does more than use this place to hit on girls." line
+
+chmod -x .
+show back

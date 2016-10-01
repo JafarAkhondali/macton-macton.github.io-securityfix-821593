@@ -1,0 +1,42 @@
+inc entry_count
+
+title "Customer"
+
+if entry_count == 1
+  line "Customer (Overheard)" "What kind of donuts do you have?" 
+endif
+
+if entry_count == 2
+  line "Customer (Overheard)" "I'd like a random assortment of a dozen donuts." 
+endif
+
+if entry_count == 3
+  line "Customer (Overheard)" "Can I please have a small latte?" 
+endif
+
+if entry_count == 4
+  line "Customer (Overheard)" "Excuse me do you have donuts?" 
+endif
+
+if entry_count == 5
+  line "Customer (Overheard)" "But what are the different kinds of donuts?" 
+endif
+
+if entry_count == 6
+  line "Customer (Overheard)" "Are you sure you don't have lemon cream donuts?" 
+  wait next-line
+  line "Customer (Overheard)" "They aren't on the menu but I thought I'd check." 
+endif
+
+if entry_count == 7
+  line "Customer (Overheard)" "Can you make me a cream donut but with half maple half chocolate glaze?"
+  wait next-line
+  line "Customer (Overheard)" "You have all the ingredients right?"
+endif
+
+if entry_count == 8
+  line "Customer (Overheard)" "Can you tell me what are the different types of donuts?" 
+  set entry_count 0
+endif
+
+show back

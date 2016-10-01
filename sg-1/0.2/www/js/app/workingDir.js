@@ -126,14 +126,18 @@ define(function (require) {
       return step_text();
     },
     'line' : function( argv, dt ) {
-      var speaker      = argv[1];
-      var text         = argv[2].replace('%n','\n');
-      var text_class   = argv[3];
-      var text_len     = text.length;
-      var text_dt      = 0;
-      var text_step_ms = config.lineTextStepMs;
+      var speaker             = argv[1];
+      var text                = argv[2].replace('%n','\n');
+      var text_class          = argv[3];
+      var text_len            = text.length;
+      var text_dt             = 0;
+      var text_step_ms        = config.lineTextStepMs;
+      var is_folders_disabled = env[ env.cwd ]['is-folders-disabled'];
 
-      sceneWrite.disableFolders();
+      // auto-disable folders during line, unless folders already disabled.
+      if ( !is_folders_disabled ) {
+        sceneWrite.disableFolders();
+      }
 
       function step_text() {
         text_dt += dt;
@@ -143,7 +147,10 @@ define(function (require) {
         if ( text_ndx > text_len ) {
           text_ndx = text_len;
           next     = null;
-          sceneWrite.enableFolders();
+
+          if ( !is_folders_disabled ) {
+            sceneWrite.enableFolders();
+          } 
         }
 
         var html = text.substr(0,text_ndx).replace('\n','<br>');
@@ -188,11 +195,13 @@ define(function (require) {
     },
     'enable': function( argv, dt ) {
       if ( argv[1] == 'folders' ) {
+        env[ env.cwd ]['is-folders-disabled'] = false;
         sceneWrite.enableFolders();
       }
     },
     'disable': function( argv, dt ) {
       if ( argv[1] == 'folders' ) {
+        env[ env.cwd ]['is-folders-disabled'] = true;
         sceneWrite.disableFolders();
       }
     },

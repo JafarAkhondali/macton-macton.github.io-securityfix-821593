@@ -1,0 +1,8 @@
+title "Disinfect ice cream scoops"
+
+line "Lilah" "Wouldn't want someone to accidentally get cotton candy in their rum ice cream." think
+wait next-line
+line "Lilah" "Actually, I wonder how that tastes." think
+
+chmod -x .
+show back

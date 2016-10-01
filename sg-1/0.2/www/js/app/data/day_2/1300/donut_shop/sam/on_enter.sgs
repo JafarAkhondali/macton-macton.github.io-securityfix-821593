@@ -1,0 +1,41 @@
+inc entry_count
+
+title "Sam"
+
+if entry_count == 1
+  line "Sam" "Is that all for you?"
+  wait next-line
+  line "Customer/Man" "I'd like a large coffee."
+  wait next-line
+  line "Sam" "Great. I'll get that for you. I'll just be a moment."
+  wait next-line
+  line "Lilah" "At least he seems good at his job." think
+endif
+
+if entry_count == 2
+  line "Customer/Woman" "I'd like a glazed donut please." 
+  wait next-line
+  line "Sam" "I'd offer you a cinnamon roll to go with it but you seem like you already have perfectly baked buns."
+  wait next-line
+  line "Customer/Woman" "....hahaha."
+  wait next-line
+  line "Lilah" "I take back what I said earlier." think
+  wait next-line
+  line "Lilah" "That woman's laugh could not have been more forced." think
+endif
+
+if entry_count == 3
+  line "Customer/Man" "Oh, yeah, and cruller."
+  wait next-line
+  line "Sam" "No problem. Would you like that plain, chocolate or maple glazed?"
+  wait next-line
+  line "Lilah" "Oh, I see what's happening here." think
+endif
+
+if entry_count > 3
+  line "Lilah" "I've had my fill of listening to him." think
+  wait next-line
+  line "Lilah" "I should just clean." think
+endif
+
+show back

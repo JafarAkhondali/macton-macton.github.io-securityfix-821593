@@ -1,0 +1,6 @@
+title "Sweep the floor"
+
+line "Lilah" "With all the crumbs on the floor, I could open a second donut shop." think
+
+chmod -x .
+show back

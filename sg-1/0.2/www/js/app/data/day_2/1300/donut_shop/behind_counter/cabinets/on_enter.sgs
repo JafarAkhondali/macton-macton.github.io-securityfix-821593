@@ -1,0 +1,7 @@
+title "Cabinets"
+
+line "Lilah" "There is some tampons and a sweater in here. This must be where the employees keep their stuff." think
+wait next-line
+line "Lilah" "I shouldn't touch it." think
+
+show back

@@ -18,10 +18,6 @@ body {
   padding-bottom: 4px;
 }
 
-.border-gray {
-  border-color: #AAAAAA;
-}
-
 #map-box {
   border-radius: 25px;
   border: 2px solid #73AD21;
@@ -61,7 +57,6 @@ body {
 }
 
 #dialogue-line {
-  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
 #dialogue-speaker {
@@ -69,13 +64,6 @@ body {
   height: 1em; 
   font-weight: bold;
   border-bottom: 2px dotted #73AD21;
-}
-
-.dialogue-think {
- font-style: italic;
-}
-
-.dialogue-read {
 }
 
 #next-line {
@@ -90,6 +78,10 @@ body {
   height: 2.5em; 
 }
 
+.border-gray {
+  border-color: #AAAAAA;
+}
+
 .strikethrough {
  text-decoration: line-through; 
 }
@@ -99,5 +91,18 @@ body {
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   text-align: center;
   width:100%;
+}
+
+.term-font {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  font-size: 12px;
+}
+
+.line-think {
+ font-style: italic;
+}
+
+.line-read {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 

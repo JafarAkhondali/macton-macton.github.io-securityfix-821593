@@ -1,0 +1,11 @@
+inc entry_count
+
+title "Behind counter"
+
+if entry_count == 1
+  mkdir "Cabinets"
+  mkdir "Speakers"
+  mkdir "Wall"
+endif 
+
+show back

@@ -1,0 +1,22 @@
+title "Clean between the counter and the ice cream cabinet"
+
+line "Lilah" "I'm not even sure how to get in here" think
+wait next-line
+line "Lilah" "I guess I just move it over..." think
+wait next-line
+line "Lilah" "Oh god it smells." think
+wait next-line
+line "Lilah" "What's even in here..." think
+wait next-line
+line "Lilah" "..." think
+wait next-line
+line "Lilah" "22...23...24 moldy tasting spoons." think
+wait next-line
+line "Lilah" "Lots of napkins." think
+wait next-line
+line "Lilah" "A walkman?!" think
+wait next-line
+line "Lilah" "This is a place where things go to die." think
+
+chmod -x .
+show back

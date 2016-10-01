@@ -1,0 +1,6 @@
+title "Wipe the counters"
+
+line "Lilah" "It's just like doing chores at home. Except I'm getting paid and sexually harassed." think
+
+chmod -x .
+show back

@@ -1,0 +1,4 @@
+title "Clean the bathroom"
+line "Lilah" "It's taking forever to wipe this graffiti off. I wish I could call a magical cleaning genie." think
+chmod -x .
+show back

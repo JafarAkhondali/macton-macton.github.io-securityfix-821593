@@ -1,0 +1,21 @@
+title "Dumpster"
+line "???" "..."
+wait next-line
+line "Lilah" "...!" think
+wait next-line
+line "Lilah" "There is a girl behind me, staring at me. She's really cute but the stare is kinda freaking me out." think
+wait next-line
+line "" "She's short and has pink hair in large, fluffy ponytails." read
+wait next-line
+line "Lilah" "Can I help you...?"
+wait next-line
+line "Lilah" "She looks really angry at me." think
+wait next-line
+line "Woman" "Why didn't you stand up for that girl earlier?"
+wait next-line
+line "Lilah" "What?"
+wait next-line
+line "Woman" "She looked really scared."
+wait 500
+mkdir "If you were there..."
+mkdir "I was scared."

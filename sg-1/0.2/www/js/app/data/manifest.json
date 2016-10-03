@@ -21,5 +21,19 @@
   [ "/Home/Day 2/1:00pm/Donut Shop/Behind Counter/.on_enter",                      "day_2/1300/donut_shop/behind_counter/on_enter.sgs" ],
   [ "/Home/Day 2/1:00pm/Donut Shop/Behind Counter/Speakers/.on_enter",             "day_2/1300/donut_shop/behind_counter/speakers/on_enter.sgs" ],
   [ "/Home/Day 2/1:00pm/Donut Shop/Behind Counter/Cabinets/.on_enter",             "day_2/1300/donut_shop/behind_counter/cabinets/on_enter.sgs" ],
-  [ "/Home/Day 2/1:00pm/Donut Shop/Behind Counter/Wall/.on_enter",                 "day_2/1300/donut_shop/behind_counter/wall/on_enter.sgs" ]
+  [ "/Home/Day 2/1:00pm/Donut Shop/Behind Counter/Wall/.on_enter",                 "day_2/1300/donut_shop/behind_counter/wall/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/.on_enter",                                     "day_2/1645/donut_shop/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Do something/.on_enter",                        "day_2/1645/donut_shop/do_something/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Do something/It doesn't matter.../.on_enter",   "day_2/1645/donut_shop/do_something/no/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Do something/You're right./.on_enter",          "day_2/1645/donut_shop/do_something/sorry/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/.on_enter",                    "day_2/1645/donut_shop/back_of_store/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Entry way/.on_enter",          "day_2/1645/donut_shop/back_of_store/entry_way/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Back exit/.on_enter",          "day_2/1645/donut_shop/back_of_store/back_exit/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Trash/.on_enter",              "day_2/1645/donut_shop/back_of_store/trash/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Trash/Dumpster/.on_enter",     "day_2/1645/donut_shop/back_of_store/trash/dumpster/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Trash/Dumpster/If you were there.../.on_enter",     "day_2/1645/donut_shop/back_of_store/trash/dumpster/if_you/on_enter.sgs" ],
+  [ "/Home/Day 2/4:45pm/Donut Shop/Hide in the back/Trash/Dumpster/I was scared./.on_enter",     "day_2/1645/donut_shop/back_of_store/trash/dumpster/scared/on_enter.sgs" ],
+  [ "/Home/Day 2/5:45pm/Donut Shop/.on_enter",                                     "day_2/1745/donut_shop/on_enter.sgs" ],
+  [ "/Home/Day 2/5:45pm/Outside of store/.on_enter",                               "day_2/1745/outside_store/on_enter.sgs" ],
+  [ "/Home/Day 2/5:45pm/Outside of store/Donut Shop/.on_enter",                    "day_2/1745/outside_store/donut_shop/on_enter.sgs" ]
 ]

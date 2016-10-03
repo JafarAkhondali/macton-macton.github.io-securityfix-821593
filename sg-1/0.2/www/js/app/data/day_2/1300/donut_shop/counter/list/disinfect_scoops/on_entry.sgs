@@ -5,4 +5,5 @@ wait next-line
 line "Lilah" "Actually, I wonder how that tastes." think
 
 chmod -x .
+dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
 show back

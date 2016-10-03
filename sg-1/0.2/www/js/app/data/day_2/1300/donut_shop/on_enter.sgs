@@ -11,8 +11,39 @@ if entry_count == 1
   mkdir "Counter"
   mkdir "Sam"
   mkdir "Customer"
+  set jobs_remaining 9
 endif
 
+chmod -r "Customer"
+
+if jobs_remaining == 0
+  chmod +r "Customer"
+endif
+
+if jobs_remaining > 0
+
+  if entry_count == 2
+    chmod +r "Customer"
+  endif
+  
+  if entry_count == 4
+    chmod +r "Customer"
+  endif
+  
+  if entry_count == 6
+    chmod +r "Customer"
+  endif
+  
+  if entry_count == 8
+    chmod +r "Customer"
+  endif
+  
+  if entry_count == 10
+    chmod +r "Customer"
+  endif
+
+endif
+  
 if entry_count > 1
   title "Donut Shop"
 endif

@@ -19,4 +19,5 @@ wait next-line
 line "Lilah" "This is a place where things go to die." think
 
 chmod -x .
+dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
 show back

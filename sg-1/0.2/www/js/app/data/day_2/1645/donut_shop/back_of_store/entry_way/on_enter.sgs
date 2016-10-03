@@ -1,0 +1,4 @@
+title "Entry way"
+line "Lilah" "Nope. Do not want to go out there." think
+wait 500
+show back

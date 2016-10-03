@@ -1,0 +1,17 @@
+line "Lilah" "If you were there, why didn't you?"
+wait next-line
+line "Woman" "I was outside, I only heard it. But you work here."
+wait next-line
+line "Lilah" "He has the right to refuse service for anyone and charge what he wants, it's not my business."
+wait next-line
+line "Lilah" "That only seemed to make her angrier." think
+wait next-line
+line "Woman" "..."
+wait next-line
+line "Lilah" "She walked off." think
+wait next-line
+line "Lilah" "..."
+wait next-line
+line "Lilah" "I can't wait to fucking leave."
+wait next-line
+cd "/Home/Day 2/5:45pm/Donut Shop"

@@ -1,0 +1,5 @@
+title "Donut shop across the street"
+line "Lilah" "I never want to go back there again. I just need to calm down." think
+chmod -r .
+chmod -x .
+show back

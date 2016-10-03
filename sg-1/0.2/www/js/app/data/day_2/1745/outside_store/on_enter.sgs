@@ -1,0 +1,35 @@
+inc entry_count
+
+if entry_count == 1
+  tab title-card
+  title-card "Day 2, 5:45pm%nOutside"
+  wait 1000
+  tab folders
+  title "Outside of store"
+  wait 500
+  mkdir "Donut Shop"
+endif
+
+if entry_count == 2
+  line "Woman" "Hey."
+  wait next-line
+  line "Lilah" "What a pretty girl." think
+  wait next-line
+  line "" "She's short and has pink hair in large, fluffy ponytails" read
+  wait next-line
+  line "Lilah" "Hi."
+  wait next-line
+  line "Woman" "I just wanted to say thank you for standing up for her."
+  wait next-line
+  line "Lilah" "Oh? Uhm. No problem. Really. Do you know her?"
+  wait next-line
+  line "Woman" "No. I wanted to say thank you anyway. It can be really scary but you were really strong and brave."
+  wait next-line
+  line "Lilah" "Well... thank you!"
+  wait next-line
+  line "" "She smiled and left." read
+  wait next-line
+
+  tab title-card
+  title-card "To be continued..."
+endif

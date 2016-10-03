@@ -3,4 +3,5 @@ title "Sweep the floor"
 line "Lilah" "With all the crumbs on the floor, I could open a second donut shop." think
 
 chmod -x .
+dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
 show back

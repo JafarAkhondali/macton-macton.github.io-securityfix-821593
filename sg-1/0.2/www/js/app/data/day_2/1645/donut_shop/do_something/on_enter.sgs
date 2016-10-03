@@ -1,0 +1,20 @@
+inc entry_count
+
+if entry_count == 1
+  disable folders
+  line "Lilah" "Hey! Leave her alone."
+  wait next-line
+  line "Woman" "..."
+  wait next-line
+  line "Sam" "Go back to cleaning, Lilah. This is none of your concern."
+  wait next-line
+  line "Lilah" "Just because she doesn't want to give her your number doesn't mean you can go fucking insult her?"
+  wait next-line
+  line "Sam" "It's my place, I'll do what I want. She's clearly stupid anyway so it doesn't matter."
+  wait next-line
+  line "Lilah" "He looks extra angry now... What if he doesn't pay me..." think
+  wait 500
+  mkdir "It doesn't matter..."
+  mkdir "You're right."
+  enable folders
+endif

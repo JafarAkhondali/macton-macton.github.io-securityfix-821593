@@ -3,4 +3,5 @@ title "Take out the trash"
 line "Lilah" "I should wait until the end of my shift so it's empty for next shift." think
 
 chmod -x .
+dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
 show back

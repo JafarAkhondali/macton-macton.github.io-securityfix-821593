@@ -4,6 +4,7 @@ define(function (require) {
   var scripts               = require('./scripts');
   var env                   = require('./env');
   var path                  = require('path');
+  var app_container         = dom.getElementById('app-container');
   var map_box               = dom.getElementById('map-box');
   var map_description       = dom.getElementById('map-description');
   var map_element_container = dom.getElementById('map-element-container');
@@ -13,12 +14,23 @@ define(function (require) {
   var next_line             = dom.getElementById('next-line');
   var title_card_container  = dom.getElementById('title-card-container');
 
+  dom.addClickListener( app_container, function() {
+    if (!('click-count' in env[ env.cwd ])) {
+      env[ env.cwd ]['click-count'] = 1;
+    }
+    env[ env.cwd ]['click-count']++;
+  });
+
   dom.addClickListenerPreventDefault( next_line, function() {
     env[ env.cwd ]['wait-next-line'] = false;
   });
 
   dom.addClickListenerPreventDefault( map_back, function() {
-    scripts.append( path.resolve( env.cwd, '.shell' ), 'cd ..' );
+    if ( env[ env.cwd ]['back'] != null ) {
+      scripts.append( path.resolve( env.cwd, '.shell' ), 'cd "' + env[ env.cwd ]['back'] + '"' );
+    } else {
+      scripts.append( path.resolve( env.cwd, '.shell' ), 'cd ..' );
+    }
   });
 
   function renderFolders() {
@@ -60,19 +72,39 @@ define(function (require) {
   }
 
   function renderLine() {
-    var speaker_element = dom.htmlToElement( '<span>' + scene.speaker + '</span>' );
-    var line_element    = dom.htmlToElement( '<span>' + scene.line + '</span>' );
+
+    // render dialogue speaker
+
+    if ((scene.speaker == null) || (scene.speaker.length == 0)) {
+      dom.empty( dialogue_speaker );
+    } else {
+      var speaker_element = dom.htmlToElement( '<span>' + scene.speaker + '</span>' );
+      dom.setChild( dialogue_speaker, speaker_element );
+   }
+
+    // render dialogue line
+
+    if ((scene.line == null) || (scene.line.length == 0)) {
+      dom.empty( dialogue_line );
+      return;
+    }
+
+    var line_element;
 
     if ( scene.lineClass) {
+      line_element    = dom.htmlToElement( '<span>' + scene.line + '</span>' );
       if ( scene.lineClass.search('think') > -1 ) {
         dom.addClass( line_element, 'line-think' );
       }
       if ( scene.lineClass.search('read') > -1 ) {
         dom.addClass( line_element, 'line-read' );
       }
+    } else {
+      // It's odd to see the quotes when the text scrolls in.
+      // line_element    = dom.htmlToElement( '<span>&#8220;' + scene.line + '&#8221;</span>' );
+      line_element    = dom.htmlToElement( '<span>' + scene.line + '</span>' );
     }
 
-    dom.setChild( dialogue_speaker, speaker_element );
     dom.setChild( dialogue_line, line_element );
   }
 

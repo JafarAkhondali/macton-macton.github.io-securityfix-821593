@@ -3,15 +3,21 @@ define(function (require) {
   // http://darsa.in/fpsmeter/
   // https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
-  var workingDir = require('./workingDir');
-  var render      = require('./render');
-  var term        = require('./term');
-  var dom         = require('./dom');
-  var scripts     = require('./scripts');
-  var prev_time   = performance.now();
-  var profile     = dom.getElementById('profile');
-  var FPSMeter    = require('fpsmeter');
-  var meter       = new FPSMeter(document.getElementById('profile'));
+  var workingDir    = require('./workingDir');
+  var render        = require('./render');
+  var dom           = require('./dom');
+  var scripts       = require('./scripts');
+  var prev_time     = performance.now();
+  var profile       = dom.getElementById('profile');
+  var term          = require('./term');
+  var is_debug      = dom.getQueryVariable('debug');
+
+  var FPSMeter      = require('fpsmeter');
+  var meter         = new FPSMeter(document.getElementById('profile'));
+
+  if (is_debug) {
+    term.show();
+  }
 
   require(['json!./data/manifest.json'], function( manifest ) {
     manifest.forEach( function( source_script ) {
@@ -39,5 +45,9 @@ define(function (require) {
     prev_time = start_time;
   }
 
-  dom.onReady( function() { main( performance.now() ); } );
+  dom.onReady( function() { 
+    workingDir.cd('/Home');
+    main( performance.now() ); 
+  });
+
 });

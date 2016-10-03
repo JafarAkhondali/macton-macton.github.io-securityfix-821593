@@ -12,7 +12,7 @@ define(function (require) {
   function initHandler() {
     this.write(
       [
-        '%c(@yellowgreen)**** SG-1 TERMINAL ****',
+        '%c(@yellowgreen)**** SG-1 DEBUG TERMINAL ****',
         'Type "help" for list of commands',
       ]
     );
@@ -38,8 +38,6 @@ define(function (require) {
     fontClass:   'term-font'
   });
 
-  term.open();
-
   return {
     update: function( dt ) {
 
@@ -64,5 +62,11 @@ define(function (require) {
         is_pending_script = false; 
       }
     },
+    show: function() {
+      term.open();
+    },
+    hide: function() {
+      term.close();
+    }
   };
 });

@@ -10,8 +10,8 @@ define(function (require) {
   var parser     = new Parser();
 
   var config = {
-    titleCardTextStepMs: 50,
-    lineTextStepMs:      20,
+    titleCardTextStepMs: 60,
+    lineTextStepMs:      30,
   };
 
   function resolveTargetPath( target_path ) {
@@ -52,6 +52,8 @@ define(function (require) {
                   + "  chmod <mode> <path>          | change <mode> on directory <path>\n"
                   + "      ... +rwx                 | <mode> enable read, write or executable flags (any can be specified)\n"
                   + "      ... -rwx                 | <mode> disable read, write or executable flags (any can be specified)\n"
+                  + "  link <target> <path>         | change default <path> location of <target>\n"
+                  + "      ... back                 | target=back, change back button to cd <path>\n"
                   + "  set <key_path> <value>       | set <value> on <key_path> (relative or absolute)\n"
                   + "      ...                      | if <value> is unspecified, print value of <key> to tty\n"
                   + "      ...                      | if <key> and <value> are unspecified, print values of all <key> to tty\n"
@@ -78,6 +80,12 @@ define(function (require) {
       log.out( env.cwd );
       return null;
     },
+    'link' : function( argv ) {
+      if (argv[1] == 'back') {
+        var target_path = resolveTargetPath( argv[2] );
+        env[ env.cwd ]['back'] = target_path;
+      }
+    },
     'ls' : function( argv ) {
       var target_path = resolveTargetPath( argv[1] );
       var children    = fs.ls( target_path );
@@ -102,13 +110,20 @@ define(function (require) {
       }
     },
     'title-card' : function( argv, dt ) {
-      var text         = argv[1].replace('%n','\n');
-      var text_len     = text.length;
-      var text_dt      = 0;
-      var text_step_ms = config.titleCardTextStepMs;
+      var text               = argv[1].replace('%n','\n');
+      var text_len           = text.length;
+      var text_dt            = 0;
+      var text_step_ms       = config.titleCardTextStepMs;
+      var start_click_count  = env[ env.cwd ]['click-count'] || 0;
 
       function step_text() {
+        var click_count = env[ env.cwd ]['click-count'] || 0;
+        if ( click_count != start_click_count ) {
+          dt *= 2;
+        }
+
         text_dt += dt;
+
         var text_ndx = parseInt(text_dt / text_step_ms);
         var next     = step_text;
 
@@ -133,6 +148,7 @@ define(function (require) {
       var text_dt             = 0;
       var text_step_ms        = config.lineTextStepMs;
       var is_folders_disabled = env[ env.cwd ]['is-folders-disabled'];
+      var start_click_count   = env[ env.cwd ]['click-count'] || 0;
 
       // auto-disable folders during line, unless folders already disabled.
       if ( !is_folders_disabled ) {
@@ -140,6 +156,11 @@ define(function (require) {
       }
 
       function step_text() {
+        click_count = env[ env.cwd ]['click-count'] || 0;
+        if ( click_count != start_click_count ) {
+          dt *= 2;
+        }
+
         text_dt += dt;
         var text_ndx = parseInt(text_dt / text_step_ms);
         var next     = step_text;
@@ -211,17 +232,15 @@ define(function (require) {
       var key         = path.basename( target_path );
       var value       = argv[2];
  
-      if (( key == null ) && ( value == null )) {
-        value = fs.getMeta( key_path );
+      if ( argv[2] == null ) {
+        log.out('"' + target_path + '"');
+        value = fs.getMeta( target_path ); // defaults to '.' if argv[1] is null
 
         Object.keys(value).filter( function( key ) {
           return (key.charAt(0) != '.');
         }).forEach( function( key ) {
           log.out( ("                    " + key).slice(-20) + ' "' + value[key] + '"' );
         });
-      } else if ( value == null ) {
-        value = fs.getMeta( key_path, key );
-        log.out( ("                    " + key).slice(-20) + ' "' + value + '"' );;
       } else {
         fs.setMeta( key_path, key, value );
       }
@@ -440,10 +459,10 @@ define(function (require) {
           return false;
         }
 
-        var lineObj = { lineBuffer: script[ pc[script_path] ] };
-        parser.parseLine( lineObj );
+        var line_obj = { lineBuffer: script[ pc[script_path] ] };
+        parser.parseLine( line_obj );
 
-        return lineObj.argv[0] == 'end';
+        return line_obj.argv[0] == 'end';
       }
  
       if (!peekScriptAtEnd( script_path)) {
@@ -488,30 +507,38 @@ define(function (require) {
           // do until something becomes pending or eof
           while (pc[script_path] < script.length)
           {
-            var lineObj = { lineBuffer: script[ pc[script_path] ] };
+            var line_num = pc[script_path];
+            var line_obj = { lineBuffer: script[ line_num ].trim() };
+            var is_cd    = false;
   
-            parser.parseLine( lineObj );
+            parser.parseLine( line_obj );
   
-            if ( lineObj.argv[0] in cmd_handler ) {
-              var cmd        = cmd_handler[ lineObj.argv[0] ];
+            if ( line_obj.argv[0] in cmd_handler ) {
+              var cmd        = cmd_handler[ line_obj.argv[0] ];
               var if_stack   = fs.getMeta( cwd, '.if_stack' );
               var is_ignored = if_stack && (if_stack.length > 0) && (if_stack[ if_stack.length-1 ] == false);
-  
+
               // peek: if stack commands not ignored
-              if ( lineObj.argv[0] == 'if' ) {
+              if ( line_obj.argv[0] == 'if' ) {
                 is_ignored = false;
-              } else if ( lineObj.argv[0] == 'endif' ) {
+              } else if ( line_obj.argv[0] == 'endif' ) {
                 is_ignored = false;
               }
-  
-              // peek: end means stop completely (don't increment pc)
-              if ( lineObj.argv[0] == 'end' ) {
-                break;
-              }
-  
+
               if (!is_ignored) {
-                console.log( script_path + ':' + pc[script_path] + '  ' + lineObj.lineBuffer );
-                var pending = cmd( lineObj.argv, dt );
+                // peek: end means stop completely (don't increment pc)
+                if ( line_obj.argv[0] == 'end' ) {
+                  break;
+                }
+
+                // peek: cd increments pc but executes later in chain
+                if ( line_obj.argv[0] == 'cd' ) {
+                  is_cd = true;
+                  break;
+                }
+
+                console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
+                var pending = cmd( line_obj.argv, dt );
                 if ( pending ) {
                   if ( pending_updates == null ) {
                     pending_updates = {};
@@ -521,22 +548,32 @@ define(function (require) {
                   break;
                 }
               }
-            } else if (lineObj.lineBuffer != '') {
-              log.err('Unknown command: "'+lineObj.lineBuffer+'"');
+            } else if (line_obj.lineBuffer != '') {
+              if ( line_obj.argv[0] != '#' ) {
+                log.err( script_path + ':' + line_num + '  Unknown command: "'+line_obj.lineBuffer+'"');
+              }
             }
      
             pc[script_path]++;
           }
+
+          if (is_cd) {
+            pc[script_path]++;
+          } 
   
           fs.setMeta( cwd, '.pendingUpdate', pending_updates );
           fs.setMeta( cwd, '.pc', pc );
+
+          if (is_cd) {
+            console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
+            cmd( line_obj.argv, dt );
+          } 
         });
       } while ( env.cwd != cwd ); // if cwd changed, continue script there (don't draw one frame before updating script)
     },
   };
 
   workingDir.mkdir('/Home');
-  workingDir.cd('/Home');
 
   return workingDir;
 });

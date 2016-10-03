@@ -1,0 +1,4 @@
+title "Back exit"
+line "Lilah" "I could just run away... sigh." think
+wait 500
+show back

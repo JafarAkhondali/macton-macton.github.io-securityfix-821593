@@ -1,0 +1,12 @@
+inc entry_count
+
+title "Trash"
+
+line "Lilah" "I guess I should take this out... I'm not doing anything else." think
+
+if entry_count == 1
+  wait 500
+  mkdir "Dumpster"
+endif
+
+show back

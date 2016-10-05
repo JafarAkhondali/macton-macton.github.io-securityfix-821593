@@ -7,10 +7,12 @@ define(function (require) {
       queued.push( '%c(@yellowgreen)' + text  );
     },
     err: function( text ) {
-      queued.push( '%c(@red)' + text );
+      console.log( 'ERROR ' + text );
+      queued.push( 'ERROR: %c(@red)' + text + '\n' );
     },
     warn: function( text ) {
-      queued.push( '%c(@orange)' + text );
+      console.log( 'WARNING' + text );
+      queued.push( 'WARNING %c(@orange)' + text + '\n' );
     },
     get: function() {
       return queued;

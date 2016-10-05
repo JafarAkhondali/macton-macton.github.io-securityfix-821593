@@ -16,7 +16,7 @@ define(function (require) {
 
   function resolveTargetPath( target_path ) {
     if ( target_path == '~' ) {
-      return '/Home';
+      return '/SG-1';
     } else if ( target_path ) { 
       return path.resolve( env.cwd, target_path );
     } 
@@ -110,7 +110,7 @@ define(function (require) {
       }
     },
     'title-card' : function( argv, dt ) {
-      var text               = argv[1].replace('%n','\n');
+      var text               = argv[1].replace(/%n/g,'\n');
       var text_len           = text.length;
       var text_dt            = 0;
       var text_step_ms       = config.titleCardTextStepMs;
@@ -132,7 +132,7 @@ define(function (require) {
           next     = null;
         }
 
-        var html = text.substr(0,text_ndx).replace('\n','<br>');
+        var html = text.substr(0,text_ndx).replace(/\n/g,'<br>');
         sceneWrite.updateTitleCard( html );
      
         return next;
@@ -405,6 +405,20 @@ define(function (require) {
   };
 
   var workingDir = {
+    cmdHelpHtml: function() {
+      if (workingDir.cmdHelpHtmlText == null) {
+        workingDir.cmdHelpHtmlText = '<pre>' + cmd_help.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>').replace(/%%/g, '%') + '</pre></div>';
+      }
+      return workingDir.cmdHelpHtmlText;
+    },
+
+    reset: function( target_path ) {
+      target_path = resolveTargetPath( target_path );
+      fs.rm( target_path );
+      // need to clear shell scripts for all sub dirs too
+      scripts.empty( path.resolve( target_path, '.shell' ) );
+      workingDir.mkdir( target_path );
+    },
 
     // for convenience mkdir implementation is here:
     mkdir: function( target_path ) {
@@ -428,6 +442,9 @@ define(function (require) {
         log.err('can\'t cd into directory (does not exist) \"' + target_path + '"');
         return;
       }
+
+      // clear out shell
+      scripts.empty( path.resolve( target_path, '.shell' ) );
 
       // set cwd
       env.cwd = target_path;
@@ -573,7 +590,7 @@ define(function (require) {
     },
   };
 
-  workingDir.mkdir('/Home');
+  workingDir.mkdir('/SG-1');
 
   return workingDir;
 });

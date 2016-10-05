@@ -13,6 +13,9 @@ define(function (require) {
       }
       script_table[ source_path ].content.push( line );
     },
+    empty: function( source_path ) {
+      script_table[ source_path ] = null;
+    },
     setFromText: function( source_path, text ) {
       var lines = text.split(/\r\n|[\n\v\f\r\x85\u2028\u2029]/);
       script_table[ source_path ] = { content: lines };

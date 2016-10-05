@@ -1,34 +1,95 @@
 define(function (require) {
 
-  // http://darsa.in/fpsmeter/
   // https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
-  var workingDir    = require('./workingDir');
-  var render        = require('./render');
-  var dom           = require('./dom');
-  var scripts       = require('./scripts');
-  var prev_time     = performance.now();
-  var profile       = dom.getElementById('profile');
-  var term          = require('./term');
-  var is_debug      = dom.getQueryVariable('debug');
-
-  var FPSMeter      = require('fpsmeter');
-  var meter         = new FPSMeter(document.getElementById('profile'));
+  var workingDir        = require('./workingDir');
+  var render            = require('./render');
+  var dom               = require('./dom');
+  var scripts           = require('./scripts');
+  var env               = require('./env');
+  var log               = require('./log');
+  var term              = require('./term');
+  var archive           = require('./archive');
+  var path              = require('path');
+  var FPSMeter          = require('fpsmeter');
+  var ace               = require('ace/ace');
+  var prev_time         = performance.now();
+  var profile           = dom.getElementById('profile');
+  var is_debug          = dom.getQueryVariable('debug');
+  var meter             = new FPSMeter(document.getElementById('profile'));
+  var app_container     = dom.getElementById('app-container');
+  var editor_container  = dom.getElementById('editor-container');
 
   if (is_debug) {
-    term.show();
-  }
+    var app_toolbar       = dom.getElementById('app-toolbar');
+    var script_title      = dom.getElementById('script-title');
+    var edit_title        = dom.getElementById('edit-title');
+    var script_edit       = dom.getElementById('script-edit');
+    var script_save       = dom.getElementById('script-save');
+    var script_cancel     = dom.getElementById('script-cancel');
+    var editor_help_text  = dom.getElementById('editor-help-text');
+    var editor            = ace.edit('editor');
+    var script_title_path = env.cwd;
 
-  require(['json!./data/manifest.json'], function( manifest ) {
-    manifest.forEach( function( source_script ) {
-      var target_path = source_script[0];
-      var source_path = source_script[1];
-      require(['text!./data/' + source_path], function( source_data ) {
-        console.log('import script "' + source_path + '" to "' + target_path + '"');
-        scripts.setFromText( target_path, source_data );
+    dom.show( app_toolbar );
+    term.show();
+
+    dom.setChildHtml( script_title, '<span>' + script_title_path + '</span>' );
+    dom.setChildHtml( edit_title, '<span>' + script_title_path + '</span>' );
+    updateScriptPath();
+
+    function updateScriptPath() {
+      window.requestAnimationFrame( updateScriptPath );
+      var cwd = env.cwd;
+      if ( cwd != script_title_path ) {
+        script_title_path = cwd;
+        dom.setChildHtml( script_title, '<span>' + script_title_path + '</span>' );
+        dom.setChildHtml( edit_title, '<span>' + script_title_path + '</span>' );
+      }
+    }
+
+    dom.addClickListenerPreventDefault( script_edit, function() {
+      window.requestAnimationFrame( function() {
+        dom.hide( app_container );
+        dom.show( editor_container );
+        dom.setChildHtml( editor_help_text, workingDir.cmdHelpHtml() );
+
+        var cwd           = env.cwd;
+        var script_path   = path.resolve( cwd, '.on_enter' );
+        var script_source = scripts.get( script_path ).join('\n');
+  
+        editor.setValue( script_source, -1 );
+        term.hide();
       });
     });
-  });
+
+    dom.addClickListenerPreventDefault( script_save, function() {
+      window.requestAnimationFrame( function() {
+        var cwd           = env.cwd;
+        var script_path   = path.resolve( cwd, '.on_enter' );
+        var script_source = editor.getValue();
+
+        console.log('save ' + script_path );
+  
+        scripts.setFromText( script_path, script_source );
+
+        workingDir.reset( cwd );
+        workingDir.cd( cwd );
+  
+        archive.saveScript( script_path, script_source );
+
+        dom.show( app_container );
+        dom.hide( editor_container );
+        term.show();
+      });
+    });
+
+    dom.addClickListenerPreventDefault( script_cancel, function() {
+      dom.show( app_container );
+      dom.hide( editor_container );
+      term.show();
+    });
+  }
 
   function main( now ) {
     window.requestAnimationFrame( main );
@@ -46,7 +107,7 @@ define(function (require) {
   }
 
   dom.onReady( function() { 
-    workingDir.cd('/Home');
+    workingDir.cd('/SG-1');
     main( performance.now() ); 
   });
 

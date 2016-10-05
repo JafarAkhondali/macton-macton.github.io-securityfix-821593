@@ -1,7 +1,0 @@
-title "Wipe the counters"
-
-line "Lilah" "It's just like doing chores at home. Except I'm getting paid and sexually harassed." think
-
-chmod -x .
-dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
-show back

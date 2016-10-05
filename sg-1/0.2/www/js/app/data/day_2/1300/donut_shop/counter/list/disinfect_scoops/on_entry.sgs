@@ -1,9 +1,0 @@
-title "Disinfect ice cream scoops"
-
-line "Lilah" "Wouldn't want someone to accidentally get cotton candy in their rum ice cream." think
-wait next-line
-line "Lilah" "Actually, I wonder how that tastes." think
-
-chmod -x .
-dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
-show back

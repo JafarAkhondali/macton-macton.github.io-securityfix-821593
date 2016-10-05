@@ -1,7 +1,0 @@
-line "Lilah" "You're right... I'm sorry for interfering."
-wait next-line
-line "Sam" "Just go in the back and clean something. Your job isn't to talk."
-wait 500
-chmod -r "../../Do something"
-link back "../.."
-show back

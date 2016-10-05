@@ -13,6 +13,31 @@ define(function (require) {
   var next_file_id = 1;
 
   var fs = {
+    rm: function( target_path ) {
+
+      if (!(target_path in file_ids)) {
+        log.err( 'file does not exist "' + target_path + '"' );
+      }
+
+      console.log( 'rm ' + target_path );
+
+      var children = files[ file_ids[ target_path ] ].children.slice();
+      children.forEach( function( sub_path ) {
+        fs.rm( path.resolve( target_path, sub_path ) );
+      });
+           
+
+      delete file_ids[target_path];
+
+      var parent_path = path.dirname( target_path  );
+      var child_name  = path.basename( target_path  );
+      var parent_id   = file_ids[ parent_path ];
+      var parent_file = files[ parent_id ];
+      var child_ndx   = parent_file.children.indexOf( child_name );
+
+      parent_file.children.splice( child_ndx, 1 );
+    },
+
     mkdir: function( child_path ) {
       var parent_path = path.dirname( child_path );
       var child_name  = path.basename( child_path );

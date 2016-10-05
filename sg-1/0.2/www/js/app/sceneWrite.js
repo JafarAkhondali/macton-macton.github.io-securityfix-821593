@@ -14,6 +14,7 @@ define(function (require) {
 
       sceneWrite.clearLine();
       sceneWrite.hideBack();
+      sceneWrite.hideNextLine();
       sceneWrite.clearTitle();
     },
  

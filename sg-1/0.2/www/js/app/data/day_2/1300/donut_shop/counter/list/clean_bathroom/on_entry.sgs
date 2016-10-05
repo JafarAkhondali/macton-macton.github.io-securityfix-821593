@@ -1,5 +1,0 @@
-title "Clean the bathroom"
-line "Lilah" "It's taking forever to wipe this graffiti off. I wish I could call a magical cleaning genie." think
-chmod -x .
-dec "/Home/Day 2/1:00pm/Donut Shop/jobs_remaining"
-show back

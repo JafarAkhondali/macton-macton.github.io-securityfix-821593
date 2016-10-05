@@ -148,8 +148,5 @@ define(function (require) {
     },
   };
 
-  // #todo
-  // - strikethrough unlinked folders
-
   return render;
 });

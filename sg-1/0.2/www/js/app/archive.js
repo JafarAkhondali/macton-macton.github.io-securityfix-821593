@@ -28,6 +28,10 @@ define(function (require) {
       socket.send( "SAVE" + "|" + encodeURIComponent(script_path) + "|" + encodeURIComponent(script_source) );
       console.log( 'SAVE ' + script_path );
     },
+    archiveAll: function() {
+      socket.send( 'ARCHIVE|' );
+      console.log( 'ARCHIVE ALL' );
+    },
   };
 
   return archive;

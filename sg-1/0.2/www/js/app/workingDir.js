@@ -6,6 +6,7 @@ define(function (require) {
   var env        = require('./env');
   var log        = require('./log');
   var sceneWrite = require('./sceneWrite');
+  var archive    = require('./archive');
   var Parser     = require('termlib_parser');
   var parser     = new Parser();
 
@@ -62,9 +63,23 @@ define(function (require) {
                   + "  if <key_path> <op> <value>   | if <key_path> not <op> to <value>, ignore until next endif\n"
                   + "      ...                      | <op> can be one of '==', '<', '<=', '>', '>=', '!='\n"
                   + "  endif                        | decrement <value> on <key> local to <path> (relative or absolute)\n"
-                  + "  end                          | stop evaluating script\n";
+                  + "  end                          | stop evaluating script\n"
+                  + "  archive                      | save archive of all scripts\n"
+                  + "  reset <path>                 | reset (optional: <path>) script (deleting all sub directories)\n";
 
   var cmd_handler = {
+    'archive' : function() {
+      archive.archiveAll();
+      return null;
+    },
+    'reset' : function( argv ) {
+      workingDir.reset( argv[1] );
+      return function() {
+        if (argv[1] == null) {
+          workingDir.cd( argv[1] );
+        }
+      };
+    },
     'help' : function() {
       log.out( cmd_help );
       console.log( cmd_help );

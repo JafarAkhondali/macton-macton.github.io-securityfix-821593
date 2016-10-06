@@ -72,14 +72,6 @@ define(function (require) {
       archive.archiveAll();
       return null;
     },
-    'reset' : function( argv ) {
-      workingDir.reset( argv[1] );
-      return function() {
-        if (argv[1] == null) {
-          workingDir.cd( argv[1] );
-        }
-      };
-    },
     'help' : function() {
       log.out( cmd_help );
       console.log( cmd_help );
@@ -544,7 +536,15 @@ define(function (require) {
             var is_cd    = false;
   
             parser.parseLine( line_obj );
-  
+
+            // peek: reboot script
+            if ( line_obj.argv[0] == 'reset' ) {
+              workingDir.reset( line_obj.argv[1] );
+              workingDir.cd( line_obj.argv[1] );
+              pc = fs.getMeta( cwd, '.pc' );
+              return;
+            }
+
             if ( line_obj.argv[0] in cmd_handler ) {
               var cmd        = cmd_handler[ line_obj.argv[0] ];
               var if_stack   = fs.getMeta( cwd, '.if_stack' );
@@ -579,6 +579,7 @@ define(function (require) {
                   pending_updates[ script_path ] = pending;
                   break;
                 }
+
               }
             } else if (line_obj.lineBuffer != '') {
               if ( line_obj.argv[0] != '#' ) {

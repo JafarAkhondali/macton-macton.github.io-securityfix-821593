@@ -31,6 +31,23 @@ define(function (require) {
 
       return script_table[ source_path ].content;
     },
+    getAll: function() {
+      var result = {};
+      Object.keys(script_table).forEach( function( script_path ) {
+        result[script_path] = scripts.get( script_path );
+      });
+      return result;
+    },
+    mv: function( src, dst ) {
+      Object.keys(script_table).forEach( function( script_path ) {
+        if ( script_path.indexOf(src) !== -1 ) {
+          var script_data     = script_table[ script_path ];
+          var new_script_path = script_path.replace( src, dst );
+          script_table[new_script_path] = script_data;
+          delete script_table[ script_path ];
+        }
+      });
+    },
   };
 
   return scripts;

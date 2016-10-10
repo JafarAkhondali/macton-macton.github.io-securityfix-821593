@@ -13,6 +13,7 @@ define(function (require) {
   var map_back              = dom.getElementById('map-back');
   var next_line             = dom.getElementById('next-line');
   var title_card_container  = dom.getElementById('title-card-container');
+  var description_container = dom.getElementById('description-container');
 
   dom.addClickListener( app_container, function() {
     if (!('click-count' in env[ env.cwd ])) {
@@ -48,6 +49,7 @@ define(function (require) {
         } else {
           var map_element = dom.htmlToElement( '<a class="map-element" href="' + folder.link + '">' + folder.name + '</a>' );
           dom.addClickListenerPreventDefault( map_element, function() {
+            console.log('click cd "' + folder.link + '"');
             scripts.append( path.resolve( env.cwd, '.shell' ), 'cd "' + folder.link + '"' );
           });
         }
@@ -68,6 +70,18 @@ define(function (require) {
       }
     } else {
       dom.hide( title_card_container );
+    }
+  }
+
+  function renderDescription() {
+    if ( scene.isDescriptionVisible ) {
+      var text = scene.description;
+      dom.show( description_container );
+      if ( text != null ) {
+        dom.setChildHtml( description_container, '<span class="description">' + text + '</span>' );
+      }
+    } else {
+      dom.hide( description_container );
     }
   }
 
@@ -129,12 +143,13 @@ define(function (require) {
   }
 
   var renderCalls = {
-    isFoldersDirty:   renderFolders,
-    isTitleCardDirty: renderTitleCard,
-    isLineDirty:      renderLine,
-    isNextLineDirty:  renderNextLine,
-    isBackDirty:      renderBack,
-    isTitleDirty:     renderTitle,
+    isFoldersDirty:     renderFolders,
+    isTitleCardDirty:   renderTitleCard,
+    isDescriptionDirty: renderDescription,
+    isLineDirty:        renderLine,
+    isNextLineDirty:    renderNextLine,
+    isBackDirty:        renderBack,
+    isTitleDirty:       renderTitle,
   };
   var render = {
     update: function( dt ) {

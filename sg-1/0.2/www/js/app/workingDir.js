@@ -11,8 +11,9 @@ define(function (require) {
   var parser     = new Parser();
 
   var config = {
-    titleCardTextStepMs: 60,
-    lineTextStepMs:      30,
+    titleCardTextCharSec:   12,
+    descriptionTextCharSec: 16,
+    lineTextCharSec:        16,
   };
 
   function resolveTargetPath( target_path ) {
@@ -24,6 +25,13 @@ define(function (require) {
     return env.cwd;
   }
 
+  // #TODO Lex/Parse command line
+  // #TODO Don't loop error lines in .on_entry scripts
+  // #TODO Log/err/warn commands
+  // #TODO Math expressions
+  // #TODO Macros
+  // #TODO pushd
+
   // cmd_handler Checklist:
   //   1. Verify arguments
   //     a. Put all paths in absolute form
@@ -32,6 +40,7 @@ define(function (require) {
   var cmd_help    = "Commands\n"
                   + "  cd <path>                    | change directory to <path> (relative or absolute)\n"
                   + "  mkdir <path>                 | make directory <path> (relative or absolute)\n"
+                  + "  rm <path>                    | delete directory <path> (relative or absolute)\n"
                   + "  ls <path>                    | list directory (optional: <path> (relative or absolute))\n"
                   + "  pwd                          | print working directory to tty\n"
                   + "  enable <element>             | enable events for UI element\n"
@@ -44,7 +53,9 @@ define(function (require) {
                   + "  tab <element>                | select among mutually exclusive main UI elements\n"
                   + "      ... folders              | display folders\n"
                   + "      ... title-card           | display title-card\n"
+                  + "      ... description          | display description\n"
                   + "  title-card <text>            | print <text> on title card. Note: %%n is newline.\n"
+                  + "  description <text>           | print <text> on description. Note: %%n is newline.\n"
                   + "  title <text>                 | set <text> as title.\n"
                   + "  line <speaker> <text>        | print <text> for <speaker> on dialogue line. Note: %%n is newline.\n"
                   + "  wait <element>               | wait for <element> before continuing.\n"
@@ -53,8 +64,9 @@ define(function (require) {
                   + "  chmod <mode> <path>          | change <mode> on directory <path>\n"
                   + "      ... +rwx                 | <mode> enable read, write or executable flags (any can be specified)\n"
                   + "      ... -rwx                 | <mode> disable read, write or executable flags (any can be specified)\n"
-                  + "  link <target> <path>         | change default <path> location of <target>\n"
-                  + "      ... back                 | target=back, change back button to cd <path>\n"
+                  + "  link <type> <...>            | change default link location\n"
+                  + "      ... back <path>          | type=back, change back button to cd <path>\n"
+                  + "      ... file <target> <dest> | type=file, change <target> button to cd <dest>\n"
                   + "  set <key_path> <value>       | set <value> on <key_path> (relative or absolute)\n"
                   + "      ...                      | if <value> is unspecified, print value of <key> to tty\n"
                   + "      ...                      | if <key> and <value> are unspecified, print values of all <key> to tty\n"
@@ -65,11 +77,25 @@ define(function (require) {
                   + "  endif                        | decrement <value> on <key> local to <path> (relative or absolute)\n"
                   + "  end                          | stop evaluating script\n"
                   + "  archive                      | save archive of all scripts\n"
-                  + "  reset <path>                 | reset (optional: <path>) script (deleting all sub directories)\n";
+                  + "  save-all                     | force save of all scripts\n"
+                  + "  reset <path>                 | reset (optional: <path>) script (deleting all sub directories)\n"
+                  + "  script-mv <src> <dst>        | rename scripts matching <src> to <dst>\n"
+                  + "  script-rm <path>             | remove script in <path> (relative or absolute)\n"
+                  + "  pause                        | pause script evaluation\n"
+                  + "  resume                       | resume script evaluation\n";
 
   var cmd_handler = {
     'archive' : function() {
       archive.archiveAll();
+      return null;
+    },
+    'save-all' : function() {
+      archive.saveAll();
+      return null;
+    },
+    'script-mv' : function( argv ) {
+      scripts.mv( argv[1], argv[2] );
+      archive.saveAll();
       return null;
     },
     'help' : function() {
@@ -79,6 +105,17 @@ define(function (require) {
     },
     'cd' : function( argv ) {
       return workingDir.cd( argv[1] );
+    },
+    'rm' : function( argv ) {
+      target_path = resolveTargetPath( argv[1] );
+      fs.rm( target_path );
+      sceneWrite.updateFolders();
+      return null;
+    },
+    'script-rm' : function( argv ) {
+      var target_path = resolveTargetPath( argv[1] );
+      archive.rmScript( target_path );
+      scripts.empty( target_path );
     },
     'mkdir' : function( argv ) {
       return workingDir.mkdir( argv[1] );
@@ -91,6 +128,10 @@ define(function (require) {
       if (argv[1] == 'back') {
         var target_path = resolveTargetPath( argv[2] );
         env[ env.cwd ]['back'] = target_path;
+      } else if (argv[1] == 'file') {
+        var target_path = resolveTargetPath( argv[2] );
+        var dest_path   = resolveTargetPath( argv[3] );
+        fs.setMeta( target_path, '.link', dest_path );
       }
     },
     'ls' : function( argv ) {
@@ -111,27 +152,37 @@ define(function (require) {
       if ( tab == 'folders' ) {
         sceneWrite.showFolders();
         sceneWrite.hideTitleCard();
+        sceneWrite.hideDescription();
       } else if ( tab == 'title-card' ) {
         sceneWrite.hideFolders();
         sceneWrite.showTitleCard();
+        sceneWrite.hideDescription();
+      } else if ( tab == 'description' ) {
+        sceneWrite.hideFolders();
+        sceneWrite.hideTitleCard();
+        sceneWrite.showDescription();
       }
     },
     'title-card' : function( argv, dt ) {
+      if ( env['is-text-disabled'] ) {
+        return null;
+      }
+
       var text               = argv[1].replace(/%n/g,'\n');
       var text_len           = text.length;
       var text_dt            = 0;
-      var text_step_ms       = config.titleCardTextStepMs;
+      var text_char_sec      = config.titleCardTextCharSec;
       var start_click_count  = env[ env.cwd ]['click-count'] || 0;
 
-      function step_text() {
+      function step_text(dt) {
         var click_count = env[ env.cwd ]['click-count'] || 0;
         if ( click_count != start_click_count ) {
-          dt *= 2;
+          dt *= 8;
         }
 
         text_dt += dt;
 
-        var text_ndx = parseInt(text_dt / text_step_ms);
+        var text_ndx = parseInt( (text_dt/1000) * text_char_sec);
         var next     = step_text;
 
         if ( text_ndx > text_len ) {
@@ -145,15 +196,53 @@ define(function (require) {
         return next;
       };
 
-      return step_text();
+      return step_text(dt);
+    },
+    'description' : function( argv, dt ) {
+      if ( env['is-text-disabled'] ) {
+        return null;
+      }
+      var text               = argv[1].replace(/%n/g,'\n');
+      var text_len           = text.length;
+      var text_dt            = 0;
+      var text_char_sec      = config.descriptionTextCharSec;
+      var start_click_count  = env[ env.cwd ]['click-count'] || 0;
+
+      function step_text(dt) {
+        var click_count = env[ env.cwd ]['click-count'] || 0;
+        if ( click_count != start_click_count ) {
+          dt *= 8;
+        }
+
+        text_dt += dt;
+
+        var text_ndx = parseInt( (text_dt/1000) * text_char_sec);
+        var next     = step_text;
+
+        if ( text_ndx > text_len ) {
+          text_ndx = text_len;
+          next     = null;
+        }
+
+        var html = text.substr(0,text_ndx).replace(/\n/g,'<br>');
+        sceneWrite.updateDescription( html );
+     
+        return next;
+      };
+
+      return step_text(dt);
     },
     'line' : function( argv, dt ) {
+      if ( env['is-text-disabled'] ) {
+        return null;
+      }
+
       var speaker             = argv[1];
       var text                = argv[2].replace('%n','\n');
       var text_class          = argv[3];
       var text_len            = text.length;
       var text_dt             = 0;
-      var text_step_ms        = config.lineTextStepMs;
+      var text_char_sec       = config.lineTextCharSec;
       var is_folders_disabled = env[ env.cwd ]['is-folders-disabled'];
       var start_click_count   = env[ env.cwd ]['click-count'] || 0;
 
@@ -162,14 +251,14 @@ define(function (require) {
         sceneWrite.disableFolders();
       }
 
-      function step_text() {
+      function step_text(dt) {
         click_count = env[ env.cwd ]['click-count'] || 0;
         if ( click_count != start_click_count ) {
-          dt *= 2;
+          dt *= 8;
         }
 
         text_dt += dt;
-        var text_ndx = parseInt(text_dt / text_step_ms);
+        var text_ndx = parseInt( (text_dt/1000) * text_char_sec);
         var next     = step_text;
 
         if ( text_ndx > text_len ) {
@@ -187,9 +276,13 @@ define(function (require) {
         return next;
       };
 
-      return step_text();
+      return step_text(dt);
     },
     'wait': function( argv, dt ) {
+      if ( env['is-text-disabled'] ) {
+        return null;
+      }
+
       if ( argv[1] == 'next-line' ) {
         env[ env.cwd ]['wait-next-line'] = true;
         sceneWrite.showNextLine();
@@ -203,15 +296,15 @@ define(function (require) {
         }
         return waitNextLine();
       } else if (parseFloat( argv[1] ) > 0) {
-        var wait_dt = 0;
-        function waitTime() {
+        var wait_dt           = 0;
+        function waitTime(dt) {
           wait_dt += dt;
           if ( wait_dt > parseFloat( argv[1] ) ) {
             return null;
           }
           return waitTime;
         }
-        return waitTime();
+        return waitTime(dt);
       } else {
         log.err('unknown wait statement');
         return null;
@@ -225,12 +318,16 @@ define(function (require) {
       if ( argv[1] == 'folders' ) {
         env[ env.cwd ]['is-folders-disabled'] = false;
         sceneWrite.enableFolders();
+      } else if ( argv[1] == 'text' ) {
+        env['is-text-disabled'] = false;
       }
     },
     'disable': function( argv, dt ) {
       if ( argv[1] == 'folders' ) {
         env[ env.cwd ]['is-folders-disabled'] = true;
         sceneWrite.disableFolders();
+      } else if ( argv[1] == 'text' ) {
+        env['is-text-disabled'] = true;
       }
     },
     'set': function( argv, dt ) {
@@ -397,10 +494,16 @@ define(function (require) {
     'tab': function( argv, dt ) {
       if ( argv[1] == 'title-card' ) {
         sceneWrite.showTitleCard();
+        sceneWrite.hideDescription();
         sceneWrite.hideFolders();
       } else if ( argv[1] == 'folders' ) {
         sceneWrite.hideTitleCard();
+        sceneWrite.hideDescription();
         sceneWrite.showFolders();
+      } else if ( argv[1] == 'description' ) {
+        sceneWrite.hideTitleCard();
+        sceneWrite.hideFolders();
+        sceneWrite.showDescription();
       } else {
         log.err('Unknown element "' + argv[1] + '"' );
       }
@@ -409,9 +512,18 @@ define(function (require) {
     'end': function() {
       return null;
     },
+    'pause': function() {
+      workingDir.isPaused = true;
+      return null;
+    },
+    'resume': function() {
+      workingDir.isPaused = false;
+      return null;
+    },
   };
 
   var workingDir = {
+    isPaused: false,
     cmdHelpHtml: function() {
       if (workingDir.cmdHelpHtmlText == null) {
         workingDir.cmdHelpHtmlText = '<pre>' + cmd_help.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>').replace(/%%/g, '%') + '</pre></div>';
@@ -449,9 +561,14 @@ define(function (require) {
         log.err('can\'t cd into directory (does not exist) \"' + target_path + '"');
         return;
       }
+      var link = fs.getMeta( target_path, '.link' );
+      if (link != null) {
+        return workingDir.cd( link );  
+      }
 
       // clear out shell
-      scripts.empty( path.resolve( target_path, '.shell' ) );
+      var shell_script_path = path.resolve( target_path, '.shell' );
+      scripts.empty( shell_script_path );
 
       // set cwd
       env.cwd = target_path;
@@ -468,6 +585,7 @@ define(function (require) {
       if (pc == null) {
         pc = {};
       }
+
       // peek: is script on 'end' (don't reset)
       function peekScriptAtEnd( script_path ) {
         if ( pc[script_path] == null ) {
@@ -489,10 +607,14 @@ define(function (require) {
         return line_obj.argv[0] == 'end';
       }
  
+      // reset .on_enter pc=0
       if (!peekScriptAtEnd( script_path)) {
         pc[script_path] = 0;
-        fs.setMeta( target_path, '.pc', pc );
       }
+      // reset .shell pc=0
+      pc[shell_script_path] = 0;
+
+      fs.setMeta( target_path, '.pc', pc );
 
       return null;
     },
@@ -510,8 +632,13 @@ define(function (require) {
         }
   
         active_scripts.forEach( function( script_path ) {
+          if ( script_path.indexOf('/.shell') == -1 ) {
+            if (workingDir.isPaused) {
+              return;
+            }
+          }
           if ( pending_updates && pending_updates[ script_path ] ) {
-            pending_updates[ script_path ] = pending_updates[ script_path ]();
+            pending_updates[ script_path ] = pending_updates[ script_path ](dt);
             fs.setMeta( cwd, '.pendingUpdate', pending_updates );
             return;
           }

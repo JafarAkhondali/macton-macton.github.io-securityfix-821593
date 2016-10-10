@@ -7,6 +7,7 @@ define(function (require) {
 
   var sceneWrite = {
     clear: function() {
+      sceneWrite.hideDescription();
       sceneWrite.hideTitleCard();
       sceneWrite.showFolders();
       sceneWrite.enableFolders();
@@ -33,9 +34,19 @@ define(function (require) {
       scene.isTitleCardVisible = true;
     },
 
+    showDescription: function() {
+      scene.isDescriptionDirty   = true;
+      scene.isDescriptionVisible = true;
+    },
+
     hideTitleCard: function() {
       scene.isTitleCardDirty   = true;
       scene.isTitleCardVisible = false;
+    },
+
+    hideDescription: function() {
+      scene.isDescriptionDirty   = true;
+      scene.isDescriptionVisible = false;
     },
    
     updateFolders: function() {
@@ -63,6 +74,10 @@ define(function (require) {
     updateTitleCard: function( text ) {
       scene.isTitleCardDirty = true;
       scene.titleCard        = text;
+    },
+    updateDescription: function( text ) {
+      scene.isDescriptionDirty = true;
+      scene.description        = text;
     },
  
     clearLine: function() {

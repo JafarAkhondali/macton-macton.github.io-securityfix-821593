@@ -100,7 +100,7 @@ define(function (require) {
     getPermissions: function( target_path ) {
       if ( !(target_path in file_ids) ) {
         log.err('file not found "' + target_path + '"' );
-         return [];
+         return '';
       }
 
       var target_id = file_ids[ target_path ];
@@ -109,7 +109,7 @@ define(function (require) {
     setPermissions: function( target_path, permissions ) {
       if ( !(target_path in file_ids) ) {
         log.err('file not found "' + target_path + '"' );
-         return [];
+        return;
       }
 
       var target_id = file_ids[ target_path ];

@@ -4,6 +4,7 @@ define(function (require) {
 
   var log = {
     out: function( text ) {
+      console.log( text );
       queued.push( '%c(@yellowgreen)' + text  );
     },
     err: function( text ) {

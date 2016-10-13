@@ -12,6 +12,10 @@ define(function (require) {
       debug.log("map title \"" + text + "\"" );
       map.setTitle( text );
     }, 
+    "Time": function( text ) {
+      debug.log("map time \"" + text + "\"" );
+      map.setTime( text );
+    }, 
     "AddToMap": function( title, sub_dir ) {
       debug.log("map add \"" + title + "\" " + sub_dir );
       map.add( sub_dir, title );
@@ -51,14 +55,20 @@ define(function (require) {
       if ( map.subFolderCount() == 0 ) {
         map.rm( cwd );
       }
-    } else if ( config.DeleteSelfWhenDone ) {
-      if ( instruction_stream.eof() ) {
+    } else if ( config.UnlinkSelfWhenDone ) {
+      if ( instruction_stream.endOfStream() ) {
         map.unlink( cwd );
       }
+    } else if ( config.DeleteSelfWhenDone ) {
+      if ( instruction_stream.endOfStream() ) {
+        map.rm( cwd );
+      }
+    } else if ( config.NoReset ) {
+      /* Nothing */
     } else {
       // Default: ResetWhenDone
-      if ( instruction_stream.eof() ) {
-        map.subFolders().forEach( function( subFolder ) { map.rm( subFolder[0] ); } );
+      if ( instruction_stream.endOfStream() ) {
+        map.rmSubFolders();
         instruction_stream.reset();
       }
     }

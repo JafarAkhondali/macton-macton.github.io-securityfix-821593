@@ -70,6 +70,10 @@ body {
   text-decoration: none;
   padding: 4px; 
   font-weight: bold;
+  float: right;
+  position: relative;
+  right: 0px;
+  top: -20px;
 }
 
 #dialogue-line-container {
@@ -83,13 +87,22 @@ body {
 }
 
 .strikethrough {
- text-decoration: line-through; 
+  text-decoration: line-through; 
 }
 
 .title-card {
   font-size: 1.5em;
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   text-align: center;
+  width:100%;
+}
+
+.description-container {
+  padding-top: 8px;
+}
+
+.description {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
   width:100%;
 }
 
@@ -106,3 +119,14 @@ body {
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
 
+#editor-toolbar {
+  margin-bottom: 8px;
+}
+
+#app-toolbar {
+  margin-bottom: 8px;
+}
+
+#editor-help-text {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}

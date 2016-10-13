@@ -10,8 +10,15 @@ define(function (require) {
   var sub_folders = {};
   var dir_stack   = [];
   var blind       = {};
+  var current_time = '';
 
   var map = {
+    setTime: function( text ) {
+      current_time = text;
+    },
+    getTime: function() {
+      return current_time;
+    },
     cd: function( sub_dir, initial_title ) {
       working_dir = path.resolve( working_dir, sub_dir );
       if ( initial_title == null ) {
@@ -89,6 +96,9 @@ define(function (require) {
     subFolders: function() {
       return sub_folders[working_dir];
     },
+    rmSubFolders: function() {
+      sub_folders[working_dir] = [];
+    },
     setBlind: function( key, value ) {
       blind[key] = value;
     },
@@ -99,7 +109,9 @@ define(function (require) {
       var count = 0;
       for (var i=0;i<max_slots;i++) {
         if ( sub_folders[working_dir][i] ) {
-          count++;
+          if ( sub_folders[working_dir][i][0] ) {
+            count++;
+          }
         }
       }
       return count;

@@ -11,6 +11,8 @@ define(function (require) {
   var map_elements       = dom.getElementsByClassName( map_box, 'map-element' );
   var map_back           = dom.getElementById('map-back');
   var next_line          = dom.getElementById('next-line');
+  var big_time           = dom.getElementById('big-time');
+  var current_time       = '';
 
   dom.forEach( map_elements, function( element, ndx ) {
     dom.addClickListenerPreventDefault( element, function() {
@@ -115,9 +117,35 @@ define(function (require) {
               }
             });
           }
+
           
           typeLine();
         } 
+
+          var map_time      = map.getTime();
+          var time_text_ndx = 0;
+          var time_text_len = map_time.length;
+
+          var typeTime = function() {
+              debug.log('time ' + map_time );
+              current_time = map_time;
+              dom.empty( big_time );
+              dom.show( big_time );
+              window.requestAnimationFrame( function() {
+                dom.setChildHtml( big_time, '<span>' + current_time.substr(0,time_text_ndx++) + '</span>' );
+                if (time_text_ndx < time_text_len+1) {
+                  setTimeout( typeTime, 30 );
+                } else {
+                  setTimeout( function() {
+                    dom.hide( big_time );
+                    events.trigger('next-line');
+                  }, 2000 );
+                }
+              });
+          }
+          if ( current_time != map_time ) {
+            typeTime();
+          } 
   
         dom.hide( next_line );
       });

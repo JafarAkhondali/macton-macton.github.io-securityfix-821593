@@ -3,22 +3,23 @@
 // Configure loading modules from the lib directory,
 // except 'app' ones, 
 requirejs.config({
-    baseUrl: "js/lib",
+    baseUrl: 'js/lib',
     paths: {
-      "app": "../app"
+      app: '../app',
+      ace: '//cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/'
     },
     shim: {
-      'termlib':  {
+      termlib:  {
         exports: 'Terminal'
       },
-      'fpsmeter':  {
+      fpsmeter:  {
         exports: 'FPSMeter'
       },
-      'termlib_parser':  {
+      termlib_parser:  {
         exports: 'Parser'
       },
     }
 });
 
 // Load the main app module to start the app
-requirejs(["app/main"]);
+requirejs(['app/main']);

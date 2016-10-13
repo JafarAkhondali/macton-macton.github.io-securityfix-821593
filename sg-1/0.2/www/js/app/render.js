@@ -124,9 +124,9 @@ define(function (require) {
 
   function renderNextLine() {
     if ( scene.isNextLineVisible ) {
-      dom.show( next_line );
+      dom.visible( next_line );
     } else { 
-      dom.hide( next_line );
+      dom.hidden( next_line );
     }
   }
 

@@ -27,10 +27,10 @@ define(function (require) {
 
   // #TODO Lex/Parse command line
   // #TODO Don't loop error lines in .on_entry scripts
-  // #TODO Log/err/warn commands
   // #TODO Math expressions
   // #TODO Macros
   // #TODO pushd
+  // #TODO Global shell script?
 
   // cmd_handler Checklist:
   //   1. Verify arguments
@@ -42,10 +42,11 @@ define(function (require) {
                   + "  mkdir <path>                 | make directory <path> (relative or absolute)\n"
                   + "  rm <path>                    | delete directory <path> (relative or absolute)\n"
                   + "  ls <path>                    | list directory (optional: <path> (relative or absolute))\n"
-                  + "  pwd                          | print working directory to tty\n"
+                  + "  pwd                          | print working directory to tty (debug)\n"
                   + "  enable <element>             | enable events for UI element\n"
                   + "  disable <element>            | disable events for UI element\n"
                   + "      ... folders              | enable/disable folders actions\n"
+                  + "      ... text                 | enable/disable text actions (dialogue, description, title card)\n"
                   + "  show <element>               | display UI element\n"
                   + "  hide <element>               | do not display UI element\n"
                   + "      ... back                 | enable/disable back button action\n"
@@ -82,9 +83,14 @@ define(function (require) {
                   + "  script-mv <src> <dst>        | rename scripts matching <src> to <dst>\n"
                   + "  script-rm <path>             | remove script in <path> (relative or absolute)\n"
                   + "  pause                        | pause script evaluation\n"
-                  + "  resume                       | resume script evaluation\n";
+                  + "  resume                       | resume script evaluation\n"
+                  + "  log <text>                   | print text to tty (debug)\n";
 
   var cmd_handler = {
+    'log': function( argv ) {
+      log.out( argv[1] );
+      return null;
+    },
     'archive' : function() {
       archive.archiveAll();
       return null;

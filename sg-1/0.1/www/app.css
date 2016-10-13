@@ -6,6 +6,7 @@
 body {
 }
 
+
 .map-element {
   border-radius: 5px;
   border: 2px solid #73AD21;
@@ -114,4 +115,11 @@ body {
 
 .strikethrough {
  text-decoration: line-through; 
+}
+
+#big-time {
+  font-size: 1.5em;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  text-align: center;
+  width:100%;
 }

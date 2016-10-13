@@ -7,25 +7,46 @@
     </head>
     <body>
       <div id="app-container">
+
+        <div id="app-toolbar" style="display:none;">
+          <a class="tool" id="script-edit" href="script-edit">[Edit]</a>
+          <span class="tool" id="script-title">/Path</span>
+        </div>
+
         <div id="map-box">
           <div id="map-title">
-            <a href="map-back" id="map-back" style="display:none">&lt;</a>
+            <a href="map-back" id="map-back" style="display:none">&lt;&lt;</a>
             <span id="map-description"></span>
           </div>
+
           <div id="map-element-container" class="center-container"></div>
           <div id="title-card-container" class="center-container" style="display:none;"></div>
+          <div id="description-container" class="center-container" style="display:none;"></div>
+
           <div id="map-dialogue-container">
             <div id="dialogue-speaker">
             </div>
             <div id="dialogue-line-container">
               <span id="dialogue-line">
               </span>
-              <a id="next-line" href="next-line" style="display:none;">&gt;&gt;</a>
             </div>
+            <a id="next-line" href="next-line" style="visibility:hidden;">&gt;&gt;</a>
           </div>
         </div>
         <div id="profile"></div>
         <div id="term" style="visibility: hidden;"></div>
       </div>
+
+      <div id="editor-container" style="display:none;">  
+        <div id="editor-toolbar">
+          <a class="tool" id="script-save" href="script-save">[Save]</a>
+          <a class="tool" id="script-cancel" href="script-cancel">[Cancel]</a>
+          <span class="tool" id="edit-title">/Path</span>
+        </div>
+        <div id="editor" style="height:500px;"></div>
+        <div id="editor-help-text">
+        </div>
+      </div>
+
     </body>
 </html>

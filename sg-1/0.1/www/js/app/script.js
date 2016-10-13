@@ -11,7 +11,7 @@ define(function (require) {
   var debug = require('./debug');
   var script;
 
-  var yield_instructions = [ 'Think', 'Speak', 'Read', 'ClearLine' ];
+  var yield_instructions = [ 'Think', 'Speak', 'Read', 'Time' ];
       
   function nodeFromPath( script_path ) {
     var node       = script;       

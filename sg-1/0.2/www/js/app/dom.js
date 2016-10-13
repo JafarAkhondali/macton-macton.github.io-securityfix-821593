@@ -93,6 +93,14 @@ define(function (require) {
       element.style.display = '';
     },
 
+    hidden: function( element ) {
+      element.style.visibility = 'hidden';
+    },
+
+    visible: function( element ) {
+      element.style.visibility = '';
+    },
+
     setChildHtml: function( parent_element, child_html ) {
       dom.empty( parent_element );
       dom.appendChildHtml( parent_element, child_html );

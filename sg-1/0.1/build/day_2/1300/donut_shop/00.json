@@ -1,8 +1,11 @@
 
 [
-  [ "Describe", "Lilah starts work at the donut shop." ],
+  [ "Time", "Day 2, 1:00pm" ],
+  [ "Read", "Day 2, 1:00pm", "Lilah starts work at the donut shop." ],
+  [ "ClearLine" ],
   [ "AddToMap", "Table", "table" ],
   [ "AddToMap", "Behind counter", "behind_counter" ],
   [ "AddToMap", "Counter", "counter" ],
-  [ "AddToMap", "Sam", "sam" ]
+  [ "AddToMap", "Sam", "sam" ],
+  [ "AddToMap", "Customer", "customer" ]
 ]

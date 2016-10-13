@@ -130,10 +130,14 @@ static void send_sources( struct mg_connection* nc )
 {
   for (int i=0; i<s_source->pathCount; i++)
   {
-    printf("SEND %s\n",s_source->paths[i]);
-    snprintf( s_output_buffer, kOutputBufferSize, "{ \"cmd\" : \"LOAD\", \"path\" : \"%s\", \"text\" : \"%s\" }", s_source->paths[i],s_source->text[i]);
-    int len = strlen( s_output_buffer );
-    mg_send_websocket_frame(nc, WEBSOCKET_OP_TEXT, s_output_buffer, len );
+    int path_len = strlen( s_source->paths[i] );
+    if (path_len)
+    {
+      printf("SEND %s\n",s_source->paths[i]);
+      snprintf( s_output_buffer, kOutputBufferSize, "{ \"cmd\" : \"LOAD\", \"path\" : \"%s\", \"text\" : \"%s\" }", s_source->paths[i],s_source->text[i]);
+      int len = strlen( s_output_buffer );
+      mg_send_websocket_frame(nc, WEBSOCKET_OP_TEXT, s_output_buffer, len );
+    }
   }
 }
 
@@ -197,6 +201,40 @@ static void msg_save( const char* p, int len )
   s_source->text[path_ndx][len] = 0;
 }
 
+static void msg_rm( const char* p, int len )
+{
+  const char* path      = p;
+  int         path_len =  param_len( p, len );
+
+  if ( path_len == -1 )
+  {
+    perror("path_len == -1");
+    return;
+  }
+  if ( path_len >= kPathLengthMax )
+  {
+    perror("path_len too big");
+    return;
+  }
+
+  p   += path_len+1;
+  len -= path_len+1;
+
+  char path_str[kPathLengthMax];
+
+  strncpy( path_str, path, path_len );
+  path_str[path_len] = 0;
+
+  int path_ndx = find_path_ndx( path_str, path_len );
+  if (path_ndx == -1)
+  {
+    printf("FILE DOES NOT EXIST \"%s\"\n", path_str );
+    return;
+  }
+
+  s_source->paths[path_ndx][0] = 0;
+}
+
 static void msg_command( struct mg_connection* nc, const char* p, int len )
 {
   const char* cmd      = p;
@@ -214,6 +252,12 @@ static void msg_command( struct mg_connection* nc, const char* p, int len )
   if ( strncmp( cmd, "SAVE", cmd_len ) == 0 )
   {
     msg_save( p, len );
+    return;
+  }
+
+  if ( strncmp( cmd, "RM", cmd_len ) == 0 )
+  {
+    msg_rm( p, len );
     return;
   }
 

@@ -13,12 +13,28 @@ define(function (require) {
       }
       script_table[ source_path ].content.push( line );
     },
+    emptyAll: function() {
+      script_table = {};
+    },
     empty: function( source_path ) {
+      if ( source_path == null ) {
+        console.log('ERROR: Tried to scripts.empty without source_path '); 
+        return;
+      }
       script_table[ source_path ] = null;
     },
     setFromText: function( source_path, text ) {
       var lines = text.split(/\r\n|[\n\v\f\r\x85\u2028\u2029]/);
-      script_table[ source_path ] = { content: lines };
+      if ( script_table[ source_path ] == null ) {
+        script_table[ source_path ] = {};
+      }
+      script_table[ source_path ].content = lines;
+    },
+    setContent: function( source_path, lines ) {
+      if ( script_table[ source_path ] == null ) {
+        script_table[ source_path ] = {};
+      }
+      script_table[ source_path ].content = lines;
     },
     get: function( source_path ) {
       if ( script_table[ source_path ] == null ) {

@@ -4,28 +4,38 @@ define(function (require) {
  
   var scripts = require('./scripts');
   var log     = require('./log');
-  var socket  = new WebSocket("ws://" + location.host );
+  var socket;
 
-  socket.onmessage = function(event) {
-    var msg           = JSON.parse( event.data );
-    var cmd           = msg.cmd;
-
-    if (cmd == 'LOAD') {
-      var script_path   = decodeURIComponent( msg.path );
-      var script_source = decodeURIComponent( msg.text );
-      if ( script_path.indexOf('/.shell') == -1 ) {
-        scripts.setFromText( script_path, script_source );
-        console.log( 'LOAD ' + script_path );
-      } 
-    } else {
-      log.err('Unknown cmd from server');
-      console.log(event.data);
+  function start(websocketServerLocation){
+    socket = new WebSocket(websocketServerLocation);
+    socket.onclose = function(){
+        //try to reconnect in 5 seconds
+        setTimeout(function(){start(websocketServerLocation)}, 5000);
+    };
+    socket.onmessage = function(event) {
+      var msg  = JSON.parse( event.data );
+      var cmd  = msg.cmd;
+  
+      if (cmd == 'LOAD') {
+        var script_path   = decodeURIComponent( msg.path );
+        var script_source = decodeURIComponent( msg.text );
+        if ( script_path.indexOf('/.shell') == -1 ) {
+          scripts.setFromText( script_path, script_source );
+          console.log( 'LOAD ' + script_path );
+        } 
+      } else if (cmd == 'SAVE-ALL') {
+        archive.saveAll();
+      } else {
+        log.err('Unknown cmd from server');
+        console.log(event.data);
+      }
     }
+    socket.onopen = function() {
+      socket.send('JOIN|');
+    };
   }
+  start( "ws://" + location.host );
 
-  socket.onopen = function() {
-    socket.send('JOIN|');
-  };
 
   var archive = {
     saveScript: function( script_path, script_source ) {
@@ -39,6 +49,10 @@ define(function (require) {
     archiveAll: function() {
       socket.send( 'ARCHIVE|' );
       console.log( 'ARCHIVE ALL' );
+    },
+    rebuildSaveAll: function() {
+      socket.send( 'SAVE-ALL|' );
+      console.log( 'SAVE ALL' );
     },
     saveAll: function() {
       var scripts_all = scripts.getAll();

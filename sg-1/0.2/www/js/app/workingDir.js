@@ -39,8 +39,8 @@ define(function (require) {
 
   var cmd_help    = "Commands\n"
                   + "  cd <path>                    | change directory to <path> (relative or absolute)\n"
-                  + "  mkdir <path>                 | make directory <path> (relative or absolute)\n"
-                  + "  rm <path>                    | delete directory <path> (relative or absolute)\n"
+                  + "  mkdir <path ...>             | make directory for <path>s (relative or absolute)\n"
+                  + "  rm <path ...>                | delete directory for <path>s (relative or absolute)\n"
                   + "  ls <path>                    | list directory (optional: <path> (relative or absolute))\n"
                   + "  pwd                          | print working directory to tty (debug)\n"
                   + "  enable <element>             | enable events for UI element\n"
@@ -58,9 +58,10 @@ define(function (require) {
                   + "  title-card <text>            | print <text> on title card. Note: %%n is newline.\n"
                   + "  description <text>           | print <text> on description. Note: %%n is newline.\n"
                   + "  title <text>                 | set <text> as title.\n"
-                  + "  line <speaker> <text>        | print <text> for <speaker> on dialogue line. Note: %%n is newline.\n"
+                  + "  line <speaker> <text> <class>| print <text> for <speaker> on dialogue line. Note: %%n is newline.\n"
+                  + "      .. think                 | class=think; italicized\n"
+                  + "      .. read                  | class=read; monospace\n"
                   + "  wait <element>               | wait for <element> before continuing.\n"
-                  + "      ... next-line            | wait for next-line button to be clicked.\n"
                   + "      ... <ms>                 | wait for time <ms> in milliseconds\n"
                   + "  chmod <mode> <path>          | change <mode> on directory <path>\n"
                   + "      ... +rwx                 | <mode> enable read, write or executable flags (any can be specified)\n"
@@ -84,7 +85,10 @@ define(function (require) {
                   + "  script-rm <path>             | remove script in <path> (relative or absolute)\n"
                   + "  pause                        | pause script evaluation\n"
                   + "  resume                       | resume script evaluation\n"
-                  + "  log <text>                   | print text to tty (debug)\n";
+                  + "  log <text>                   | print text to tty (debug)\n"
+                  + "  and <key_path> <value ...>   | logical and <value>s and store in <key_path>\n"
+                  + "  or <key_path> <value ...>    | logical or <value>s and store in <key_path>\n"
+                  + "  add <key_path> <value ...>   | add <value>s and store in <key_path>\n";
 
   var cmd_handler = {
     'log': function( argv ) {
@@ -113,8 +117,11 @@ define(function (require) {
       return workingDir.cd( argv[1] );
     },
     'rm' : function( argv ) {
-      target_path = resolveTargetPath( argv[1] );
-      fs.rm( target_path );
+      var arg_ndx = 1;
+      while ( argv[ arg_ndx ] ) {
+        fs.rm( resolveTargetPath( argv[arg_ndx] ) );
+        arg_ndx++;
+      }
       sceneWrite.updateFolders();
       return null;
     },
@@ -124,7 +131,12 @@ define(function (require) {
       scripts.empty( target_path );
     },
     'mkdir' : function( argv ) {
-      return workingDir.mkdir( argv[1] );
+      var arg_ndx = 1;
+      while ( argv[ arg_ndx ] ) {
+        workingDir.mkdir( argv[arg_ndx] );
+        arg_ndx++;
+      }
+      return null;
     },
     'pwd' : function( argv ) {
       log.out( env.cwd );
@@ -269,11 +281,23 @@ define(function (require) {
 
         if ( text_ndx > text_len ) {
           text_ndx = text_len;
-          next     = null;
 
-          if ( !is_folders_disabled ) {
-            sceneWrite.enableFolders();
-          } 
+          env[ env.cwd ]['wait-next-line'] = true;
+          sceneWrite.showNextLine();
+
+          function waitNextLine() {
+            if ( !env[ env.cwd ]['wait-next-line'] ) {
+              sceneWrite.hideNextLine();
+              if ( !is_folders_disabled ) {
+                sceneWrite.enableFolders();
+              } 
+              return null;
+            } else {
+              return waitNextLine;
+            }
+          }
+          
+          next = waitNextLine;
         }
 
         var html = text.substr(0,text_ndx).replace('\n','<br>');
@@ -288,19 +312,8 @@ define(function (require) {
       if ( env['is-text-disabled'] ) {
         return null;
       }
-
       if ( argv[1] == 'next-line' ) {
-        env[ env.cwd ]['wait-next-line'] = true;
-        sceneWrite.showNextLine();
-        function waitNextLine() {
-          if ( !env[ env.cwd ]['wait-next-line'] ) {
-            sceneWrite.hideNextLine();
-            return null;
-          } else {
-            return waitNextLine;
-          }
-        }
-        return waitNextLine();
+        return null;
       } else if (parseFloat( argv[1] ) > 0) {
         var wait_dt           = 0;
         function waitTime(dt) {
@@ -356,7 +369,97 @@ define(function (require) {
       }
       return null;
     },
+    'and': function( argv, dt ) {
+      var target_path = resolveTargetPath( argv[1] );
+      var key_path    = path.dirname( target_path ); 
+      var key         = path.basename( target_path );
 
+      if ( argv[2] == null ) {
+        log.err('and missing values');
+        return null;
+      }
+
+      var result_log = target_path + ' = 1 ';
+      var result  = 1;
+      var arg_ndx = 2;
+      while ( argv[ arg_ndx ] ) {
+        var arg_target_path = resolveTargetPath( argv[ arg_ndx ] );
+        var arg_key_path    = path.dirname( arg_target_path ); 
+        var arg_key         = path.basename( arg_target_path );
+        var arg_value       = fs.getMeta( arg_key_path, arg_key );
+        arg_value = (arg_value)?1:0;
+        result_log += '& ' + arg_target_path + ' (' + arg_value + ') ';
+        result &= arg_value;
+        arg_ndx++;
+      }
+      result = (result)?1:0;
+      result_log += ' = ' + result;
+      console.log( result_log );
+
+      fs.setMeta( key_path, key, result );
+      return null;
+    },
+    'or': function( argv, dt ) {
+      var target_path = resolveTargetPath( argv[1] );
+      var key_path    = path.dirname( target_path ); 
+      var key         = path.basename( target_path );
+
+      if ( argv[2] == null ) {
+        log.err('or missing values');
+        return null;
+      }
+
+      var result_log = target_path + ' = 1 ';
+      var result  = 1;
+      var arg_ndx = 2;
+      while ( argv[ arg_ndx ] ) {
+        var arg_target_path = resolveTargetPath( argv[ arg_ndx ] );
+        var arg_key_path    = path.dirname( arg_target_path ); 
+        var arg_key         = path.basename( arg_target_path );
+        var arg_value       = fs.getMeta( arg_key_path, arg_key );
+        arg_value = (arg_value)?1:0;
+        result_log += '| ' + arg_target_path + ' (' + arg_value + ') ';
+        result |= arg_value;
+        arg_ndx++;
+      }
+      result = (result)?1:0;
+      result_log += ' = ' + result;
+      console.log( result_log );
+
+      fs.setMeta( key_path, key, result );
+      return null;
+    },
+    'add': function( argv, dt ) {
+      var target_path = resolveTargetPath( argv[1] );
+      var key_path    = path.dirname( target_path ); 
+      var key         = path.basename( target_path );
+
+      if ( argv[2] == null ) {
+        log.err('add missing values');
+        return null;
+      }
+
+      var result_log = target_path + ' = 0 ';
+      var result  = 1;
+      var arg_ndx = 2;
+      while ( argv[ arg_ndx ] ) {
+        var arg_target_path = resolveTargetPath( argv[ arg_ndx ] );
+        var arg_key_path    = path.dirname( arg_target_path ); 
+        var arg_key         = path.basename( arg_target_path );
+        var arg_value       = fs.getMeta( arg_key_path, arg_key );
+        if (arg_value == null) {
+          arg_value = 0;
+        }
+        result_log += '+ ' + arg_target_path + ' (' + arg_value + ') ';
+        result += arg_value;
+        arg_ndx++;
+      }
+      result_log += ' = ' + result;
+      console.log( result_log );
+
+      fs.setMeta( key_path, key, result );
+      return null;
+    },
     'inc': function( argv, dt ) {
       var target_path = resolveTargetPath( argv[1] );
       var key_path    = path.dirname( target_path ); 
@@ -528,6 +631,110 @@ define(function (require) {
     },
   };
 
+  function updateScript( script_path, dt ) {
+    var cwd             = env.cwd;
+    var pending_updates = fs.getMeta( cwd, '.pendingUpdate' );
+    var pc              = fs.getMeta( cwd, '.pc' );
+
+    if ( script_path.indexOf('/.shell') == -1 ) {
+      if (workingDir.isPaused) {
+        return;
+      }
+    }
+
+    if ( pending_updates && pending_updates[ script_path ] ) {
+      pending_updates[ script_path ] = pending_updates[ script_path ](dt);
+      fs.setMeta( cwd, '.pendingUpdate', pending_updates );
+      return;
+    }
+  
+    var script = scripts.get( script_path );
+    if ( script == null ) {
+      return;
+    }
+  
+    if (pc == null) {
+      pc = {};
+    }
+    if (pc[script_path] == null) {
+      pc[script_path] = 0;
+    }
+  
+    // do until something becomes pending or eof
+    while (pc[script_path] < script.length)
+    {
+      var line_num = pc[script_path];
+      var line_obj = { lineBuffer: script[ line_num ].trim() };
+      var is_cd    = false;
+  
+      parser.parseLine( line_obj );
+
+      // peek: reboot script
+      if ( line_obj.argv[0] == 'reset' ) {
+        workingDir.reset( line_obj.argv[1] );
+        workingDir.cd( line_obj.argv[1] );
+        pc = fs.getMeta( cwd, '.pc' );
+        return;
+      }
+
+      if ( line_obj.argv[0] in cmd_handler ) {
+        var cmd        = cmd_handler[ line_obj.argv[0] ];
+        var if_stack   = fs.getMeta( cwd, '.if_stack' );
+        var is_ignored = if_stack && (if_stack.length > 0) && (if_stack[ if_stack.length-1 ] == false);
+
+        // peek: if stack commands not ignored
+        if ( line_obj.argv[0] == 'if' ) {
+          is_ignored = false;
+        } else if ( line_obj.argv[0] == 'endif' ) {
+          is_ignored = false;
+        }
+
+        if (!is_ignored) {
+          // peek: end means stop completely (don't increment pc)
+          if ( line_obj.argv[0] == 'end' ) {
+            break;
+          }
+
+          // peek: cd increments pc but executes later in chain
+          if ( line_obj.argv[0] == 'cd' ) {
+            is_cd = true;
+            break;
+          }
+
+          console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
+          var pending = cmd( line_obj.argv, dt );
+          if ( pending ) {
+            if ( pending_updates == null ) {
+              pending_updates = {};
+            }
+            pc[script_path]++;
+            pending_updates[ script_path ] = pending;
+            break;
+          }
+
+        }
+      } else if (line_obj.lineBuffer != '') {
+        if ( line_obj.argv[0] != '#' ) {
+          log.err( script_path + ':' + line_num + '  Unknown command: "'+line_obj.lineBuffer+'"');
+        }
+      }
+     
+      pc[script_path]++;
+    }
+
+    if (is_cd) {
+      pc[script_path]++;
+    } 
+  
+    fs.setMeta( cwd, '.pendingUpdate', pending_updates );
+    fs.setMeta( cwd, '.pc', pc );
+
+    if (is_cd) {
+      console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
+      cmd( line_obj.argv, dt );
+    } 
+  }
+
   var workingDir = {
     isPaused: false,
     cmdHelpHtml: function() {
@@ -630,111 +837,14 @@ define(function (require) {
       {
         var cwd             = env.cwd;
         var active_scripts  = fs.getMeta( cwd, '.activeScripts' );
-        var pending_updates = fs.getMeta( cwd, '.pendingUpdate' );
-        var pc              = fs.getMeta( cwd, '.pc' );
+        var update_script   = function( script_path ) { updateScript( script_path, dt ); };
   
         if (active_scripts == null) {
           return;
         }
   
-        active_scripts.forEach( function( script_path ) {
-          if ( script_path.indexOf('/.shell') == -1 ) {
-            if (workingDir.isPaused) {
-              return;
-            }
-          }
-          if ( pending_updates && pending_updates[ script_path ] ) {
-            pending_updates[ script_path ] = pending_updates[ script_path ](dt);
-            fs.setMeta( cwd, '.pendingUpdate', pending_updates );
-            return;
-          }
-  
-          var script = scripts.get( script_path );
-          if ( script == null ) {
-            return;
-          }
-  
-          if (pc == null) {
-            pc = {};
-          }
-          if (pc[script_path] == null) {
-            pc[script_path] = 0;
-          }
-  
-          // do until something becomes pending or eof
-          while (pc[script_path] < script.length)
-          {
-            var line_num = pc[script_path];
-            var line_obj = { lineBuffer: script[ line_num ].trim() };
-            var is_cd    = false;
-  
-            parser.parseLine( line_obj );
+        active_scripts.forEach( update_script );
 
-            // peek: reboot script
-            if ( line_obj.argv[0] == 'reset' ) {
-              workingDir.reset( line_obj.argv[1] );
-              workingDir.cd( line_obj.argv[1] );
-              pc = fs.getMeta( cwd, '.pc' );
-              return;
-            }
-
-            if ( line_obj.argv[0] in cmd_handler ) {
-              var cmd        = cmd_handler[ line_obj.argv[0] ];
-              var if_stack   = fs.getMeta( cwd, '.if_stack' );
-              var is_ignored = if_stack && (if_stack.length > 0) && (if_stack[ if_stack.length-1 ] == false);
-
-              // peek: if stack commands not ignored
-              if ( line_obj.argv[0] == 'if' ) {
-                is_ignored = false;
-              } else if ( line_obj.argv[0] == 'endif' ) {
-                is_ignored = false;
-              }
-
-              if (!is_ignored) {
-                // peek: end means stop completely (don't increment pc)
-                if ( line_obj.argv[0] == 'end' ) {
-                  break;
-                }
-
-                // peek: cd increments pc but executes later in chain
-                if ( line_obj.argv[0] == 'cd' ) {
-                  is_cd = true;
-                  break;
-                }
-
-                console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
-                var pending = cmd( line_obj.argv, dt );
-                if ( pending ) {
-                  if ( pending_updates == null ) {
-                    pending_updates = {};
-                  }
-                  pc[script_path]++;
-                  pending_updates[ script_path ] = pending;
-                  break;
-                }
-
-              }
-            } else if (line_obj.lineBuffer != '') {
-              if ( line_obj.argv[0] != '#' ) {
-                log.err( script_path + ':' + line_num + '  Unknown command: "'+line_obj.lineBuffer+'"');
-              }
-            }
-     
-            pc[script_path]++;
-          }
-
-          if (is_cd) {
-            pc[script_path]++;
-          } 
-  
-          fs.setMeta( cwd, '.pendingUpdate', pending_updates );
-          fs.setMeta( cwd, '.pc', pc );
-
-          if (is_cd) {
-            console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
-            cmd( line_obj.argv, dt );
-          } 
-        });
       } while ( env.cwd != cwd ); // if cwd changed, continue script there (don't draw one frame before updating script)
     },
   };

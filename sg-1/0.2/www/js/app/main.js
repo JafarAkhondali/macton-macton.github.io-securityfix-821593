@@ -9,8 +9,11 @@ define(function (require) {
   var debug             = require('./debug');
   var FPSMeter          = require('fpsmeter');
   var profile           = dom.getElementById('profile');
-  var meter             = new FPSMeter(document.getElementById('profile'));
+  var meter;
   var prev_time;
+  if (debug.isDebug()) {
+    meter             = new FPSMeter(document.getElementById('profile'));
+  }
 
   function main( now ) {
     window.requestAnimationFrame( main );
@@ -28,11 +31,21 @@ define(function (require) {
       console.log('dt = ' + dt);
     }
 
-    meter.tickStart();
+    if (debug.isDebug()) {
+      meter.tickStart();
+    }
+
     workingDir.update(dt);
-    debug.update(dt);
+
+    if (debug.isDebug()) {
+      debug.update(dt);
+    }
+
     render.update(dt);
-    meter.tick();
+
+    if (debug.isDebug()) {
+      meter.tick();
+    }
 
     prev_time = start_time;
   }

@@ -9,6 +9,8 @@ define(function (require) {
   var workingDir = require('./workingDir');
   var env        = require('./env');
   var scripts    = require('./scripts');
+  var Parser     = require('termlib_parser');
+  var parser     = new Parser();
   var is_debug   = dom.getQueryVariable('debug');
 
   var debug = {
@@ -16,19 +18,28 @@ define(function (require) {
     },
     update: function() {
     },
+    isDebug: function() {
+      return is_debug;
+    },
   };
 
   if (is_debug) {
     debug.init = function() {
       var app_container     = dom.getElementById('app-container');
       var editor_container  = dom.getElementById('editor-container');
+      var tool_container    = dom.getElementById('tool-container');
       var app_toolbar       = dom.getElementById('app-toolbar');
       var script_title      = dom.getElementById('script-title');
+      var editor_toolbar    = dom.getElementById('editor-toolbar');
+      var export_toolbar    = dom.getElementById('export-toolbar');
       var edit_title        = dom.getElementById('edit-title');
       var script_edit       = dom.getElementById('script-edit');
       var script_save       = dom.getElementById('script-save');
       var script_cancel     = dom.getElementById('script-cancel');
+      var export_save       = dom.getElementById('export-save');
+      var export_cancel     = dom.getElementById('export-cancel');
       var editor_help_text  = dom.getElementById('editor-help-text');
+      var scripts_export    = dom.getElementById('scripts-export');
       var script_title_path = env.cwd;
   
       dom.show( app_toolbar );
@@ -48,10 +59,13 @@ define(function (require) {
         }
       }
   
-      dom.addClickListenerPreventDefault( script_edit, function() {
+      function scriptEdit() {
         window.requestAnimationFrame( function() {
           dom.hide( app_container );
+          dom.hide( tool_container );
+          dom.hide( export_toolbar );
           dom.show( editor_container );
+          dom.show( editor_toolbar );
           dom.setChildHtml( editor_help_text, workingDir.cmdHelpHtml() );
   
           var cwd           = env.cwd;
@@ -66,9 +80,36 @@ define(function (require) {
           editor.setValue( script_source, -1 );
           term.hide();
         });
-      });
+      }
+
+      function scriptsExport() {
+        window.requestAnimationFrame( function() {
+          dom.hide( app_container );
+          dom.hide( tool_container );
+          dom.hide( editor_toolbar );
+          dom.show( editor_container );
+          dom.show( export_toolbar );
+          dom.setChildHtml( editor_help_text, workingDir.cmdHelpHtml() );
+
+          var scripts_all  = scripts.getAll();
+          var unity_source = ''
+          Object.keys(scripts_all).sort().forEach( function( script_path ) {
+            if ( script_path.indexOf('/.shell') == -1 ) {
+              var script_source = scripts_all[ script_path ];
+              if (script_source) {
+                unity_source += '#script-begin "' + script_path + '"\n';
+                unity_source += script_source.join('\n').trim();
+                unity_source += '\n\n';
+              }
+            }
+          });
   
-      dom.addClickListenerPreventDefault( script_save, function() {
+          editor.setValue( unity_source, -1 );
+          term.hide();
+        });
+      }
+
+      function scriptSave() {
         window.requestAnimationFrame( function() {
           var cwd           = env.cwd;
           var script_path   = path.resolve( cwd, '.on_enter' );
@@ -85,15 +126,54 @@ define(function (require) {
   
           dom.show( app_container );
           dom.hide( editor_container );
+          dom.hide( tool_container );
           term.show();
         });
-      });
+      }
+
+      function scriptCancel() {
+        window.requestAnimationFrame( function() {
+          dom.show( app_container );
+          dom.hide( editor_container );
+          dom.hide( tool_container );
+          term.show();
+        });
+      }
+
+      function exportSave() {
+        var unity_source    = editor.getValue();
+        var unity_lines     = unity_source.split(/\r\n|[\n\v\f\r\x85\u2028\u2029]/);
+        var scripts_content = {};
+        var current_script  = null;
+
+        unity_lines.forEach( function( line ) {
+          var line_obj = { lineBuffer: line };
+          parser.parseLine( line_obj );
+
+          if ( line_obj.argv[0] == '#script-begin' ) {
+            current_script = line_obj.argv[1];
+            scripts_content[ line_obj.argv[1] ] = [];
+          } else if ( current_script != null ) {
+            scripts_content[ current_script ].push( line );
+          }
+        });
+
+        scripts.emptyAll();
+        Object.keys(scripts_content).forEach( function( script_path ) {
+          console.log( 'Save ' + script_path );
+          scripts.setFromText( script_path, scripts_content[ script_path ].join('\n').trim() );
+        });
+        archive.rebuildSaveAll();
+
+        scriptEdit();
+      }
   
-      dom.addClickListenerPreventDefault( script_cancel, function() {
-        dom.show( app_container );
-        dom.hide( editor_container );
-        term.show();
-      });
+      dom.addClickListenerPreventDefault( script_edit, scriptEdit );
+      dom.addClickListenerPreventDefault( scripts_export, scriptsExport );
+      dom.addClickListenerPreventDefault( script_save, scriptSave );
+      dom.addClickListenerPreventDefault( script_cancel, scriptCancel );
+      dom.addClickListenerPreventDefault( export_cancel, scriptEdit );
+      dom.addClickListenerPreventDefault( export_save, exportSave );
     };
 
     debug.update = function(dt) {

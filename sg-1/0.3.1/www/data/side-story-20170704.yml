@@ -1,0 +1,973 @@
+actors:
+  - name: "Mika"
+    dialogue-image: 'halfmika2.png'    
+  - name: "Mom"
+    dialogue-image: 'halfmom2.png'    
+  - name: "Ami"
+    dialogue-image: 'halfami2.png'
+  - name: "Dad"
+    dialogue-image: 'halfdad2.png'
+  - name: "Officer"
+    dialogue-image: 'halfpolice.png'
+  - name: "Narrator"
+    dialogue-image: 'blank.png'
+
+events:
+  - name: "event-A"
+  - name: "event-B"
+  - name: "event-C"
+  - name: "event-D"
+
+checkpoints:
+  "start": "/start"
+
+locations:
+
+  "/start":
+    name: "Bullet Decision"
+    background-image: "hopelessstart.png"
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        options:
+        - [ "Begin", "mika-room-start" ]
+
+      - id: "mika-room-start"
+        jump: "/mika home/mika room"
+  
+  "/mika home":
+    name: "Mika Home"
+    background-image: "mikahome.png"
+    dialogue:
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "Mika raises her hands over her head."
+          - say: [ "Mika", "Yawn." ]
+          - think: [ "Mika", "I should take a nap before dinner... I've been up for" ]
+          - description: "Mika looks at the clock."
+          - think: [ "Mika", "Ugh... 22 hours..." ]
+          - say: [ "Mika", "Yawn." ]
+  
+      - event: "event-C"
+        stage: "enter"
+        lines:
+          - description: "Mika squints as the bright light hits her face."
+          - think: [ "Mika", "Day time...? How long did I sleep?" ]
+          - say: [ "Mom", "It... It just... it just can't be true!" ]
+        jump:  "/mika home/living room"
+  
+  "/mika home/mika room":
+    name: "Mika's Room"
+    background-image: "mikaroom.png"
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There is a girl with blonde, disheveled, hair sitting at a desk."
+          - description: "A blanket is wrapped around her shoulders. The computer monitor inches from her face is the only light shining in the dark bedroom."
+          - description: "Her eyelids are slowling falling. Her elbow inching towards the edge of the desk."
+          - description: "Her elbow slids off the desk."
+          - description: "BANG!"
+          - description: "She goes forehead first into the desk. A tiny crack forms in the wood."
+          - say: ["Mika", "OUCH! God dammnit!"]
+          - description: "She rubs her forehead with the sleave of her sweater, squinting at the bright light in front of her."
+          - think: [ "Mika", "It's already 4? I guess 16 hours is my limit..." ]
+  
+      - event: "main"
+        stage: "empty"
+        lines:
+          - description: "A loud crashing sound echoed through the house."
+          - description: "CRASH.... THUMP..." 
+          - description: "Mika jumps. Her shoulders shake and eyes widen."
+          - say: [ "Mika", "W-What the fuck was that?!" ]
+          - description: "No one responds. The house is silent."
+          - think: [ "Mika", "I don't want to be blamed if something fell off the shelf again... I should go check it out." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I just need a little nap..." ]
+  
+  "/mika home/mika room/desk":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A white desk. It's covered in food wrappers and soda stains."
+  
+  "/mika home/mika room/desk/computer":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A gaudy high-tech gaming computer. It's green and covered in an assortment of cheap stickers."
+  
+  "/mika home/mika room/desk/computer/browser":
+    name: "Browser"
+
+  "/mika home/mika room/desk/computer/browser/email":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "13,867 unread emails."
+          - think: [ "Mika", "Hm..." ]
+          - description: "She scrolls through them."
+          - think: [ "Mika", "!!!" ]
+          - description: "Mika furiously clicks one titled, \"Auction Winner!\""
+          - think: [ "Mika", "Aasdfghjkl! I can't believe I won the limited addition dvd box set with three art books and all the games included!" ]
+          - description: "She squeals."
+          - think: [ "Mika", "Again!" ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "5 people just subscribed!"
+          - think: [ "Mika", "See... how can I be a loser? All these people want to read my blog." ]
+  
+  "/mika home/mika room/desk/computer/browser/fb":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "She casually scrolls through her feed."
+          - think: [ "Mika", "..." ]
+          - description: "Mika clicks out of FB."
+          - think: [ "Mika", "I don't really care what they are doing. I added them all for games anyway." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "Mika glances at her feed."
+          - think: [ "Mika", "These people don't think I'm a loser..." ]
+  
+  "/mika home/mika room/desk/computer/browser/forums":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There are over 20 open tabs from a variety of different forums."
+          - think: [ "Mika", "..." ]
+          - description: "Her eyes skim over the the homepages, rapidly clicking through the tabs."
+          - think: [ "Mika", "...!" ]
+          - description: "Mika's eyes widen." 
+          - description: "She furiously clicks one of her mentions. Repeatedly and forcefully clicking the mouse until it loads. "
+          - think: [ "Mika", "WHAT DO YOU MEAN YOU DON'T AGREE WITH MY 245 PAGE ANALYSIS OF HOW THE MAGE WAS ACCUTALLY THE HERO?!" ]
+          - think: [ "Mika", "WHO DO YOU THINK YOU ARE FIGHTER5EVER420!?" ]
+          - description: "She huffs."
+          - think: [ "Mika", "You stupid asshole." ]
+          - description: "Mika bookmarks the page."
+          - think: [ "Mika", "Prepare for at least 100 pages of why you're wrong delivered to you tomorrow." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I'll get to that after my nap." ]
+  
+  "/mika home/mika room/desk/computer/games":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A portal to a digital game store."
+          - think: [ "Mika", "It doesn't look like anything on sale." ]
+          - description: "She shrugs her shoulders."
+          - think: [ "Mika", "Probably for the best. I still have..." ]
+          - description: "Mika clicks around. She giggles."
+          - think: [ "Mika", "58 other games to play first! Whoops!" ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "A portal to a digital game store."
+          - think: [ "Mika", "Games are just so much more interesting than school." ]
+          - think: [ "Mika", "In school teachers only you to learn things one way with no rule testing." ]
+          - think: [ "Mika", "It makes it too easy." ]
+  
+  "/mika home/mika room/desk/computer/microphone":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A microphone application."
+          - say: [ "Mika", "Test... test test test!" ]
+          - description: "The microphone respond appropriately."
+  
+  "/mika home/mika room/desk/computer/photos":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "An empty folder."
+          - think: [ "Mika", "....Hm." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "An empty folder."
+          - think: [ "Mika", "...Is it just because I don't have friends...?" ]
+          - think: [ "Mika", "It's not my fault people are boring..." ]
+          - think: [ "Mika", "They think so slow they make me want to rip my hair out!" ]
+  
+  "/mika home/mika room/desk/games":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There is a pile of games haphazardly stacked next to the desk. The game on the top is wavering."
+          - description: "Mika stares as it, the corners of her eyes crinkle." 
+          - description: "The game falls over."
+          - think: ["Mika", "Well, fuck you too."]
+  
+  "/mika home/mika room/bookshelf":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There is a large bookshelf next to the bed. It's filled with old game manuals and collectables."
+  
+  "/mika home/mika room/tv":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A mid-range TV. It has multiple consoles plugged into it."
+  
+  "/mika home/mika room/table":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "It's a small kotatsu."
+          - think: [ "Mika", "That looks so cozy right now. It's been so cold recently." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I should stop napping there..." ]
+  
+  "/mika home/mika room/closet":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A small built in closet."
+          - description: " Mika opens the door."
+          - think: [ "Mika", "I can't even see what's in there." ]
+  
+  "/mika home/mika room/pile of clothes":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There is a pile of clothes on the floor."
+          - think: [ "Mika", "It's just so much easier to keep clean clothes where I can see them!" ]
+          - description: "Mika grimaces."
+          - think: [ "Mika", "At least, I think they're all clean..." ]
+  
+  "/mika home/mika room/bed":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "An unmade bed. It has white sheets and a wrinkled orange blanket."
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "An unmade bed. It has white sheets and a winkled orange blanket."
+        options:
+          - [ "Take Nap", "take-nap" ]
+          - [ "Stay Up",  "stay-up" ]
+
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "An unmade bed. It has white sheets and an orange comfortable."
+        options:
+          - [ "Take Nap", "take-nap" ]
+  
+      - id: "stay-up"
+        lines:
+          - think: [ "Mika", "I have too much on my mind to sleep... I need to think a little more." ]
+  
+      - id: "take-nap"
+        lines:
+          - say: [ "Mika", "Yawn." ]
+          - description: "Mika wiggles into bed."
+          - think: [ "Mika", "I'm just so tired..." ]
+          - description: "She nestles herself in the blanket."
+          - think: [ "Mika", "I hope I don't sleep too long... I need to post a lot of stuff tomorrow..." ]
+          - say: [ "Mika", "Yawn...." ]
+          - description: "In seconds, she's asleep."
+          - say: [ "", "..." ]
+          - say: [ "", "... ..." ]
+          - say: [ "", "... ... ..." ]
+          - say: [ "Mom", "Uwh... Waaaagh...!" ]
+          - description: "Mika's eyes shot open."
+          - think: [ "Mika", "?!" ]
+          - think: [ "Mika", "I-is that mom...? Crying...?" ]
+          - description: "Mika sits up. She wipes her face with her sleeve."
+          - description: "Her face is red with a wrinkled pillow imprint."
+          - say: [ "Mika", "W-What time is it?" ]
+          - say: [ "Dad", "NO! THAT MUST BE A MISTAKE!" ]
+          - say: [ "Mika", "D-Dad...? What's going on?" ]
+          - description: "She stands up and wraps herself in the blanket."
+          - description: "Mika squints as the bright light from the sun hits her face."
+          - think: [ "Mika", "Day time...? How long did I sleep?" ]
+          - say: [ "Mom", "It... It just... it just can't be true!" ]
+        start-event: [ "event-C", "/mika home" ]
+
+  "/mika home/kitchen":
+    name: "Kitchen"
+    background-image: "mikakitchen.png"
+  
+  "/mika home/kitchen/fridge":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A fully stocked fridge."
+          - think: [ "Mika", "Ugh! There is nothing to eat!" ]
+
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I wonder what's for dinner." ]
+  
+  "/mika home/kitchen/stove":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A high-range gas stove. It's immaculate."
+          - say: [ "Mika", "To much work..." ]
+  
+  "/mika home/kitchen/sink":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A chrome sink. It's empty."
+  
+  "/mika home/kitchen/cabinets":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There are glass cabinets affixed to the wall. All of them are closed."
+          - think: [ "Mika", "Doesn't look like the noise came from here." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "What Ami said is really getting to me..." ]
+          - think: [ "Mika", "At least I'm going to school, I wouldn't do that if it wasn't for them." ]
+  
+  "/mika home/kitchen/pantry":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A large pantry adjacent to the fridge."
+          - think: [ "Mika", "Uwuu... Looks like mom skimped on the snacks." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "Is the reason mom stopped getting me good snacks because she's ashamed of me...?" ]
+          - think: [ "Mika", "That's not my fault!" ]
+          - think: [ "Mika", "Over 200,000 people read my blog. I'm nothing to be ashamed over." ]
+  
+  "/mika home/kitchen/dining table":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There is a large, wooden dining table across from the kitchen." 
+          - description: "An enormmous bowl of fruit is sitting in the middle of the table."
+          - think: [ "Mika", "Bleh. Why isn't it filled with chocolate like I asked." ]
+
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I mean... I know most people don't like me..." ]
+          - think: [ "Mika", "But they're stupid! Mom and dad should know better!" ]
+
+  
+  "/mika home/living room":
+    name: "Living Room"
+    background-image: "mikalivingroom.png"
+    dialogue:
+      - event: "event-C"
+        stage: "enter"
+        lines:
+          - description: "The front door is wide open. There are police offers standing the doorway."
+          - think: [ "Mika", "W-What is going on?!" ]
+          - description: "The police officers have sullen faces."
+  
+  "/mika home/living room/coffee table":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A dark, wooden coffee table. Nothing is on it."
+  
+  "/mika home/living room/glass shelves":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "There are multiple glass shelves affixed to the wall. They're filled with awards, degrees and family photos."
+          - think: [ "Mika", "Everything is still here." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I've never noticed there aren't any recent photos of me." ]
+          - think: [ "Mika", "The last one is me getting my green belt." ]
+  
+  "/mika home/living room/couch":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A brown leather couch."
+  
+  "/mika home/living room/chairs":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A set of brown leather chairs. They match the couch."
+  
+  "/mika home/living room/display case":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "The display case is filled with family photos and awards."
+          - think: [ "Mika", "Doesn't look like anything fell from here." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I don't know what Amy was talking about, our parents know boring school is for me." ]
+          - think: [ "Mika", "Games are the only interesting thing..." ]
+  
+  "/mika home/living room/shoe rack":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A bamboo shoe rack is next to the door."
+  
+  "/mika home/living room/front door":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "The front door."
+          - description: "Mika peaks through the peephole."
+          - description: "No one is there."
+          - think: [ "Mika", "Guess it wasn't that." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "The front door."
+          - think: [ "Mika", "I don't want to go outside." ]
+          - think: [ "Mika", "I never do." ]
+  
+  "/mika home/living room/dad":
+    dialogue:
+      - event: "event-C"
+        stage: "enter"
+        lines:
+          - description: "He is standing by the doorway."
+          - description: "His arms are around Mika's mother and his eyes are bloodshot and veiny."
+          - say: [ "Dad", "..." ]
+          - description: "He looks at Mika."
+          - say: [ "Mika", "..." ]
+          - say: [ "Dad", "..." ]
+  
+  "/mika home/living room/mom":
+    dialogue:
+      - event: "event-C"
+        stage: "enter"
+        lines:
+          - description: "Mika's mom is standing by the doorway, her husband's arms around her."
+          - description: "There are tears and snot dripping down her face to her chin and onto the floor."
+          - say: [ "Mika", "M-Mom...?" ]
+          - description: "Mika's mom looks over. Her eyes and cheeks are puffy."
+          - description: "She is shaking, her knees kocking together."
+          - think: ["Mika", "S-She looks like she's going to fall over..."]
+          - description: "There are fingernail imprints on Mika's moms hands from clenching her fists."
+          - say: [ "Mom", "Mika..." ]
+          - description: "Mika's mom quickly turns away."
+          - description: "She violently kicks the couch. Her foot is bright red."
+          - say: ["Mom", "No!"]
+          - description: "Mika's mom is screaming at the top off her lungs."
+          - description: "Mika shakes. The scream is blood curdling." 
+          - say: ["Mom", "It's not true!"]
+          - description: "Mika's mom repeadly kicks the couch. Her foot swells, the red brusing becomes darker and darker. "
+          - say: ["Mom", "I will not say it!"]
+        start-event: [ "event-D", "/mika home/living room" ]
+
+  "/mika home/living room/police":
+    dialogue:
+      - event: "event-D"
+        stage: "enter"
+        lines:
+          - description: "The uniformed officer is clutching his crumpled cap. His eyes on the floor."
+          - say: [ "Mika", "What's going on?!"]
+          - say: [ "Officer", "There was a young girl found in the river this morning."]
+          - say: ["Officer", "We don't suspect foulplay. It... looks like she jumped."]
+          - say: ["Officer", "We've identified her as Amy Sato."]
+          - description: "Mika stood still."
+          - description: "Her knees buckle, and stomach turns."
+          - description: "She opened her mouth."
+          - say: ["Mika", "..."]
+          - description: "No sound came out."
+          - description: "Mika's mind had a million things running through it."
+          - description: "But also nothing."
+          - say: ["Mika", "..."]
+          - description: "She swiftly turned around."
+          - description: "Mika kicked the display case filled with memories."
+          - description: "It shook. The picture frames and awards knocked over."
+          - description: "Mika screamed. It filled the silent house."
+          - say: ["Mika", "Her name is Ami!"]
+        end-game: "End."
+    
+  "/mika home/den":
+    name: "Den"
+    background-image: "mikaden.png"
+  
+  "/mika home/den/tv":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A large, flat screen TV."
+          - think: [ "Mika", "I can't believe they waste this nice TV in here." ]
+          - think: [ "Mika", "I would make waaaaay better use of it." ]
+  
+  "/mika home/den/couches":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A large, plush couch."
+  
+  "/mika home/den/bookshelves":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A wooden bookshelf filled with a mix of medical text, literature, and poetry."
+          - think: [ "Mika", "It's all still here... sadly." ]
+          - think: [ "Mika", "God, they're so boring." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "Just because I didn't want to go to college..." ]
+          - think: [ "Mika", "I still graduated two years early." ]
+  
+  "/mika home/den/media shelf":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A small glass shelf filled with Japanese dramas and American blockbusters."
+          - think: [ "Mika", "This trash is still in its place." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "Just because I value different things I'm a loser?!" ]
+          - description: "She kicks the shelf."
+          - think: [ "Mika", "You guys have shitty movie tastes." ]
+  
+  "/mika home/den/coffee table":
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "A faux wood coffee table. Nothing is on it."
+  
+  "/mika home/den/parents room":
+    name: "Parent's Room"
+    background-image: "parentroom.png"
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        lines:
+          - description: "Mika looks at the door to her parent's room."
+          - think: [ "Mika", "If something fell in there it isn't my problem." ]
+          - think: [ "Mika", "I would get in more trouble going in there anyway." ]
+  
+      - event: "event-B"
+        stage: "enter"
+        lines:
+          - description: "Mika looks at the door to her parent's room."
+          - think: [ "Mika", "I'm a loser huh..." ]
+          - think: [ "Mika", "Is that why my diploma isn't up with dads?" ]
+
+  "/mika home/amis room":
+    name: "Ami's Room"
+    background-image: "amiroom.png"
+    dialogue:
+      - event: "main"
+        stage: "enter"
+        start-event: [ "event-A", "/mika home/amis room" ]
+  
+      - event: "main"
+        stage: "enter"
+        lines:
+          - think: [ "Mika", "I don't need anything in there." ]
+ 
+      - event: "event-A"
+        stage: "empty"
+        start-event: [ "event-B", "/mika home" ]
+
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "There is a girl with long, black hair slumped over on the floor."
+          - description: "She is sobbing, a mix of tears and snot dribbling down her chin."
+          - think: [ "Mika", "Ami..." ]
+          - description: "Across the room there is a shattered cellphone. It's laying in pieces on the floor."
+          - think: [ "Mika", "What's going on...?" ]
+        options:
+          - [ "What happened?", "what-happened" ]
+          - [ "Why?",  "why" ]
+
+      - id: "why"
+        lines:
+          - say: [ "Mika", "Why did you break your phone?" ]
+          - description: "Ami looks at Mika. Her eyes are red and puffy."
+          - say: [ "Ami", "Go away!" ]
+        options:
+          - [ "What happened?", "what-happened" ]
+          - [ "Trouble",  "trouble" ]
+  
+      - id: "trouble"
+        lines:
+          - say: [ "Mika", "You're going to be in so much trouble." ]
+          - say: [ "Mika", "Mom and dad are going to be pissed." ]
+          - description: "Ami's eyes narrow."
+          - description: "She grabs a pillow off the bed and throws it at Mika."
+          - say: [ "Ami", "Fuck off! You community college loser!" ]
+          - description: "Mika furrows her brows."
+        options:
+          - [ "Fuck you", "fuck-you" ]
+          - [ "Whatever", "whatever" ]
+  
+      - id: "fuck-you"
+        lines:
+          - say: [ "Mika", "Fuck you." ]
+          - description: "Ami scoffs."
+        next: "bad-end"
+
+      - id: "whatever"
+        lines:
+          - say: [ "Mika", "..." ]
+          - think: [ "Mika", "Whatever, this isn't my problem." ]
+        next: "bad-end"
+
+      - id: "what-happened"
+        lines:
+          - description: "Mika slowly walks over to Ami."
+          - description: "Mika crouches down next to the sobbing girl."
+          - say: [ "Mika", "What happened?" ]
+          - description: "Ami wipes her face with her sleeve. It leaves a streak of snot across her cheek."
+          - say: [ "Ami", "N-Nothing..." ]
+          - say: [ "Mika", "No, really." ]
+          - description: "Mika puts her arm around Ami, and rubs her shoulder."
+          - say: [ "Mika", "What's wrong?" ]
+          - description: "Ami lays her head down on Mika's shoulder."
+          - description: "A pool of tears starts to collect on Mika's shirt."
+          - say: [ "Ami", "I... I m-messed up." ]
+        options:
+          - [ "You didn't", "you-didnt" ]
+          - [ "How?", "how" ]
+  
+      - id: "you-didnt"
+        lines:
+          - description: "Mika tightens her grip around Ami."
+          - think: ["Mika", "This is really unlike her."]
+          - description: "Mika forces a smile."
+          - say: [ "Mika", "I'm sure you didn't." ]
+          - say: [ "Ami", "I-I did!" ]
+          - say: [ "Ami", "I messed up really bad!" ]
+          - say: [ "Ami", "E-Everything is ruined!" ]
+          - say: [ "Mika", "..." ]
+          - think: ["Mika", "I've never seen her like this."]
+          - think: ["Mika", "She's usually so cold to me."]
+          - say: [ "Mika", "...Tell me what happened." ]
+          - think: ["Mika", "But she's still my little sister."]
+        next: "story"
+ 
+      - id: "how"
+        lines:
+          - description: "Mika tightens her grip around Ami."
+          - think: ["Mika", "I've never seen her like this."]
+          - think: ["Mika", "She's usually so cold to me."]
+          - say: [ "Mika", "...How?" ]
+          - description: "Ami chokes on her sobs."
+        next: "story"
+  
+      - id: "story"
+        lines:
+          - say: [ "Ami", "I..."]
+          - description: "Ami pounds her fist against the floor."
+          - description: "A small carpet imprints starts to grow on her hands."
+          - say: ["Ami", "I sent Kris some pictures..." ]
+          - description: "Ami's fist starts to swell."
+          - say: [ "Ami", "S-Some... bad pictures..." ]
+          - description: "Ami wipes her face on Mika's shoulder."
+          - say: [ "Ami", "He... he was just being so nice... and buying me things.... I..." ]
+          - description: "Ami reaches for her hair."
+          - description: "She grips around it and tugs."
+          - say: [ "Ami", "I should have known better!" ]
+          - description: "Clups of dark hair strands scatter around the floor."
+        options:
+          - [ "Not Your Fault", "not-your-fault" ]
+          - [ "...Yeah", "yeah" ]
+  
+      - id: "yeah"
+        lines:
+          - say: [ "Mika", "...Yeah." ]
+          - description: "Mika pinches her lips together."
+          - think: [ "Mika", "Why would she do something so stupid?" ]
+          - description: "Ami's sobs grow louder."
+          - description: "The cries of angush bounce of the walls around them, engulfing them in the sound."
+          - say: [ "Ami", "He... He posted them online.... Everyone's seen them..." ]
+          - description: "Mika looks away."
+          - say: [ "Mika", "That's why you don't give people photos." ]
+          - description: "The crying stops."
+          - description: "The house is silent."
+          - description: "Ami looks up at Mika. Her eyes are wide, her entire body is shaking."
+          - description: "Weak from crying, she roughly pushes Mika away with the little strength she has left."
+          - say: [ "Ami", "Go away!" ]
+          - description: "Tears silently fall down, hitting Ami's thighs. They slowly dribble down onto the floor."
+          - say: [ "Ami", "I knew I shouldn't have trust a fucking loser like you!" ]
+          - description: "Mika huffs."
+          - say: [ "Mika", "Ami..." ]
+          - say: [ "Ami", "Fuck off!" ]
+          - description: "Ami slaps Mika's shoulders."
+          - say: [ "Ami", "GET OUT!!" ]
+          - description: "Mika bites her lip."
+          - description: "She stands up, and looks down on Ami."
+        next: "bad-end"
+  
+      - id: "not-your-fault"
+        lines:
+          - think: ["Mika", "I can't believe she did that... it's so unlike her."]
+          - description: "Mika looks down at her crying sister."
+          - think: ["Mika", "But saying that won't help her right now."]
+          - say: [ "Mika", "It's not your fault." ]
+          - description: "Mika softly smooths her hand over Ami's hair."
+          - say: [ "Mika", "You didn't do anything wrong." ]
+          - description: "Ami burrows her face into Mika's shoulder."
+          - say: [ "Ami", "Yes I did! He... he posted them..." ]
+          - say: [ "Ami", "Everyone is going to see them... m-my life is ruined..." ]
+          - say: [ "Mika", "..." ]
+          - description: "Mika sighs."
+        options:
+          - [ "No It's Not", "not-your-fault-no" ]
+          - [ "..Yeah", "not-your-fault-yeah" ]
+
+      - id: "not-your-fault-yeah"
+        lines:
+          - say: [ "Mika", "...Yeah." ]
+          - description: "Mika pinches her lips together."
+          - think: [ "Mika", "Why would she do something so stupid?" ]
+          - description: "Ami's sobs grow louder."
+          - description: "The cries of angush bounce of the walls around them, engulfing them in the sound."
+          - say: [ "Ami", "He... He posted them online.... Everyone's seen them..." ]
+          - description: "Mika looks away."
+          - say: [ "Mika", "That's why you don't give people photos." ]
+          - description: "The crying stops."
+          - description: "The house is silent."
+          - description: "Ami looks up at Mika. Her eyes are wide, her entire body is shaking."
+          - description: "Weak from crying, she roughly pushes Mika away with the little strength she has left."
+          - say: [ "Ami", "Go away!" ]
+          - description: "Tears silently fall down, hitting Ami's thighs. They slowly dribble down onto the floor."
+          - say: [ "Ami", "I knew I shouldn't have trust a fucking loser like you!" ]
+          - description: "Mika huffs."
+          - say: [ "Mika", "Ami..." ]
+          - say: [ "Ami", "Fuck off!" ]
+          - description: "Ami slaps Mika's shoulders."
+          - say: [ "Ami", "GET OUT!!" ]
+          - description: "Mika bites her lip."
+          - description: "She stands up, and looks down on Ami."
+        next: "bad-end"
+  
+      - id: "not-your-fault-no"
+        lines:
+          - say: [ "Mika", "No it's not... Everything will be okay." ]
+          - description: "Mika half-heartedly smiles."
+          - think: ["Mika", "At least I hope so."]
+          - say: [ "Ami", "No! It won't be!" ]
+          - description: "Mika tightens her grips around Ami, embracing her."
+          - say: [ "Mika", "Yes it will be. It's not the end of the world." ]
+          - description: "Weak from crying, Ami pushes Mika away with the little strength she can muster."
+          - say: [ "Ami", "No! It won't!" ]
+          - description: "Ami screams."
+          - description: "It's blood curdling."
+          - description: "Mika's eyes widen. The hair on her arms are standing straight."
+          - say: [ "Ami", "It won't be okay! My friends will all leave!! I..." ]
+          - say: [ "Ami", "I won't get into med school!!! I won't ever get hired anywhere!!!!" ]
+          - say: [ "Ami", "My life... My life is wasted now!!!!!!" ]
+          - description: "Her screaming grows louder and louder with every syllable."
+          - description: "Mika's breathing is shallow."
+          - think: [ "Mika", "I... I didn't know things were this bad for her..." ]
+          - description: "Mika grabs Ami by the shoulders."
+          - description: "She embraces her."
+          - say: [ "Mika", "It'll be okay... I promise." ]
+          - say: [ "Ami", "It fucking won't!" ]
+          - description: "Mika tightens the embrace."
+          - say: [ "Mika", "It will be..."]
+          - description: "Mika pulls away slightly, to smile at Ami."
+          - say: ["Mika", "If your friends leave you they suck, but your career will be fine." ]
+          - say: [ "Mika", "People will understand, people always like you." ]
+          - say: [ "Mika", "And dad can help you get a good job after med sch-" ]
+          - say: [ "Ami", "D-Dad?!" ]
+          - description: "Ami shakes."
+          - say: [ "Ami", "I... I forgot about mom and dad..." ]
+          - say: [ "Ami", "I..." ]
+          - description: "Ami's eyes are bulging. Her face coated in a layer of tears. She looks like she will colapse."
+          - description: "Mika gently rubs Ami's back."
+          - say: [ "Mika", "It's okay, they won't be mad." ]
+          - description: "Ami scoffs."
+          - description: "She violently pushes Mika off her."
+          - say: [ "Ami", "Yeah right! T-They... They'll never forgive me!!" ]
+          - say: [ "Ami", "I'll become like you!!!" ]
+          - think: [ "Mika", "What does that mean?!" ]
+          - say: [ "Ami", "Oh, oh my god. What will I do? They won't pay for school if they find out!!!!" ]
+          - description: "Ami tugs at her hair."
+          - description: "Large chunks fall onto the floor."
+        options:
+          - [ "Okay!", "not-your-fault-no-okay" ]
+          - [ "Like me?", "not-your-fault-no-like-me" ]
+
+      - id: "not-your-fault-no-like-me"
+        lines:
+          - description: "Mika furrows her brows."
+          - say: [ "Mika", "Like me...? What does that mean?" ]
+          - description: "Ami stands up."
+          - description: "She is pacing around the room. Her breathing is shallow."
+          - say: [ "Ami", "A community college loser!!" ]
+          - description: "Ami scoffs."
+          - say: [ "Ami", "They are fucking embarrassed by you, you..." ]
+          - say: ["Ami", "You stupid shut-in!!" ]
+          - say: [ "Ami", "They are fucking overjoyed you never leave the house so they don't have to explain their failures to people!" ]
+          - description: "Ami looks over at Mika. Her nose twitching and mouth curled."
+          - say: [ "Ami", "I can't become like you!!" ]
+          - description: "Ami shrieks."
+        options:
+          - [ "Brush off", "not-your-fault-no-like-me-brush-off" ]
+          - [ "Fuck you", "not-your-fault-no-like-me-fuck-you" ]
+
+      - id: "not-your-fault-no-like-me-fuck-you"
+        lines:
+          - description: "Mika grips her chest and takes a step back."
+          - say: [ "Mika", "Fuck you!" ]
+          - description: "Ami snorts."
+          - say: [ "Ami", "I should have known better than to trust a loser like you!" ]
+          - say: ["Ami", "Get out!"]
+          - think: [ "Mika", "...Fucking brat." ]
+        next: "bad-end"
+
+      - id: "not-your-fault-no-like-me-brush-off"
+        lines:
+          - say: [ "Mika", "..." ]
+          - think: [ "Mika", "I'll just ignore that..." ]
+        next: "not-your-fault-no-okay"
+
+      - id: "not-your-fault-no-okay"
+        lines:
+          - description: "Mika sighs."
+          - say: [ "Mika", "You won't." ]
+          - description: "Mika forces a smile."
+          - description: "It's crooked. The light in her eyes is dulled."
+          - say: [ "Mika", "Mom and dad will forgive you... They're..." ]
+          - description: "Mika adverts her eyes from Ami. She twiddles her tumbs together."
+          - say: [ "Mika", "They're too busy hating me right...?" ]
+          - say: [ "Mika", "We'll take care of this, we can go to the police." ]
+          - description: "She lets out a heavy breath."
+          - say: [ "Mika", "Everything will be okay." ]
+          - description: "Ami stops pacing. She looks at Mika."
+          - description: "Ami's expression is heavy. Her cheeks look like they are being pulled down with the wieght of her worries."
+          - say: [ "Ami", "...Okay." ]
+          - description: "Her voice is quiet. She looks towards the floor."
+          - description: "Ami's legs are shaking."
+          - say: [ "Ami", "I... I'm going to go to Macy's house." ]
+          - description: "Ami walks to the door."
+          - description: "She stops and looks back at Mika."
+          - description: "There are tears forming in the corners of her puffy eyes."
+          - say: [ "Ami", "I... love you..." ]
+          - say: [ "Ami", "...Thank you..." ]
+          - description: "Ami walks through the door."
+          - say: [ "Mika", "O-Okay! See you later!" ]
+          - description: "She shuts the door behind her."
+          - say: [ "Mika", "We'll take care of this!!" ]
+          - say: [ "Mika", "..." ]
+          - think: [ "Mika", "I don't think she heard me." ]
+          - description: "Mika sighs."
+          - think: [ "Mika", "I'm sure everything will be fine." ]
+
+      - id: "bad-end"
+        lines:
+          - description: "Mika turns towards the door."
+          - think: [ "Mika", "She'll get over it." ]
+          - description: "Mika reaches for the doorknob."
+          - say: [ "Ami", "You'll be fucking sorry." ]
+          - description: "Mika rolls her eyes."
+          - think: ["Mika", "Drama queen."]
+          - description: "Mika walks through the door."
+          - description: "She slams it behind her."
+        start-event: [ "event-B", "/mika home" ]
+
+  "/mika home/amis room/bed":
+    dialogue:
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "A neatly made bed. All the corners are precisely tucked."
+  
+  "/mika home/amis room/closet":
+    dialogue:
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "Mika opened the closet door."
+          - description: "Everything is neatly hung up and put away."
+          - think: [ "Mika", "I don't know how we're even related..." ]
+  
+  "/mika home/amis room/bookshelf":
+    dialogue:
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "It's a white bookshelf. It's filled with medical textbooks, self-help books and YA novels."
+          - think: [ "Mika", "I swear I'm the only one in this family with any taste." ]
+  
+  "/mika home/amis room/desk":
+    dialogue:
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "A white desk. It has a computer and some notebooks neatly pilled next to it."
+  
+  "/mika home/amis room/pictures":
+    dialogue:
+      - event: "event-A"
+        stage: "enter"
+        lines:
+          - description: "There are dozens of photos of Ami with other kids her age on the wall."
+          - think: [ "Mika", "She's so popular..." ]
+          - think: [ "Mika", "She'll be fine." ]

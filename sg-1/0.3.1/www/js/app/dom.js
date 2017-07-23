@@ -3,6 +3,11 @@ define(function (require) {
 
   var dom = {
 
+    getParameterByName: function(name) {
+      var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    },
+
     htmlToElement: function(html) {
       var template = document.createElement('template');
       template.innerHTML = html;

@@ -1,6 +1,5 @@
 define(function (require) {
 
-  // #todo developer-only checkpoints
   // #todo show last item for empty nodes
   // #todo show empty nodes in gray instead of delete
   // #todo fit to screen ios
@@ -11,6 +10,7 @@ define(function (require) {
   // #todo end: hungry for more - bot link
   // #todo end: read your story
   // #todo wordpress plugin merch store
+  // #todo save timestamps
 
   // https://developer.mozilla.org/en-US/docs/Games/Anatomy
 
@@ -391,6 +391,11 @@ define(function (require) {
   }
 
   function start( context, dt ) {
+    var debug_start = dom.getParameterByName('debug-start');
+    if ( debug_start ) {
+      return jmp_loc( debug_start, context, dt ); 
+    }
+
     var checkpoint = get_checkpoint( 'start' );
     if ( checkpoint == undefined ) {
       return fatal_error( 'No start checkpoint' );
@@ -585,7 +590,7 @@ define(function (require) {
       var parent_path = path.dirname( location_path );
       context.location_path = parent_path;
       dom.empty( map_choices_container );
-      // clear_dialogue();
+      clear_dialogue();
       return stage_return( context, dt );
     }
   }

@@ -145,6 +145,12 @@ define(function (require) {
       }, false);
     },
 
+    addKeyPressListener: function( element, func ) {
+      element.addEventListener('keypress', function( event ) {
+        func( event );
+      }, false);
+    },
+
     getInnerText: function( element ) {
       return element.innerText;
     },

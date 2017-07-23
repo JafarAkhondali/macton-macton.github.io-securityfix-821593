@@ -83,6 +83,12 @@ define(function (require) {
     app_click_count++;
   });
 
+  dom.addKeyPressListener( document, function( event ) {
+    if (event.keyCode == 13) {
+      app_click_count++;
+    }
+  });
+
   dom.addClickListenerPreventDefault( map_back_div, function() {
     if (map_back_callback) {
       map_back_callback();

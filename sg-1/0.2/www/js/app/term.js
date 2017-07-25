@@ -23,8 +23,7 @@ define(function (require) {
   var is_pending_script = false;
 
   function handler() {
-    this.newLine();
-    scripts.append( path.resolve( env.cwd, '.shell' ), this.lineBuffer );
+    scripts.append( '/.shell', this.lineBuffer );
     is_pending_script = true;
   }
 
@@ -41,10 +40,15 @@ define(function (require) {
   return {
     update: function( dt ) {
 
-      var log_raw = log.get();
+      var log_raw        = log.get();
+      var is_pending_log = log_raw.length > 0;
+      var is_tty_out     = is_pending_script || is_pending_log;
 
-      if ( log_raw.length > 0 ) {
+      if ( is_pending_script ) {
+        term.newLine();
+      }
 
+      if ( is_pending_log ) {
         var log_pending = [];
         log_raw.forEach( function( line ) {
           var split_line = line.split(/\r\n|[\n\v\f\r\x85\u2028\u2029]/);
@@ -55,9 +59,10 @@ define(function (require) {
 
         term.write( log_pending, ( log_pending.length > 20 )?true:null );
         log.empty();
+        term.newLine();
       }
 
-      if (is_pending_script) {
+      if ( is_tty_out ) {
         term.prompt();
         is_pending_script = false; 
       }

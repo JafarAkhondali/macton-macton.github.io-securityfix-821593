@@ -28,9 +28,9 @@ define(function (require) {
 
   dom.addClickListenerPreventDefault( map_back, function() {
     if ( env[ env.cwd ]['back'] != null ) {
-      scripts.append( path.resolve( env.cwd, '.shell' ), 'cd "' + env[ env.cwd ]['back'] + '"' );
+      scripts.append( '/.shell', 'cd "' + env[ env.cwd ]['back'] + '"' );
     } else {
-      scripts.append( path.resolve( env.cwd, '.shell' ), 'cd ..' );
+      scripts.append( '/.shell', 'cd ..' );
     }
   });
 
@@ -50,7 +50,7 @@ define(function (require) {
           var map_element = dom.htmlToElement( '<a class="map-element" href="' + folder.link + '">' + folder.name + '</a>' );
           dom.addClickListenerPreventDefault( map_element, function() {
             console.log('click cd "' + folder.link + '"');
-            scripts.append( path.resolve( env.cwd, '.shell' ), 'cd "' + folder.link + '"' );
+            scripts.append( '/.shell', 'cd "' + folder.link + '"' );
           });
         }
   

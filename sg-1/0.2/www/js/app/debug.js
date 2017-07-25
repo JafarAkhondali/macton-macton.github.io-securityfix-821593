@@ -9,6 +9,7 @@ define(function (require) {
   var workingDir = require('./workingDir');
   var env        = require('./env');
   var scripts    = require('./scripts');
+  var fs         = require('./fs');
   var Parser     = require('termlib_parser');
   var parser     = new Parser();
   var is_debug   = dom.getQueryVariable('debug');
@@ -40,7 +41,9 @@ define(function (require) {
       var export_cancel     = dom.getElementById('export-cancel');
       var editor_help_text  = dom.getElementById('editor-help-text');
       var scripts_export    = dom.getElementById('scripts-export');
+      var scripts_export_children = dom.getElementById('scripts-export-children');
       var script_title_path = env.cwd;
+      var script_child_path;
   
       dom.show( app_toolbar );
       term.show();
@@ -51,9 +54,10 @@ define(function (require) {
   
       function updateScriptPath() {
         window.requestAnimationFrame( updateScriptPath );
-        var cwd = env.cwd;
-        if ( cwd != script_title_path ) {
-          script_title_path = cwd;
+        var cwd          = env.cwd;
+        var script_path  = fs.getMeta( cwd, '.activeScript' );
+        if ( script_path != script_title_path ) {
+          script_title_path = script_path;
           dom.setChildHtml( script_title, '<span>' + script_title_path + '</span>' );
           dom.setChildHtml( edit_title, '<span>' + script_title_path + '</span>' );
         }
@@ -68,9 +72,9 @@ define(function (require) {
           dom.show( editor_toolbar );
           dom.setChildHtml( editor_help_text, workingDir.cmdHelpHtml() );
   
-          var cwd           = env.cwd;
-          var script_path   = path.resolve( cwd, '.on_enter' );
-          var script_source = scripts.get( script_path );
+          var cwd            = env.cwd;
+          var script_path    = fs.getMeta( cwd, '.activeScript' );
+          var script_source  = scripts.get( script_path );
           if ( script_source == null ) {
             script_source = '';
           } else {
@@ -82,7 +86,8 @@ define(function (require) {
         });
       }
 
-      function scriptsExport() {
+      function scriptsExport( child_path ) {
+        script_child_path = child_path;
         window.requestAnimationFrame( function() {
           dom.hide( app_container );
           dom.hide( tool_container );
@@ -94,13 +99,18 @@ define(function (require) {
           var scripts_all  = scripts.getAll();
           var unity_source = ''
           Object.keys(scripts_all).sort().forEach( function( script_path ) {
-            if ( script_path.indexOf('/.shell') == -1 ) {
-              var script_source = scripts_all[ script_path ];
-              if (script_source) {
-                unity_source += '#script-begin "' + script_path + '"\n';
-                unity_source += script_source.join('\n').trim();
-                unity_source += '\n\n';
-              }
+            // don't export any shell scripts
+            if ( script_path.indexOf('/.shell') != -1 ) {
+              return;
+            }
+            if ( script_path.indexOf(child_path) == -1 ) {
+              return;
+            }
+            var script_source = scripts_all[ script_path ];
+            if (script_source) {
+              unity_source += '#script-begin "' + script_path + '"\n';
+              unity_source += script_source.join('\n').trim();
+              unity_source += '\n\n';
             }
           });
   
@@ -112,7 +122,7 @@ define(function (require) {
       function scriptSave() {
         window.requestAnimationFrame( function() {
           var cwd           = env.cwd;
-          var script_path   = path.resolve( cwd, '.on_enter' );
+          var script_path   = fs.getMeta( cwd, '.activeScript' );
           var script_source = editor.getValue();
   
           console.log('save ' + script_path );
@@ -158,7 +168,7 @@ define(function (require) {
           }
         });
 
-        scripts.emptyAll();
+        scripts.emptyAll(script_child_path);
         Object.keys(scripts_content).forEach( function( script_path ) {
           console.log( 'Save ' + script_path );
           scripts.setFromText( script_path, scripts_content[ script_path ].join('\n').trim() );
@@ -169,7 +179,8 @@ define(function (require) {
       }
   
       dom.addClickListenerPreventDefault( script_edit, scriptEdit );
-      dom.addClickListenerPreventDefault( scripts_export, scriptsExport );
+      dom.addClickListenerPreventDefault( scripts_export, function() { scriptsExport('/SG-1'); } );
+      dom.addClickListenerPreventDefault( scripts_export_children, function() { scriptsExport( env.cwd ); } );
       dom.addClickListenerPreventDefault( script_save, scriptSave );
       dom.addClickListenerPreventDefault( script_cancel, scriptCancel );
       dom.addClickListenerPreventDefault( export_cancel, scriptEdit );

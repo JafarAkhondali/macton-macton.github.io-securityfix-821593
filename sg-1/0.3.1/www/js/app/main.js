@@ -1,16 +1,24 @@
 define(function (require) {
 
-  // #todo show last item for empty nodes
-  // #todo show empty nodes in gray instead of delete
-  // #todo fit to screen ios
-  // #todo standalone page on website
-  // #todo choices background on webpage 
-  // #todo end: play again
-  // #todo end: share (twitter, tumblr, facebook)
-  // #todo end: hungry for more - bot link
-  // #todo end: read your story
-  // #todo wordpress plugin merch store
-  // #todo save timestamps
+  // 1.
+  //   - #todo show last item for empty nodes
+  //   - #todo show empty nodes in gray instead of delete
+
+  // 2.
+  //   - #todo fit to screen ios
+
+  // 3.
+  //   - #todo standalone page on website
+  //   - #todo choices background on webpage 
+
+  // 4.
+  //   - #todo end: play again
+  //   - #todo end: share (twitter, tumblr, facebook)
+  //   - #todo end: hungry for more - bot link
+  //   - #todo end: read your story
+
+  // 5.
+  //   - #todo save timestamps
 
   // https://developer.mozilla.org/en-US/docs/Games/Anatomy
 

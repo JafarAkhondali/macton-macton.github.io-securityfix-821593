@@ -30,7 +30,6 @@ define(function (require) {
   // #TODO Math expressions
   // #TODO Macros
   // #TODO pushd
-  // #TODO Global shell script?
 
   // cmd_handler Checklist:
   //   1. Verify arguments
@@ -88,7 +87,9 @@ define(function (require) {
                   + "  log <text>                   | print text to tty (debug)\n"
                   + "  and <key_path> <value ...>   | logical and <value>s and store in <key_path>\n"
                   + "  or <key_path> <value ...>    | logical or <value>s and store in <key_path>\n"
-                  + "  add <key_path> <value ...>   | add <value>s and store in <key_path>\n";
+                  + "  add <key_path> <value ...>   | add <value>s and store in <key_path>\n"
+                  + "  call <script_path>           | start <script_path> as active script\n"
+                  + "  return                       | return from called script. continue previous script.\n";
 
   var cmd_handler = {
     'log': function( argv ) {
@@ -291,6 +292,7 @@ define(function (require) {
               if ( !is_folders_disabled ) {
                 sceneWrite.enableFolders();
               } 
+              // sceneWrite.clearLine();
               return null;
             } else {
               return waitNextLine;
@@ -525,21 +527,27 @@ define(function (require) {
 
       var op_test = {
         '==': function(a,b) {
+          console.log('== (' + a + ', ' + b + ')');
           return a == b;
         },
         '<=': function(a,b) {
+          console.log('<= (' + a + ', ' + b + ')');
           return a <= b;
         },
         '<': function(a,b) {
+          console.log('< (' + a + ', ' + b + ')');
           return a < b;
         },
         '>=': function(a,b) {
+          console.log('>= (' + a + ', ' + b + ')');
           return a >= b;
         },
         '>': function(a,b) {
+          console.log('> (' + a + ', ' + b + ')');
           return a > b;
         },
         '!=': function(a,b) {
+          console.log('!= (' + a + ', ' + b + ')');
           return a != b;
         }
       };
@@ -629,14 +637,45 @@ define(function (require) {
       workingDir.isPaused = false;
       return null;
     },
+    'call': function( argv ) {
+      var target_path    = resolveTargetPath( argv[1] );
+      var current_script = fs.getMeta( env.cwd, '.activeScript' );
+      var next_script    = path.resolve( env.cwd, target_path );
+
+      var call_stack = fs.getMeta( env.cwd, '.callStack' );
+      if ( call_stack == null ) {
+        call_stack = [];
+      }
+      call_stack.push( current_script );
+
+      fs.setMeta( env.cwd, '.callStack', call_stack );
+      fs.setMeta( env.cwd, '.activeScript', next_script );
+
+      // reset pc of called script
+      var script_dir      = path.dirname( next_script );
+      var pc              = fs.getMeta( script_dir, '.pc' );
+      pc[ next_script ] = 0;
+      fs.setMeta( script_dir, '.pc', pc );
+    },
+    'return': function( argv ) {
+      var call_stack = fs.getMeta( env.cwd, '.callStack' );
+      if ( call_stack == null ) {
+        call_stack = [];
+      }
+      prev_script = call_stack.pop();
+
+      fs.setMeta( env.cwd, '.callStack', call_stack );
+      fs.setMeta( env.cwd, '.activeScript', prev_script );
+    },
   };
 
   function updateScript( script_path, dt ) {
-    var cwd             = env.cwd;
-    var pending_updates = fs.getMeta( cwd, '.pendingUpdate' );
-    var pc              = fs.getMeta( cwd, '.pc' );
+    var script_dir      = path.dirname( script_path );
+    var pending_updates = fs.getMeta( script_dir, '.pendingUpdate' );
+    var pc              = fs.getMeta( script_dir, '.pc' );
 
     if ( script_path.indexOf('/.shell') == -1 ) {
+      // Pause any script other than shell script
       if (workingDir.isPaused) {
         return;
       }
@@ -644,7 +683,7 @@ define(function (require) {
 
     if ( pending_updates && pending_updates[ script_path ] ) {
       pending_updates[ script_path ] = pending_updates[ script_path ](dt);
-      fs.setMeta( cwd, '.pendingUpdate', pending_updates );
+      fs.setMeta( script_dir, '.pendingUpdate', pending_updates );
       return;
     }
   
@@ -666,6 +705,7 @@ define(function (require) {
       var line_num = pc[script_path];
       var line_obj = { lineBuffer: script[ line_num ].trim() };
       var is_cd    = false;
+      var is_call  = false;
   
       parser.parseLine( line_obj );
 
@@ -673,13 +713,13 @@ define(function (require) {
       if ( line_obj.argv[0] == 'reset' ) {
         workingDir.reset( line_obj.argv[1] );
         workingDir.cd( line_obj.argv[1] );
-        pc = fs.getMeta( cwd, '.pc' );
+        pc = fs.getMeta( script_dir, '.pc' );
         return;
       }
 
       if ( line_obj.argv[0] in cmd_handler ) {
         var cmd        = cmd_handler[ line_obj.argv[0] ];
-        var if_stack   = fs.getMeta( cwd, '.if_stack' );
+        var if_stack   = fs.getMeta( env.cwd, '.if_stack' );
         var is_ignored = if_stack && (if_stack.length > 0) && (if_stack[ if_stack.length-1 ] == false);
 
         // peek: if stack commands not ignored
@@ -698,6 +738,12 @@ define(function (require) {
           // peek: cd increments pc but executes later in chain
           if ( line_obj.argv[0] == 'cd' ) {
             is_cd = true;
+            break;
+          }
+
+          // peek: call increments pc but executes later in chain
+          if ( line_obj.argv[0] == 'call' ) {
+            is_call = true;
             break;
           }
 
@@ -722,14 +768,14 @@ define(function (require) {
       pc[script_path]++;
     }
 
-    if (is_cd) {
+    if (is_cd || is_call) {
       pc[script_path]++;
     } 
   
-    fs.setMeta( cwd, '.pendingUpdate', pending_updates );
-    fs.setMeta( cwd, '.pc', pc );
+    fs.setMeta( script_dir, '.pendingUpdate', pending_updates );
+    fs.setMeta( script_dir, '.pc', pc );
 
-    if (is_cd) {
+    if (is_cd || is_call) {
       console.log( script_path + ':' + pc[script_path] + '  ' + line_obj.lineBuffer );
       cmd( line_obj.argv, dt );
     } 
@@ -747,8 +793,6 @@ define(function (require) {
     reset: function( target_path ) {
       target_path = resolveTargetPath( target_path );
       fs.rm( target_path );
-      // need to clear shell scripts for all sub dirs too
-      scripts.empty( path.resolve( target_path, '.shell' ) );
       workingDir.mkdir( target_path );
     },
 
@@ -762,7 +806,7 @@ define(function (require) {
       }
 
       fs.mkdir( target_path );
-      fs.setMeta( target_path, '.activeScripts', [ path.resolve( target_path, '.shell' ), path.resolve( target_path, '.on_enter' ) ]  );
+      fs.setMeta( target_path, '.activeScript', path.resolve( target_path, '.on_enter' ) );
       sceneWrite.updateFolders();
       return null;
     },
@@ -778,10 +822,6 @@ define(function (require) {
       if (link != null) {
         return workingDir.cd( link );  
       }
-
-      // clear out shell
-      var shell_script_path = path.resolve( target_path, '.shell' );
-      scripts.empty( shell_script_path );
 
       // set cwd
       env.cwd = target_path;
@@ -821,11 +861,10 @@ define(function (require) {
       }
  
       // reset .on_enter pc=0
-      if (!peekScriptAtEnd( script_path)) {
+      if (!peekScriptAtEnd(script_path)) {
+        console.log('Script at end, reset PC. "' + script_path + '"');
         pc[script_path] = 0;
       }
-      // reset .shell pc=0
-      pc[shell_script_path] = 0;
 
       fs.setMeta( target_path, '.pc', pc );
 
@@ -835,17 +874,30 @@ define(function (require) {
     update: function( dt ) {
       do 
       {
-        var cwd             = env.cwd;
-        var active_scripts  = fs.getMeta( cwd, '.activeScripts' );
-        var update_script   = function( script_path ) { updateScript( script_path, dt ); };
-  
-        if (active_scripts == null) {
-          return;
+        function updateShellScript() {
+          updateScript('/.shell',dt);
+        }
+
+        function updateCurrentScript() {
+          var cwd            = env.cwd;
+          var active_script  = fs.getMeta( cwd, '.activeScript' );
+    
+          if (active_script == null) {
+            return false;
+          }
+
+          updateScript( active_script, dt );
+
+          var is_cwd_changed    = env.cwd != cwd;
+          var is_script_changed = active_script != fs.getMeta( cwd, '.activeScript' );
+     
+          return is_cwd_changed||is_script_changed;
         }
   
-        active_scripts.forEach( update_script );
+        updateShellScript();
+        var is_deck_changed = updateCurrentScript();
 
-      } while ( env.cwd != cwd ); // if cwd changed, continue script there (don't draw one frame before updating script)
+      } while ( is_deck_changed );
     },
   };
 

@@ -19,10 +19,13 @@ define(function (require) {
       if (cmd == 'LOAD') {
         var script_path   = decodeURIComponent( msg.path );
         var script_source = decodeURIComponent( msg.text );
+
+        // if any .shell scripts somehow got archived, ignore them.
         if ( script_path.indexOf('/.shell') == -1 ) {
           scripts.setFromText( script_path, script_source );
           console.log( 'LOAD ' + script_path );
         } 
+
       } else if (cmd == 'SAVE-ALL') {
         archive.saveAll();
       } else {

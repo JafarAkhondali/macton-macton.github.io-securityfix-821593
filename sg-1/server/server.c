@@ -141,6 +141,16 @@ static void send_sources( struct mg_connection* nc )
   }
 }
 
+static void save_all( struct mg_connection* nc )
+{
+  s_source->pathCount = 0;
+
+  printf("REMOVE ALL\n");
+  snprintf( s_output_buffer, kOutputBufferSize, "{ \"cmd\" : \"SAVE-ALL\" }" );
+  int len = strlen( s_output_buffer );
+  mg_send_websocket_frame(nc, WEBSOCKET_OP_TEXT, s_output_buffer, len );
+}
+
 static void save_archive( void )
 {
   char       timestamp[ kPathLengthMax ];
@@ -188,6 +198,7 @@ static void msg_save( const char* p, int len )
     s_source->pathCount++;
     printf("NEW FILE \"%s\" at %d\n", path_str, path_ndx);
     strncpy( s_source->paths[path_ndx], path_str, path_len );
+    s_source->paths[path_ndx][path_len] = 0;
   }
 
   if (len >= kSourceFileLengthMax)
@@ -270,6 +281,12 @@ static void msg_command( struct mg_connection* nc, const char* p, int len )
   if ( strncmp( cmd, "ARCHIVE", cmd_len )  == 0)
   {
     save_archive();
+    return;
+  }
+
+  if ( strncmp( cmd, "SAVE-ALL", cmd_len ) == 0 )
+  {
+    save_all(nc);
     return;
   }
 

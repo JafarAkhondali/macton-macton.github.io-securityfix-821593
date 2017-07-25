@@ -1,0 +1,153 @@
+body {
+}
+
+#app-container {
+  width: 800px;
+  margin: auto;
+}
+
+.map-element {
+  border-radius: 5px;
+  border: 2px solid #73AD21;
+  margin: 5px;
+  width: 31%;
+  height: 1em;
+  float: left;
+  text-align: center;
+  text-decoration: none;
+  padding-bottom: 4px;
+}
+
+#map-box {
+  border-radius: 25px;
+  border: 2px solid #73AD21;
+  padding: 20px; 
+  width: 100%;
+  font-size: 1.5em;
+  /* background-color: #444; */
+  /* color: white; */
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#map-box img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+}
+
+.center-container {
+  width: 100%;
+  height: 170px;
+}
+
+#map-dialogue-container {
+  width: 100%;
+}
+
+#map-back {
+  text-decoration: none;
+  padding: 4px; 
+  font-weight: bold;
+}
+
+#map-title {
+  border-radius: 1px;
+  border-bottom: 2px dotted #73AD21;
+  width: 100%;
+  height: 1em;
+}
+
+#dialogue-line {
+}
+
+#dialogue-speaker {
+  width: 100%;
+  height: 1em; 
+  font-weight: bold;
+  border-bottom: 2px dotted #73AD21;
+}
+
+#next-line {
+  text-decoration: none;
+  padding: 4px; 
+  font-weight: bold;
+  float: right;
+  position: relative;
+  right: 0px;
+  top: -20px;
+}
+
+#dialogue-line-container {
+  border-radius: 1px;
+  width: 100%;
+  height: 2.5em; 
+}
+
+.border-gray {
+  border-color: #AAAAAA;
+}
+
+.strikethrough {
+  text-decoration: line-through; 
+}
+
+.title-card {
+  font-size: 1.5em;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  text-align: center;
+  width:100%;
+}
+
+.description-container {
+  padding-top: 8px;
+}
+
+.description {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  width:100%;
+}
+
+.term-font {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  font-size: 12px;
+}
+
+.line-think {
+ font-style: italic;
+}
+
+.line-read {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+.line-description {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+#editor-toolbar {
+  margin-bottom: 8px;
+}
+
+#app-toolbar {
+  margin-bottom: 8px;
+}
+
+#editor-help-text {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
+
+#error-container {
+  font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+  font-size: 12px;
+  color: #AA1010;
+}

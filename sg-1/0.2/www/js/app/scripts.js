@@ -13,8 +13,21 @@ define(function (require) {
       }
       script_table[ source_path ].content.push( line );
     },
-    emptyAll: function() {
-      script_table = {};
+    emptyAll: function( child_path ) {
+      if ( child_path == null ) {
+        // except the shell script
+        var shell_script = script_table['/.shell'];
+        script_table = {
+          '/.shell' : shell_script
+        };
+        return;
+      }
+      Object.keys( script_table ).forEach( function( script_path ) {
+        if ( script_path.indexOf( child_path ) != -1 ) {
+          delete script_table[script_path];
+        }
+      });
+      console.log( 'scripts.emptyAll(' + child_path + ');' );
     },
     empty: function( source_path ) {
       if ( source_path == null ) {

@@ -1,5 +1,23 @@
-[  43/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/134d80f5b382a41939d6f94cf68fe3b1
-[  44/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/d5f929dc9a19c50f04103a248b4f724c
 [  45/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/46b433b264c69cbd39f04ad2e5d12be8
-[  52/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/e234aa4a04cfa4be790183b86270e4df
-*** Bee build success (0.19 seconds), 4 items updated
+[  46/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/e234aa4a04cfa4be790183b86270e4df
+[  47/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/134d80f5b382a41939d6f94cf68fe3b1
+[  48/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/Data/d5f929dc9a19c50f04103a248b4f724c
+[ 969/1018  4s] Csc artifacts/GridCubeFollowTargets.dll/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.dll (+2 others)
+/Users/macton/Work/dots/TinySamples/Assets/Samples/GridCubeFollowTargets/Scripts/GridCubeFollowTargets/CartesianGrid.cs(101,9): warning CS0169: The field 'CartesianGridTargetDistance.m_Value' is never used
+/Users/macton/Work/dots/TinySamples/Assets/Samples/GridCubeFollowTargets/Scripts/GridCubeFollowTargets/CartesianGrid.cs(93,10): warning CS0169: The field 'CartesianGridTargetDirection.m_Value' is never used
+[ 970/1018  0s] ILPostProcessorRunner artifacts/GridCubeFollowTargets/Wasm-GridCubeFollowTargets/post_ilprocessing/GridCubeFollowTargets.dll (+pdb)
+[ 971/1018  4s] TypeRegGen artifacts/GridCubeFollowTargets/Wasm-GridCubeFollowTargets/post_typereg/GridCubeFollowTargets.dll (+58 others)
+[ 972/1018  3s] UnityLinker artifacts/GridCubeFollowTargets/Wasm-GridCubeFollowTargets_stripped/GridCubeFollowTargets.dll (+58 others)
+[BUSY       6s] Il2Cpp artifacts/GridCubeFollowTargets/Wasm-GridCubeFollowTargets_stripped/GridCubeFollowTargets.dll-il2cpp-sources/driver.cpp (+39 others)
+[ 973/1018 12s] Il2Cpp artifacts/GridCubeFollowTargets/Wasm-GridCubeFollowTargets_stripped/GridCubeFollowTargets.dll-il2cpp-sources/driver.cpp (+39 others)
+[1013/1018  2s] C_WebGL_wasm artifacts/GridCubeFollowTargets.il2cpp/Wasm-GridCubeFollowTargets/3q9o/GridCubeFollowTargets.o
+[BUSY       6s] Link_WebGL_wasm artifacts/GridCubeFollowTargets.il2cpp/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.html (+wasm,js)
+[1014/1018 13s] Link_WebGL_wasm artifacts/GridCubeFollowTargets.il2cpp/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.html (+wasm,js)
+warning: unexpected return type i8* in call to 'SetTempSliceHandle', should be void
+warning: unexpected return type i8* in call to 'SetTempMemSafetyHandle', should be void
+warning: unexpected return type i32 in call to 'Close', should be void
+warning: unexpected return type i32 in call to 'Close', should be void
+[1015/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.js
+[1016/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.wasm
+[1017/1018  0s] CopyTool ../../Builds/Wasm-GridCubeFollowTargets/GridCubeFollowTargets.html
+*** Bee build success (41.35 seconds), 14 items updated

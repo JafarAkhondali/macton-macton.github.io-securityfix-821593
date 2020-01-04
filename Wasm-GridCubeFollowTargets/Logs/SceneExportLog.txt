@@ -1,7 +1,7 @@
 ::Exported Assets::
-e234aa4a04cfa4be790183b86270e4df = Assets/Samples/GridPath/Samples/GridCubeFollowTargets/Main.unity
-134d80f5b382a41939d6f94cf68fe3b1 = Assets/Samples/GridPath/Samples/GridCubeFollowTargets/Main/GridCubeFollowTargets.unity
-d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollowTargets/Textures/Checkerboard.png
+d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollowNearestTarget/Textures/Checkerboard.png
+98c11f933c80548ada5175c52f43b915 = Assets/Samples/GridPath/Samples/GridCubeFollowNearestTeamTarget/Main-GridCubeFollowNearestTeamTarget.unity
+a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollowNearestTeamTarget/Main-GridCubeFollowNearestTeamTarget/GridCubeFollowNearestTeamTarget.unity
 46b433b264c69cbd39f04ad2e5d12be8 = Configuration
 
 
@@ -14,7 +14,6 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x265a1e670469f7dd -    2763554749149738973 - Unity.Tiny.Rendering.VertexShaderBinData
 0x28b1ef9c1c9b0c28 -    2932388286168763432 - Unity.Tiny.Rendering.LitMaterial
 0x38e07d69650538da -    4098413552527030490 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
-0x399e4f265f6c32dd -    4151842932710453981 - SoloSpawner
 0x3acebd72b403349c -    4237532599746245788 - Unity.Transforms.Parent
 0x420d985feddcadf7 -    4759627918980460023 - Rotate
 0x4755939747668e79 -    5140176827660537465 - CartesianGridFollowTarget
@@ -36,6 +35,7 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xad1abdf7f1c65f60 -   12473490990566891360 - CartesianGridCoordinates
 0xae59f27f6a29fe7b -   12563339264582614651 - CartesianGridTarget
 0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
+0xb44a9e187e01024a -   12991369903134016074 - Team
 0xb713469b1c0228b8 -   13191965365502093496 - CartesianGridDirection
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
@@ -43,6 +43,7 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdd9ce3ffd937360a -   15968889066749376010 - CartesianGridUpdateDirection
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
+0xe26cc1b0fc03b56c -   16315628515942970732 - SoloSpawner
 0xed82a9a8ebcf0ec9 -   17114428076937121481 - Unity.Tiny.Rendering.Camera
 0xef7bccd3f5353e85 -   17256611607924260485 - CartesianGridSpeed
 0xf86599f229e833ac -   17898881559418123180 - Unity.Transforms.LocalToParent
@@ -417,7 +418,6 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x3918b75191ea6844 -    4114239820571240516 - UnityEditor.SettingsWindow
 0x395b2891aab47497 -    4132941689141884055 - Unity.Entities.WorldTime
 0x39919b8fb077f7ef -    4148267773228218351 - UnityEditor.Experimental.Rendering.Universal.ShadowCaster2DEditor
-0x399e4f265f6c32dd -    4151842932710453981 - SoloSpawner
 0x39ac7f6a231fc45e -    4155836649988670558 - UnityEditor.Audio.AudioMixerSnapshotController
 0x39b246a94e777df3 -    4157463098996260339 - TMPro.TMP_SelectionCaret
 0x39f11e7e66a1e8ab -    4175151857785759915 - Unity.Entities.CompanionLink
@@ -1177,9 +1177,11 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
 0xb3bab25428899c4c -   12950859752984386636 - UnityEditor.Timeline.GroupTrackInspector
 0xb3c6b7853e8de88e -   12954243161085831310 - UnityEditor.NavMeshObstacleInspector
+0xb3d00dfd4fcb2a38 -   12956871509561518648 - TeamAuthoring
 0xb3dfb04be7f676cb -   12961272092656301771 - Unity.Entities.Tests.SharedComponentDataWithUnityEngineObject+CorrectHashCode
 0xb3eb7d81a7785b7f -   12964593948130040703 - UnityEditor.U2D.SpriteShapeRendererInspector
 0xb437bacd91d984d7 -   12986053442624128215 - Unity.Tiny.Rendering.ChunkWorldBoundingSphere
+0xb44a9e187e01024a -   12991369903134016074 - Team
 0xb47655423b847a34 -   13003674717033626164 - Unity.Tiny.Rendering.WorldBoundingSphere
 0xb4a0d29a659cd6dc -   13015634483672307420 - Tiny3D.Rotate
 0xb4ce9084ee10f85a -   13028509672633595994 - Unity.Entities.CodeGen.Tests.PropertyBags.Types.ValueTypeIComponentData
@@ -1337,6 +1339,7 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xcdf24759ba561f2d -   14840002172843073325 - UnityEditor.BoxPrimitiveColliderTool
 0xce14bad91dce9ade -   14849699313018116830 - UnityEngine.Rendering.UI.DebugUIHandlerValue
 0xce2fe484f9f7fd91 -   14857344955499150737 - UnityEditorInternal.PackageManifest
+0xce82b6ec5c7eafed -   14880657245065883629 - CartesianGridOnCubeLink
 0xce86656f8b71f84e -   14881693548447660110 - UnityEditor.VideoClipImporter
 0xce94311ef495a456 -   14885576677388559446 - Unity.Entities.PerformanceTests.EntityManagerPerformanceTests+TestTag7
 0xce9d551785a11f0e -   14888149502671265550 - UnityEditor.LightingExplorerWindow
@@ -1459,6 +1462,7 @@ d5f929dc9a19c50f04103a248b4f724c = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xe22c1444404fc537 -   16297423434916283703 - UnityEditor.PolygonCollider2DTool
 0xe252ebf14982b0bd -   16308356622214934717 - UnityEditor.Tools
 0xe253a9370df73f99 -   16308564729561300889 - UnityEngine.PlatformEffector2D
+0xe26cc1b0fc03b56c -   16315628515942970732 - SoloSpawner
 0xe26f4f36fe300a07 -   16316347072597985799 - UnityEngine.Animations.RotationConstraint
 0xe2af2552909eda79 -   16334315410039954041 - UnityEditor.LayerVisibilityWindow
 0xe2d2f51f8a43dbb5 -   16344395513493445557 - UnityEditor.ConsoleWindow

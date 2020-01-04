@@ -47,7 +47,7 @@ function revokeURL(url) {
 
 
   // No modularize, no streaming wasm compilation, no separate .mem init file
-  Promise.all([b('GridPath-Samples-GridCubeFollowTargets.js'), b('GridPath-Samples-GridCubeFollowTargets.wasm')]).then((r) => {
+  Promise.all([b('GridPath-Samples-GridCubeFollowNearestTeamTarget.js'), b('GridPath-Samples-GridCubeFollowNearestTeamTarget.wasm')]).then((r) => {
     Module.wasm = r[1];
     var url = URL.createObjectURL(new Blob([r[0]], { type: 'application/javascript' }));
     s(url).then(() => { revokeURL(url) });

@@ -25,7 +25,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
 0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
 0x76447972026766ed -    8522069925465384685 - Unity.Tiny.Rendering.LitMeshReference
-0x7bec9f8d49bd3dbd -    8929687590345194941 - CartesianGridOnCube
 0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
 0x93059436a0bc9a51 -   10594036660804819537 - Unity.Entities.Prefab
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders
@@ -40,6 +39,8 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
 0xc3143d19840be667 -   14056927516729009767 - Unity.Tiny.Rendering.CameraSettings2D
+0xd4edc38683177077 -   15343134488013533303 - CartesianGridSource
+0xd4fad5442a4797dd -   15346813168962213853 - CartesianGrid
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdd9ce3ffd937360a -   15968889066749376010 - CartesianGridUpdateDirection
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
@@ -143,7 +144,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x0c6b9e285d4c5aab -     894982847164340907 - UnityEditor.BuoyancyEffector2DEditor
 0x0c6c8bbc8b8e8f05 -     895244067851374341 - Unity.Dots.Automation.Internal.DotsCIUtils
 0x0ccf4279bdc3b021 -     923029539276435489 - Doc.CodeSamples.Tests.TimeToLive
-0x0cd26fdc14ff32d5 -     923923864600130261 - CartesianGridOnCubeWalls
 0x0ce4c0b7548d9282 -     929079316775277186 - UnityEditor.ProjectSettingsWindow
 0x0cf1d649607f5412 -     932762208482317330 - UnityEngine.UI.Text
 0x0d607d568df19ee8 -     963908130959367912 - UnityEditor.Graphs.LayerSettingsWindow
@@ -200,6 +200,7 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x14831a363ccccd3b -    1478053922958265659 - UnityEngine.CapsuleCollider2D
 0x1497ccdd359ea9b3 -    1483879852701297075 - Doc.CodeSamples.Tests.FloatBufferElement
 0x14b5ad9ee691c7f1 -    1492289749527939057 - UnityEngine.EdgeCollider2D
+0x14e09f257b09ac9c -    1504377258868583580 - CartesianGridOnPlaneAuthoring
 0x14ee7a03d00866fb -    1508277082009396987 - UnityEngine.Rendering.UI.DebugUIHandlerFloatField
 0x153278d5220a8544 -    1527416080426501444 - Unity.Entities.Tests.EntityManagerTests+ManagedComponentWithNestedClass
 0x154ef247162cca19 -    1535430910108551705 - Unity.Entities.Tests.TypeIndexOrderTests+Shared1
@@ -235,6 +236,7 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x1abab1101a7f4337 -    1926046473376449335 - UnityEditor.Collaboration.CollabCannotPublishDialog
 0x1ac7f2424aaafd96 -    1929777331886030230 - UnityEngine.Tilemaps.Tilemap
 0x1adceb86f8c64bdc -    1935680904794360796 - UnityEditor.Timeline.TimelineWindow
+0x1ae2f167680ec5e7 -    1937376216152458727 - CartesianGridFace
 0x1b069f5c97b4f33d -    1947419108915344189 - UnityEditor.Graphs.AnimationStateMachine.ExitNode
 0x1b175cd95a79ae3f -    1952131052083981887 - Unity.Entities.PerformanceTests.EntityQueryPerformanceTests+TestTag12
 0x1b275e1922ea4c61 -    1956636025168743521 - Doc.CodeSamples.Tests.Data
@@ -705,6 +707,7 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x6b7dea38e6c70ae1 -    7745604464257993441 - UnityEditor.Rendering.DebugStateColor
 0x6b867398ea59e6b3 -    7748007309541500595 - Unity.Scenes.SceneSectionBundle
 0x6c0fbfaa58f55482 -    7786653019104695426 - UnityEngine.Connect.UnityConnectSettings
+0x6c3eeeb4c7006625 -    7799934064852493861 - CartesianGridWalls
 0x6c5cc9164e5bd430 -    7808336951594701872 - UnityEditor.DirectorEditor
 0x6c6f4ba9d9d0c88e -    7813547071386994830 - UnityEditor.AvatarPreview+ObjectSelectorOperation
 0x6c7125f48991f311 -    7814068560674812689 - Unity.Entities.Tests.SharedData4
@@ -766,7 +769,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x74c6709202eaecb4 -    8414536726204837044 - UnityEditor.EditorUserBuildSettings
 0x74f0cf211696012d -    8426462643829997869 - UnityEditor.BillboardAssetInspector
 0x75043a6e5a9fd6e5 -    8431928647985649381 - Unity.Entities.Tests.EcsStringSharedComponent
-0x751d7557e5982f45 -    8439030297136738117 - CartesianGridOnCubeRandomWallsAuthoring
 0x75d374c0c53bd638 -    8490258093815092792 - UnityEditor.Experimental.Rendering.Universal.PixelPerfectCameraEditor
 0x7606ef593bfecee0 -    8504748112873443040 - UnityEngine.Rendering.MousePositionDebug+GameViewEventCatcher
 0x7609a2e0a6051719 -    8505508457007617817 - UnityEngine.Renderer
@@ -815,7 +817,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x7b6096e014004a74 -    8890271553581763188 - Unity.Entities.PerformanceTests.EntityQueryPerformanceTests+TestTag8
 0x7ba3aa0cf6103618 -    8909151460513560088 - UnityEngine.Video.VideoPlayer
 0x7bd2ea05487003a4 -    8922451120185410468 - UnityEditor.Physics2DSettingsInspector
-0x7bec9f8d49bd3dbd -    8929687590345194941 - CartesianGridOnCube
 0x7c164c9df3f78fc0 -    8941418351477362624 - Unity.Tiny.Rendering.RenderNodeCubemap
 0x7c1e84f6a4d4da33 -    8943732104866617907 - UnityEngine.TextCore.TextSettings
 0x7c1f698726d487ef -    8943983414174058479 - UnityEditor.ExportRawHeightmap
@@ -974,7 +975,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0x96a69150d0eb57ae -   10855523728111654830 - UnityEngine.Rendering.Volume
 0x96b130e4c00780b1 -   10858513935599370417 - UnityEditor.Timeline.Signals.SignalAssetInspector
 0x96c02ba2d139c99f -   10862730279512557983 - UnityEditor.SortingGroupEditor
-0x973ce2047fdb16f4 -   10897833707282568948 - CartesianGridOnCubeFace
 0x97605771df5f5907 -   10907814444081830151 - UnityEditor.TextureInspector
 0x9764f576593bf3c6 -   10909114086050231238 - Unity.Tiny.Image2DMemorySource
 0x97a6baa2da720aa6 -   10927626754473462438 - UnityEditor.UI.RawImageEditor
@@ -1339,7 +1339,6 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xcdf24759ba561f2d -   14840002172843073325 - UnityEditor.BoxPrimitiveColliderTool
 0xce14bad91dce9ade -   14849699313018116830 - UnityEngine.Rendering.UI.DebugUIHandlerValue
 0xce2fe484f9f7fd91 -   14857344955499150737 - UnityEditorInternal.PackageManifest
-0xce82b6ec5c7eafed -   14880657245065883629 - CartesianGridOnCubeLink
 0xce86656f8b71f84e -   14881693548447660110 - UnityEditor.VideoClipImporter
 0xce94311ef495a456 -   14885576677388559446 - Unity.Entities.PerformanceTests.EntityManagerPerformanceTests+TestTag7
 0xce9d551785a11f0e -   14888149502671265550 - UnityEditor.LightingExplorerWindow
@@ -1376,6 +1375,8 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xd460877e79268194 -   15303380511073141140 - UnityEditor.Timeline.TimelineAssetViewModel
 0xd486b2d6da7dde68 -   15314124218778377832 - UnityEditor.Animations.AnimatorController
 0xd4de75ccc64f6cfc -   15338826903231360252 - UnityEditor.CharacterControllerEditor
+0xd4edc38683177077 -   15343134488013533303 - CartesianGridSource
+0xd4fad5442a4797dd -   15346813168962213853 - CartesianGrid
 0xd589e559d6d0b00e -   15387081775906861070 - Unity.Entities.Tests.EcsTestDataBlobAssetArray
 0xd5ca71511252ec63 -   15405250068387916899 - UnityEditor.Connect.UnityConnectConsentView
 0xd5d4db00b5d049ba -   15408181021238118842 - UnityEngine.AI.NavMeshObstacle
@@ -1572,6 +1573,7 @@ a781de984fd8c4d9e96e556ec0a7da53 = Assets/Samples/GridPath/Samples/GridCubeFollo
 0xf221d58e451d6aad -   17447461238431640237 - Unity.Tiny.Rendering.SortSpritesEntry
 0xf2c2916c362c885b -   17492703796611811419 - UnityEngine.Animation
 0xf2d16d70367de5be -   17496886356029072830 - Unity.Transforms.TranslationProxy
+0xf2d27bf6fef8f7b5 -   17497183803057698741 - CartesianGridRandomWallsAuthoring
 0xf2edb0e41143ef96 -   17504841820247682966 - UnityEditor.LightmapParametersEditor
 0xf338af958db459cc -   17525951006774680012 - UnityEditor.EdgeCollider2DEditor
 0xf37d0a68b36e264e -   17545191168108537422 - UnityEngine.AudioBehaviour

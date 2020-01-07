@@ -1,20 +1,5 @@
-Warning: UseBurst specified, but target does not support burst yet. Not using burst.
-Warning: UseBurst specified, but target does not support burst yet. Not using burst.
-Warning: UseBurst specified, but target does not support burst yet. Not using burst.
-Warning: UseBurst specified, but target does not support burst yet. Not using burst.
-[       7s] Executed build program. Created build graph with 1067 nodes.
-[     8s] Build frontend of artifacts/tundra_Wasm-GridCubeFollowNearestTeamTarget_9ra.dag ran (folder contents changed: settings)
-[  67/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/d5f929dc9a19c50f04103a248b4f724c
-[  81/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/98c11f933c80548ada5175c52f43b915
-[  82/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/46b433b264c69cbd39f04ad2e5d12be8
-[  83/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/a781de984fd8c4d9e96e556ec0a7da53
-[ 974/1030  0s] Csc artifacts/GridPath.CartesianGrid.dll/Wasm-GridCubeFollowNearestTeamTarget/GridPath.CartesianGrid.dll (+2 others)
-/Users/macton/Work/dots/TinySamples/Assets/Samples/GridPath/CartesianGrid/CartesianGrid.cs(159,9): warning CS0169: The field 'CartesianGridTargetDistance.m_Value' is never used
-/Users/macton/Work/dots/TinySamples/Assets/Samples/GridPath/CartesianGrid/CartesianGrid.cs(151,10): warning CS0169: The field 'CartesianGridTargetDirection.m_Value' is never used
-[ 979/1030  0s] ILPostProcessorRunner artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget/post_ilprocessing/GridPath.CartesianGrid.dll (+pdb)
-[BUSY       6s] TypeRegGen artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget/post_typereg/GridPath.Samples.GridCubeFollowNearestTeamTarget.dll (+64 others)
-[ 980/1030  6s] TypeRegGen artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget/post_typereg/GridPath.Samples.GridCubeFollowNearestTeamTarget.dll (+64 others)
-[ 981/1030  3s] UnityLinker artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget_stripped/GridPath.Samples.GridCubeFollowNearestTeamTarget.dll (+64 others)
-[BUSY       6s] Il2Cpp artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget_stripped/GridPath.Samples.GridCubeFollowNearestTeamTarget.dll-il2cpp-sources/driver.cpp (+42 others)
-[ 982/1030 13s] Il2Cpp artifacts/GridPath.Samples.GridCubeFollowNearestTeamTarget/Wasm-GridCubeFollowNearestTeamTarget_stripped/GridPath.Samples.GridCubeFollowNearestTeamTarget.dll-il2cpp-sources/driver.cpp (+42 others)
-*** Bee build success (32.74 seconds), 9 items updated
+[  64/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/98c11f933c80548ada5175c52f43b915
+[  65/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/46b433b264c69cbd39f04ad2e5d12be8
+[  66/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/d5f929dc9a19c50f04103a248b4f724c
+[  68/1030  0s] CopyTool ../../Builds/Wasm-GridCubeFollowNearestTeamTarget/Data/a781de984fd8c4d9e96e556ec0a7da53
+*** Bee build success (0.44 seconds), 4 items updated

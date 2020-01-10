@@ -1,7 +1,9 @@
 ::Exported Assets::
 d5f3505c0b377452db53363d84547627 = Assets/Samples/Boids/Boids.unity
 9c5ff16a37c4a4220a0e7795b6c38c6d = Assets/Samples/Boids/Scenes/Environment.unity
+1f443f02a74e4a581e5739b164258e8b = Assets/Samples/Boids/Textures/fishAlbedo.tga
 fe40f30004fe6cfc6629523ee3a1b9f5 = Assets/Samples/Boids/Textures/fishMetallicGloss.tga
+e5bb2a13090d7b3856d733c49dad174a = Assets/Samples/Boids/Textures/fishNormals.tga
 7d55b3140efeed9686914ea8eec08ef3 = Assets/Samples/Boids/Textures/RockAlbedo.tif
 10f07b1b754f7d6bdefa44ee2bd66f41 = Assets/Samples/Boids/Textures/RockNormal.tif
 4ec7c9110afd913777422e716c2524c2 = Assets/Samples/Boids/Textures/RockSpecularGloss.tif

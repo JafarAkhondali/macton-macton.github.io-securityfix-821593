@@ -1,6 +1,6 @@
 ::Exported Assets::
-d5f3505c0b377452db53363d84547627 = Assets/Samples/Boids/Boids.unity
-9c5ff16a37c4a4220a0e7795b6c38c6d = Assets/Samples/Boids/Scenes/Environment.unity
+d5f3505c0b377452db53363d84547627 = Assets/Samples/Boids/Main-Boids.unity
+9c5ff16a37c4a4220a0e7795b6c38c6d = Assets/Samples/Boids/Main-Boids/Boids.unity
 1f443f02a74e4a581e5739b164258e8b = Assets/Samples/Boids/Textures/fishAlbedo.tga
 fe40f30004fe6cfc6629523ee3a1b9f5 = Assets/Samples/Boids/Textures/fishMetallicGloss.tga
 e5bb2a13090d7b3856d733c49dad174a = Assets/Samples/Boids/Textures/fishNormals.tga
@@ -29,12 +29,10 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0x670bc8aa6dc5e490 -    7425249044962075792 - Unity.Tiny.Rendering.LitMeshRenderData
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
 0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
-0x70e3dc0b284144d5 -    8134587292439364821 - Unity.Tiny.Rendering.SimpleMaterial
 0x76447972026766ed -    8522069925465384685 - Unity.Tiny.Rendering.LitMeshReference
-0x796cab47a3abc9f2 -    8749556500251003378 - Unity.Tiny.Rendering.SimpleMeshReference
 0x82c26d3bcc21f880 -    9422213474007775360 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
 0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
-0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
+0x8dffc61f366950f5 -   10232114715768213749 - Samples.Boids.AnimationClipSamples
 0x93059436a0bc9a51 -   10594036660804819537 - Unity.Entities.Prefab
 0x9381515c81de1fa2 -   10628866053328740258 - Samples.Boids.BoidTarget
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders
@@ -48,7 +46,6 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
 0xc3143d19840be667 -   14056927516729009767 - Unity.Tiny.Rendering.CameraSettings2D
-0xcfd02931a6019315 -   14974514054222156565 - Samples.Boids.SampledAnimationClip
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
 0xed82a9a8ebcf0ec9 -   17114428076937121481 - Unity.Tiny.Rendering.Camera
@@ -872,6 +869,7 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0x82b99c541f85658f -    9419731980742124943 - UnityEditor.OcclusionAreaEditor
 0x82bc3785dd04b398 -    9420465568630485912 - Unity.Entities.Tests.TypeIndexOrderTests+ComponentData1
 0x82c26d3bcc21f880 -    9422213474007775360 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
+0x82c44c748b1595e6 -    9422740383799285222 - AnimationClipSamplerAuthoring
 0x82f0239c746d1a27 -    9435080374216366631 - Unity.Entities.Tests.ChunkDataUtilityTests+SharedComponentWithMaximumChunkCapacity1
 0x82f703c3d925163a -    9437015683874756154 - UnityEditor.TestRunner.TestLaunchers.RemotePlayerLogController
 0x8305aeb432f21b55 -    9441144282824186709 - Unity.Transforms.ScalePivot
@@ -935,6 +933,7 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0x8d94c5c0304632a9 -   10201996485135315625 - Unity.Tiny.Rendering.RenderPassUpdateFromLight
 0x8dc3f85e54d41870 -   10215281463840217200 - UnityEditor.CurveEditorSelection
 0x8de95e0c6ce6e507 -   10225807836381111559 - UnityEditor.UI.MaskEditor
+0x8dffc61f366950f5 -   10232114715768213749 - Samples.Boids.AnimationClipSamples
 0x8e2a43f3cb902575 -   10244075016778950005 - UnityEditor.AvatarSubEditor
 0x8ea362937e7db865 -   10278167160211486821 - Unity.Entities.Tests.EntityRemapUtilityTests+TwoEntityStruct
 0x8eaa74778609b56e -   10280157156125291886 - UnityEngine.RelativeJoint2D
@@ -1364,7 +1363,6 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0xcf78147a16a480b2 -   14949721477654806706 - Samples.Boids.BoidSchoolAuthoring
 0xcf913734af764fb5 -   14956796536895721397 - TestStaticTypeRegistryReferenceAsm.TestStaticTypeRegistryReferenceAsm+WriteGroup
 0xcfaae05dbe71e58e -   14964019405123609998 - Unity.Entities.Tests.EntityQueryTests+TestTag17
-0xcfd02931a6019315 -   14974514054222156565 - Samples.Boids.SampledAnimationClip
 0xd05bf48031d16a1a -   15013862614198479386 - Unity.Entities.PerformanceTests.SharedComponentPerformanceTests+TestShared1
 0xd0c01b3d5576f182 -   15042052705658270082 - Unity.Dots.TestRunner.DotsTestRunnerApi
 0xd0ddce01ac11999e -   15050412036319189406 - TMPro.TMP_ScrollbarEventHandler
@@ -1617,7 +1615,6 @@ b8f9b795ff58062c49e9744675f29f79 = Assets/Samples/Boids/Textures/tints.tif
 0xf52afab7641dfe6b -   17666208153879838315 - UnityEditor.ProjectWindowCallback.DoCreatePrefabVariant
 0xf565016d825eda68 -   17682541081790437992 - UnityEditor.Timeline.TimelineWindow+DoCreateTimeline
 0xf566837bbb2b9836 -   17682965554361243702 - Unity.Entities.Tests.BoundsComponent
-0xf5ecee533371d542 -   17720800674908853570 - TransformRecorderAuthoring
 0xf675c3afafbc6777 -   17759315864940472183 - UnityEditor.EventSystems.EventTriggerEditor
 0xf68e523a40a4fed0 -   17766227990169321168 - Unity.Entities.Tests.SharedData9
 0xf69236665170d4cc -   17767323293010941132 - Unity.Tiny.Rendering.RenderNodeRef

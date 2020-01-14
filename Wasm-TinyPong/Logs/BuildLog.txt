@@ -1,141 +1,51 @@
-Warning: UseBurst specified, but target does not support burst yet. Not using burst.
-[       6s] Executed build program. Created build graph with 1064 nodes.
-[     7s] Build frontend of artifacts/tundra_Wasm-TinyPong_7up.dag ran (build file timestamp changed: settings/Wasm-TinyPong.json)
-[  21/1028  0s] WriteResponseFile artifacts/rsp/11354269600928634035.rsp
-[  22/1028  0s] WriteResponseFile artifacts/rsp/7232557447740444055.rsp
-[  23/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/6f8a0afafeb011d229556ecb72b64f2b
-[  24/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/f24cae80b439bd77d3d4a0431ad79207
-[  25/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/65d5fbc38183100ec77bafab84861788
+[  23/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/af72d1c4fd8e9b256dff946a8bcfbdfb
+[  24/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ab5480703e7cc4b0390b32447c9c0954
+[  25/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/6f8a0afafeb011d229556ecb72b64f2b
 [  26/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/5b670003415d5cee62e802c8835f9b6a
-[  27/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/46b433b264c69cbd39f04ad2e5d12be8
-[  28/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ab5480703e7cc4b0390b32447c9c0954
-[  29/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/af72d1c4fd8e9b256dff946a8bcfbdfb
-[  30/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/fb938b7923ddc981c8055f0083baa709
-[  71/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/d85957014e39ac2b6633b84bfe644da6
-[  72/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/b428c1199fcb250b43ecc6508f5c7933
-[  74/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/1b436f617d6d3bb49aba65ff9f2581c7
-[  75/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/2de1e48a0df415974f1e4ab70eee6a39
-[  80/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ad9f50e074e96e6dcb06e0d003872bba
-[ 911/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/mscorlib.dll
-[ 912/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/netstandard.dll
-[ 913/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/UnsafeUtility.dll (+pdb)
-[ 914/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_zerojobs/Wasm-TinyPong/lib_unity_zerojobs.bc
-[ 915/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_codec/Wasm-TinyPong/lib_unity_tiny_codec.bc
-[ 916/1028  1s] Lib_WebGL_wasm artifacts/libil2cpptiny/Wasm-TinyPong/libil2cpptiny.bc
-[ 917/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_core/Wasm-TinyPong/lib_unity_tiny_core.bc
-[ 918/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_image2d_web/Wasm-TinyPong/lib_unity_tiny_image2d_web.bc
-[ 919/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_platforms_runloop/Wasm-TinyPong/lib_unity_platforms_runloop.bc
-[ 920/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_io/Wasm-TinyPong/lib_unity_tiny_io.bc
-[ 921/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_web/Wasm-TinyPong/lib_unity_tiny_web.bc
-[ 922/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_input_web/Wasm-TinyPong/lib_unity_tiny_input_web.bc
-[ 923/1028  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_rendering_native/Wasm-TinyPong/lib_unity_tiny_rendering_native.bc
-[ 924/1028  5s] Csc artifacts/Unity.LowLevel.dll/Wasm-TinyPong/Unity.LowLevel.dll (+2 others)
-[ 925/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.LowLevel.dll (+pdb)
-[ 926/1028  0s] Csc artifacts/Unity.ZeroJobs.dll/Wasm-TinyPong/Unity.ZeroJobs.dll (+2 others)
-[ 927/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.ZeroJobs.dll (+pdb)
-[ 928/1028  0s] Csc artifacts/Unity.Tiny.Main.dll/Wasm-TinyPong/Unity.Tiny.Main.dll (+2 others)
-[ 929/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Main.dll (+pdb)
-[ 930/1028  0s] Csc artifacts/Unity.Platforms.RunLoop.dll/Wasm-TinyPong/Unity.Platforms.RunLoop.dll (+2 others)
-[ 931/1028  1s] Csc artifacts/Unity.Entities.StaticTypeRegistry.dll/Wasm-TinyPong/Unity.Entities.StaticTypeRegistry.dll (+2 others)
-[ 932/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Platforms.RunLoop.dll (+pdb)
-[ 933/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Entities.StaticTypeRegistry.dll (+pdb)
-[ 934/1028  2s] Csc artifacts/Unity.Mathematics.dll/Wasm-TinyPong/Unity.Mathematics.dll (+2 others)
-[ 935/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Mathematics.dll (+pdb)
-[ 936/1028  4s] Csc artifacts/Unity.Burst.dll/Wasm-TinyPong/Unity.Burst.dll (+2 others)
-[ 937/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Burst.dll (+pdb)
-[ 938/1028  0s] Csc artifacts/Unity.Collections.dll/Wasm-TinyPong/Unity.Collections.dll (+2 others)
-[ 939/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Collections.dll (+pdb)
-[ 940/1028  0s] Csc artifacts/Unity.Jobs.dll/Wasm-TinyPong/Unity.Jobs.dll (+2 others)
-[ 941/1028  0s] Csc artifacts/Unity.Tiny.Codec.dll/Wasm-TinyPong/Unity.Tiny.Codec.dll (+2 others)
-[ 942/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Jobs.dll (+pdb)
-[ 943/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Codec.dll (+pdb)
-[ 944/1028  0s] Csc artifacts/Unity.Mathematics.Extensions.dll/Wasm-TinyPong/Unity.Mathematics.Extensions.dll (+2 others)
-[ 945/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Mathematics.Extensions.dll (+pdb)
-[ 946/1028  1s] Csc artifacts/Unity.Entities.dll/Wasm-TinyPong/Unity.Entities.dll (+2 others)
-/Users/macton/Work/TinyPong/Library/PackageCache/com.unity.entities@0.3.0-preview.4/Unity.Entities/ApiCompatibilityLevelTest.cs(2,10): warning CS1030: #warning: 'Project is expected to have API Compatibility Level set to .NET Standard 2.0'
-/Users/macton/Work/TinyPong/Library/PackageCache/com.unity.entities@0.3.0-preview.4/Unity.Entities/Types/FastEquality.cs(189,27): warning CS0169: The field 'FastEquality.PointerSize.pter' is never used
-/Users/macton/Work/TinyPong/Library/PackageCache/com.unity.entities@0.3.0-preview.4/Unity.Entities/Types/TypeManager.cs(491,27): warning CS0169: The field 'TypeManager.ObjectOffsetType.v0' is never used
-/Users/macton/Work/TinyPong/Library/PackageCache/com.unity.entities@0.3.0-preview.4/Unity.Entities/Types/TypeManager.cs(492,27): warning CS0169: The field 'TypeManager.ObjectOffsetType.v1' is never used
-[ 947/1028  0s] Csc artifacts/Unity.Tiny.Core.dll/Wasm-TinyPong/Unity.Tiny.Core.dll (+2 others)
-[ 948/1028  0s] Csc artifacts/Unity.Entities.Runtime.dll/Wasm-TinyPong/Unity.Entities.Runtime.dll (+2 others)
-[ 949/1028  0s] Csc artifacts/Unity.Transforms.dll/Wasm-TinyPong/Unity.Transforms.dll (+2 others)
-[ 950/1028  0s] Csc artifacts/Unity.Tiny.Image2D.dll/Wasm-TinyPong/Unity.Tiny.Image2D.dll (+2 others)
-[ 951/1028  0s] Csc artifacts/Unity.Tiny.IO.dll/Wasm-TinyPong/Unity.Tiny.IO.dll (+2 others)
-[ 952/1028  0s] Csc artifacts/Unity.Tiny.Web.dll/Wasm-TinyPong/Unity.Tiny.Web.dll (+2 others)
-/Users/macton/Work/TinyPong/Library/PackageCache/com.unity.tiny.web@0.20.0-preview.2/Runtime/Unity.Tiny.Web/SendMessageHandler.cs(72,46): warning CS0618: 'World.Active' is obsolete: 'World.Active has been deprecated. The most common & incorrect usage has been to use World.Active from a ComponentSystem. From a ComponentSystem you should use the ComponentSystem's World property directly. It returns the world that this system belongs to. There are some rare cases where a MonoBehaviour needs to inject data into the active world, in this case use World.DefaultGameObjectInjectionWorld. (RemovedAfter 2020-01-22)'
-[ 953/1028  0s] Csc artifacts/Unity.Tiny.Input.dll/Wasm-TinyPong/Unity.Tiny.Input.dll (+2 others)
-[ 954/1028  0s] Csc artifacts/Unity.Tiny.Rendering.dll/Wasm-TinyPong/Unity.Tiny.Rendering.dll (+2 others)
-[ 955/1028  0s] Csc artifacts/Unity.Tiny.Image2D.Web.dll/Wasm-TinyPong/Unity.Tiny.Image2D.Web.dll (+2 others)
-[ 956/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Entities.Runtime.dll (+pdb)
-[ 957/1028  1s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Core.dll (+pdb)
-[ 958/1028  0s] Csc artifacts/Unity.Tiny.Scenes.dll/Wasm-TinyPong/Unity.Tiny.Scenes.dll (+2 others)
-[ 959/1028  1s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Transforms.dll (+pdb)
-[ 960/1028  0s] Csc artifacts/Unity.Tiny.Input.Web.dll/Wasm-TinyPong/Unity.Tiny.Input.Web.dll (+2 others)
-[ 961/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Image2D.dll (+pdb)
-[ 962/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.IO.dll (+pdb)
-[ 963/1028  0s] Csc artifacts/Unity.Tiny.UnityInstance.dll/Wasm-TinyPong/Unity.Tiny.UnityInstance.dll (+2 others)
-[ 964/1028  0s] Csc artifacts/Unity.Tiny.Rendering.Native.dll/Wasm-TinyPong/Unity.Tiny.Rendering.Native.dll (+2 others)
-[ 965/1028  2s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Entities.dll (+pdb)
-[ 966/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Input.dll (+pdb)
-[ 967/1028  1s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Web.dll (+pdb)
-[ 968/1028  1s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Rendering.dll (+pdb)
-[ 969/1028  0s] Csc artifacts/Unity.Tiny.EntryPoint.exe/Wasm-TinyPong/Unity.Tiny.EntryPoint.exe (+2 others)
-[ 970/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Image2D.Web.dll (+pdb)
-[ 971/1028  0s] Csc artifacts/Unity.Tiny.RendererExtras.dll/Wasm-TinyPong/Unity.Tiny.RendererExtras.dll (+2 others)
-[ 972/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.UnityInstance.dll (+pdb)
-[ 973/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Scenes.dll (+pdb)
-[ 974/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Input.Web.dll (+pdb)
-[ 975/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.EntryPoint.exe (+pdb)
-[ 976/1028  0s] Csc artifacts/TinyPong.dll/Wasm-TinyPong/TinyPong.dll (+2 others)
-[ 977/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.Rendering.Native.dll (+pdb)
-[ 978/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/Unity.Tiny.RendererExtras.dll (+pdb)
+[  27/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/f24cae80b439bd77d3d4a0431ad79207
+[  28/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/fb938b7923ddc981c8055f0083baa709
+[  29/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/65d5fbc38183100ec77bafab84861788
+[  30/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/46b433b264c69cbd39f04ad2e5d12be8
+[  55/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/d85957014e39ac2b6633b84bfe644da6
+[  84/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/b428c1199fcb250b43ecc6508f5c7933
+[ 120/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ad9f50e074e96e6dcb06e0d003872bba
+[ 137/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/1b436f617d6d3bb49aba65ff9f2581c7
+[ 149/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/2de1e48a0df415974f1e4ab70eee6a39
+[ 978/1028  3s] Csc artifacts/TinyPong.dll/Wasm-TinyPong/TinyPong.dll (+2 others)
 [ 979/1028  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/TinyPong.dll (+pdb)
-[ 980/1028  4s] TypeRegGen artifacts/TinyPong/Wasm-TinyPong/post_typereg/TinyPong.dll (+58 others)
-[ 981/1028  3s] UnityLinker artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll (+58 others)
+[ 980/1028  3s] TypeRegGen artifacts/TinyPong/Wasm-TinyPong/post_typereg/TinyPong.dll (+58 others)
+[ 981/1028  2s] UnityLinker artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll (+58 others)
 [BUSY       6s] Il2Cpp artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
 [ 982/1028  8s] Il2Cpp artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
-[ 985/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/StringLiterals.o
-[ 986/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/StaticInitialization.o
-[ 987/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/StaticConstructors.o
+[ 987/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/StaticInitialization.o
 [ 988/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/TinyTypes.o
-[ 989/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.EntryPoint.o
-[ 990/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Il2CppGenericComDefinitions.o
-[ 991/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Image2D.Web.o
-[ 992/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Input.Web.o
-[ 994/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Web.o
-[ 995/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.ZeroJobs.o
-[ 996/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/TinyPong.o
-[ 997/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.LowLevel.o
-[ 998/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Mathematics.Extensions.o
-[ 999/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Core.o
-[1001/1028  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Rendering.Native.o
+[ 989/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/StringLiterals.o
+[ 994/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.EntryPoint.o
+[ 997/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Image2D.Web.o
+[ 998/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Web.o
+[ 999/1028  2s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/TinyPong.o
+[1001/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Core.o
 [1002/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Input.o
-[1004/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Rendering.o
-[1006/1028  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Mathematics.o
-[1007/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.RendererExtras.o
-[1008/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Collections.o
-[1009/1028  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Transforms.o
-[1011/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/UnsafeUtility.o
-[1012/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Scenes.o
-[1013/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.UnityInstance.o
-[1014/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Platforms.RunLoop.o
-[1015/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Entities.Runtime.o
-[1016/1028  2s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/mscorlib.o
-[1017/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Codec.o
-[1018/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.IO.o
+[1007/1028  2s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Rendering.o
+[1009/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.RendererExtras.o
+[1011/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Scenes.o
+[1012/1028  4s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.Rendering.Native.o
+[1016/1028  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Tiny.UnityInstance.o
+[1017/1028  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Platforms.RunLoop.o
+[1018/1028  4s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Transforms.o
 [1019/1028  4s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Entities.StaticTypeRegistry.o
-[1020/1028  8s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Entities.o
-[1021/1028 11s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/GenericMethods.o
-[1022/1028 14s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Generics.o
+[1020/1028  7s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Unity.Entities.o
+[1021/1028 10s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/GenericMethods.o
+[1022/1028 13s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Generics.o
 [BUSY       6s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
 [BUSY      16s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
 [BUSY      26s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
 [BUSY      36s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
 [BUSY      46s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
-[1023/1028 48s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
+[1023/1028 50s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,symbols,js)
 emcc:WARNING: for wasm there is no need to set ELIMINATE_DUPLICATE_FUNCTIONS, the binaryen optimizer does it automatically
-[1024/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.symbols
-[1025/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.js
+[1024/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.js
+[1025/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.symbols
 [1026/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.wasm
 [1027/1028  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.html
-*** Bee build success (101.69 seconds - 0:01:41), 125 items updated
+*** Bee build success (84.32 seconds - 0:01:24), 43 items updated

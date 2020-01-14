@@ -48,8 +48,10 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x9edc52e294a1bc01 -   11447115485978672129 - Paddle
 0xa9153b234e4c2950 -   12183709389744253264 - Unity.Tiny.Rendering.ShadowmappedLight
 0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
+0xb9547d153f487901 -   13354436325269862657 - AutoKeyTimer
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
+0xc6087c4f5aaf6969 -   14269792099589122409 - AutoKeyConfig
 0xd5a225c5bf55afed -   15393908007554625517 - ScoreManager
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdc59609942ca230a -   15877828172638200586 - LocalBounds
@@ -358,7 +360,6 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x39b246a94e777df3 -    4157463098996260339 - TMPro.TMP_SelectionCaret
 0x39f11e7e66a1e8ab -    4175151857785759915 - Unity.Entities.CompanionLink
 0x39fe9b60ab26754b -    4178948343736989003 - Unity.Entities.SceneReference
-0x3a1e7ba85cdf82cf -    4187920666544014031 - PaddleAuthoring
 0x3a48df60f5de99fb -    4199852260057848315 - UnityEngine.Rendering.UI.DebugUIHandlerEnumField
 0x3a738da99095b9f8 -    4211865835936266744 - UnityEngine.PhysicsMaterial2D
 0x3abefa2e223deaaf -    4233095775824767663 - UnityEngine.FlareLayer
@@ -386,6 +387,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x3f5b61c43db41d7a -    4565350142746828154 - Unity.Entities.GameObjectConversionUtility+DeclaredReferenceObjectsTag
 0x3f7f9e63748459b3 -    4575549896425494963 - UnityEditor.Brush
 0x3f9a0075cf145b87 -    4582976076788292487 - UnityEditor.TilemapCollider2DEditor
+0x4121aecf681cec79 -    4693224492524956793 - PaddleAuthoring
 0x4132236350844f90 -    4697856270760431504 - UnityEditor.Experimental.TerrainAPI.StampTool
 0x4179db16fd7c3607 -    4718042976435844615 - UnityEditor.Experimental.Rendering.Universal.CompositeShadowCaster2DEditor
 0x418f846fc2e4be06 -    4724140149680946694 - UnityEditor.SplitView
@@ -992,6 +994,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xb8f1a3d7c9403ebb -   13326612919555735227 - UnityEngine.LightProbeGroup
 0xb90086f3ec326753 -   13330803279214569299 - UnityEditor.ShaderImporterInspector
 0xb94748bad29afccc -   13350719587597614284 - UnityEngine.Rendering.UI.UIFoldout
+0xb9547d153f487901 -   13354436325269862657 - AutoKeyTimer
 0xba101d5519bb2945 -   13407248342023088453 - Unity.Transforms.RotationEulerZXY
 0xba49d8a4c3956d63 -   13423498366522060131 - UnityEngine.CompositeCollider2D
 0xba6d2c24d9db38e2 -   13433441800301525218 - UnityEngine.UI.RawImage
@@ -1050,6 +1053,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xc47a0d812651ed1d -   14157643226937421085 - UnityEditor.HingeJointEditor
 0xc4ae43d5fec0049d -   14172339663762621597 - UnityEditor.ScriptExecutionOrderInspector
 0xc5721507eec87d5d -   14227457296631889245 - UnityEngine.AI.OffMeshLink
+0xc6087c4f5aaf6969 -   14269792099589122409 - AutoKeyConfig
 0xc61c779bb22dd122 -   14275416429450613026 - UnityEngine.Collider
 0xc67c5c2d392db943 -   14302407865924434243 - TMPro.TMP_PackageResourceImporterWindow
 0xc69779e348574248 -   14310040358071255624 - UnityEngine.Rendering.UI.DebugUIHandlerVector3

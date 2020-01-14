@@ -35,6 +35,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x6774429a045b4372 -    7454656512470500210 - Unity.Tiny.Scenes.StartupScenes
 0x6a3c5ee84d3b33e0 -    7655097818444149728 - KeyCodeDown
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
+0x6bb089beaf54bcca -    7759853610037722314 - ScoreManager
 0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
 0x76267ad49cbb05b7 -    8513627199171659191 - Direction
 0x7823013f0216322f -    8656764278865801775 - ObstacleBendAngle
@@ -52,7 +53,6 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
 0xc6087c4f5aaf6969 -   14269792099589122409 - AutoKeyConfig
-0xd5a225c5bf55afed -   15393908007554625517 - ScoreManager
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdc59609942ca230a -   15877828172638200586 - LocalBounds
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
@@ -82,7 +82,6 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x03d87deb736f397a -     277109827290741114 - UnityEditor.RenderTextureEditor
 0x03de176e55caa2ac -     278685989596734124 - Obstacle
 0x03ec7c8231bd08b1 -     282737775239563441 - UnityEngine.WheelJoint2D
-0x0499239728f43c43 -     331335179722570819 - ScoreManagerAuthoring
 0x050b2a424a49d38f -     363430659136017295 - UnityEditor.Build.Reporting.BuildReport
 0x053194979f1c6c4d -     374243622978874445 - UnityEngine.Texture2D
 0x059bf6ef1d7c30cb -     404188098432086219 - UnityEditor.ConfigurableJointTool
@@ -595,6 +594,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x6b4dbe021867e51c -    7732045051473683740 - UnityEditor.LightEditor
 0x6b7dea38e6c70ae1 -    7745604464257993441 - UnityEditor.Rendering.DebugStateColor
 0x6b867398ea59e6b3 -    7748007309541500595 - Unity.Scenes.SceneSectionBundle
+0x6bb089beaf54bcca -    7759853610037722314 - ScoreManager
 0x6be14b6605483971 -    7773577333365553521 - Unity.Physics.PhysicsStep
 0x6c0fbfaa58f55482 -    7786653019104695426 - UnityEngine.Connect.UnityConnectSettings
 0x6c5cc9164e5bd430 -    7808336951594701872 - UnityEditor.DirectorEditor
@@ -1134,7 +1134,6 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xd4624c8b7359f4db -   15303878645577807067 - UnityEditor.ProBuilder.MaterialPalette
 0xd486b2d6da7dde68 -   15314124218778377832 - UnityEditor.Animations.AnimatorController
 0xd4de75ccc64f6cfc -   15338826903231360252 - UnityEditor.CharacterControllerEditor
-0xd5a225c5bf55afed -   15393908007554625517 - ScoreManager
 0xd5ca71511252ec63 -   15405250068387916899 - UnityEditor.Connect.UnityConnectConsentView
 0xd5d4db00b5d049ba -   15408181021238118842 - UnityEngine.AI.NavMeshObstacle
 0xd6093803886161c8 -   15422919986731114952 - UnityEngine.Experimental.Rendering.Universal.Light2D
@@ -1161,6 +1160,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xd991244d7e1039bc -   15677351693099481532 - UnityEditor.Build.CacheServer.CacheServerUploaderWindow
 0xd9bf135762b05c63 -   15690280892820905059 - UnityEditor.Rendering.DebugStateFloat
 0xd9c3d81e2b2d2ccb -   15691623150773939403 - UnityEditor.Animations.AnimatorDefaultTransition
+0xd9f61c1615fc5f74 -   15705771631684902772 - ScoreManagerAuthoring
 0xda29827a5b9fa522 -   15720239436348237090 - UnityEditor.DoubleCurvePresetLibraryEditor
 0xdacaa7c1c072af56 -   15765597896163110742 - UnityEditorInternal.AssemblyDefinitionReferenceImporter
 0xdb07ed35fc78ad34 -   15782844235268009268 - UnityEditor.DefaultAsset

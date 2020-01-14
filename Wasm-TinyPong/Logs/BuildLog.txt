@@ -1,0 +1,40 @@
+[  69/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/Data/46b433b264c69cbd39f04ad2e5d12be8
+[  70/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/Data/34c1c1232ad50de47bde0e4799ae6610
+[  72/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/Data/1b436f617d6d3bb49aba65ff9f2581c7
+[ 968/1017  3s] Csc artifacts/TinyPong.dll/Wasm-Tiny3D/TinyPong.dll (+2 others)
+[ 969/1017  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-Tiny3D/post_ilprocessing/TinyPong.dll (+pdb)
+[ 970/1017  3s] TypeRegGen artifacts/TinyPong/Wasm-Tiny3D/post_typereg/TinyPong.dll (+58 others)
+[ 971/1017  3s] UnityLinker artifacts/TinyPong/Wasm-Tiny3D_stripped/TinyPong.dll (+58 others)
+[BUSY       6s] Il2Cpp artifacts/TinyPong/Wasm-Tiny3D_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
+[ 972/1017  9s] Il2Cpp artifacts/TinyPong/Wasm-Tiny3D_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
+[ 976/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/StaticInitialization.o
+[ 977/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/StringLiterals.o
+[ 978/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/TinyTypes.o
+[ 980/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.EntryPoint.o
+[ 984/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Image2D.Web.o
+[ 987/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/TinyPong.o
+[ 988/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Web.o
+[ 989/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Core.o
+[ 991/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Rendering.o
+[ 992/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Input.o
+[ 997/1017  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Rendering.Native.o
+[ 999/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.RendererExtras.o
+[1001/1017  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.Scenes.o
+[1002/1017  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Transforms.o
+[1006/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Tiny.UnityInstance.o
+[1007/1017  0s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Platforms.RunLoop.o
+[1008/1017  7s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Il2CppGenericComDefinitions.o
+[1009/1017  3s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Entities.StaticTypeRegistry.o
+[1010/1017  8s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Unity.Entities.o
+[1011/1017 13s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/GenericMethods.o
+[1012/1017 16s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/6vf0/Generics.o
+[BUSY       6s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/TinyPong.html (+wasm,js)
+[1013/1017 11s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-Tiny3D/TinyPong.html (+wasm,js)
+warning: unexpected return type i8* in call to 'SetTempSliceHandle', should be void
+warning: unexpected return type i8* in call to 'SetTempMemSafetyHandle', should be void
+warning: unexpected return type i32 in call to 'Close', should be void
+warning: unexpected return type i32 in call to 'Close', should be void
+[1014/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/TinyPong.wasm
+[1015/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/TinyPong.js
+[1016/1017  0s] CopyTool ../../Builds/Wasm-Tiny3D/TinyPong.html
+*** Bee build success (49.78 seconds), 33 items updated

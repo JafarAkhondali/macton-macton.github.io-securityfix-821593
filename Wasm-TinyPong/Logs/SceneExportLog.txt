@@ -1,6 +1,16 @@
 ::Exported Assets::
 1b436f617d6d3bb49aba65ff9f2581c7 = Assets/Main-TinyPong.unity
 ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
+5b670003415d5cee62e802c8835f9b6a = Assets/Textures/Number0.png
+2de1e48a0df415974f1e4ab70eee6a39 = Assets/Textures/Number1.png
+ad9f50e074e96e6dcb06e0d003872bba = Assets/Textures/Number2.png
+b428c1199fcb250b43ecc6508f5c7933 = Assets/Textures/Number3.png
+d85957014e39ac2b6633b84bfe644da6 = Assets/Textures/Number4.png
+f24cae80b439bd77d3d4a0431ad79207 = Assets/Textures/Number5.png
+65d5fbc38183100ec77bafab84861788 = Assets/Textures/Number6.png
+6f8a0afafeb011d229556ecb72b64f2b = Assets/Textures/Number7.png
+fb938b7923ddc981c8055f0083baa709 = Assets/Textures/Number8.png
+af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 46b433b264c69cbd39f04ad2e5d12be8 = Configuration
 
 
@@ -15,28 +25,37 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0x38e07d69650538da -    4098413552527030490 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
 0x3acebd72b403349c -    4237532599746245788 - Unity.Transforms.Parent
 0x42efbfd1d2d19daf -    4823284633843113391 - KeyCodeUp
+0x54a461637111f936 -    6099106875093154102 - Score
+0x5b03da03aea614c9 -    6558325191731451081 - Unity.Entities.LinkedEntityGroup
 0x5cce910ab1226f12 -    6687441971799289618 - Unity.Tiny.Rendering.DirectionalLight
+0x5d210c65ec0b8dd3 -    6710658551650160083 - PrevScore
 0x645b5769b50b2b2e -    7231469738194053934 - Unity.Transforms.LocalToWorld
 0x64ce1131e5430fab -    7263762154992635819 - Unity.Tiny.Rendering.Frustum
 0x65677f0977489c6e -    7306948599064599662 - Unity.Tiny.Rendering.SimpleMaterial
 0x6774429a045b4372 -    7454656512470500210 - Unity.Tiny.Scenes.StartupScenes
 0x6a3c5ee84d3b33e0 -    7655097818444149728 - KeyCodeDown
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
+0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
 0x76267ad49cbb05b7 -    8513627199171659191 - Direction
 0x7823013f0216322f -    8656764278865801775 - ObstacleBendAngle
 0x796cab47a3abc9f2 -    8749556500251003378 - Unity.Tiny.Rendering.SimpleMeshReference
+0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
 0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
+0x93059436a0bc9a51 -   10594036660804819537 - Unity.Entities.Prefab
 0x933784c6ef2c6e33 -   10608093437245550131 - Unity.Tiny.Rendering.SpotLight
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders
 0x9d9a34562ae5684a -   11356446955059636298 - Unity.Transforms.NonUniformScale
 0x9edc52e294a1bc01 -   11447115485978672129 - Paddle
 0xa9153b234e4c2950 -   12183709389744253264 - Unity.Tiny.Rendering.ShadowmappedLight
+0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
+0xd5a225c5bf55afed -   15393908007554625517 - ScoreManager
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdc59609942ca230a -   15877828172638200586 - LocalBounds
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
 0xeb3f8f0f4f04bd92 -   16951424818358828434 - Ball
+0xeca0bbeb92df8790 -   17050834809680529296 - UIElement
 0xed82a9a8ebcf0ec9 -   17114428076937121481 - Unity.Tiny.Rendering.Camera
 0xf86599f229e833ac -   17898881559418123180 - Unity.Transforms.LocalToParent
 
@@ -61,6 +80,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0x03d87deb736f397a -     277109827290741114 - UnityEditor.RenderTextureEditor
 0x03de176e55caa2ac -     278685989596734124 - Obstacle
 0x03ec7c8231bd08b1 -     282737775239563441 - UnityEngine.WheelJoint2D
+0x0499239728f43c43 -     331335179722570819 - ScoreManagerAuthoring
 0x050b2a424a49d38f -     363430659136017295 - UnityEditor.Build.Reporting.BuildReport
 0x053194979f1c6c4d -     374243622978874445 - UnityEngine.Texture2D
 0x059bf6ef1d7c30cb -     404188098432086219 - UnityEditor.ConfigurableJointTool
@@ -451,6 +471,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0x541c4da4de75d7e4 -    6060804569036085220 - Unity.Scenes.ExternalEntityRefInfo
 0x5426656b5048ea9c -    6063645459883813532 - UnityEditor.DefaultAssetInspector
 0x5482f2c909660a15 -    6089696591418362389 - Unity.Rendering.FrozenRenderSceneTag
+0x54a461637111f936 -    6099106875093154102 - Score
 0x54a832c19b089e6b -    6100181502384447083 - UnityEditor.TestTools.TestRunner.EditModeLauncher+BackgroundListener
 0x54ea6c248787f90b -    6118821947884697867 - UnityEditor.SceneManagement.StageNavigationManager
 0x55354678533b0d11 -    6139891149595938065 - UnityEditor.CircleCollider2DTool
@@ -493,6 +514,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0x5cd8c5d75b1a6ebe -    6690314775195971262 - UnityEngine.UI.Slider
 0x5d001d9439bdb89a -    6701388767988398234 - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
 0x5d04a5d6c2d83f87 -    6702664487244676999 - Unity.Physics.Authoring.DisplayBodyColliders+DrawComponent
+0x5d210c65ec0b8dd3 -    6710658551650160083 - PrevScore
 0x5d5cc9616b4fa952 -    6727473363634071890 - UnityEngine.BuoyancyEffector2D
 0x5d6abd331d401dac -    6731400620290350508 - TMPro.EditorUtilities.TMPro_FontAssetCreatorWindow
 0x5df7e98abc4e2c07 -    6771137346848828423 - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
@@ -1061,6 +1083,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0xca9467e8b0f1478a -   14597406541313296266 - Unity.Tiny.Rendering.ChunkWorldBounds
 0xcaa0f642383c4dc3 -   14600940756206898627 - Unity.Tiny.Rendering.ObjectBoundingSphere
 0xcac42c34d0d96128 -   14610851696450560296 - UnityEngine.TerrainLayer
+0xcad8a46b2adfaf5f -   14616613370818703199 - ScoreAuthoring
 0xcae997b353419230 -   14621384461686772272 - UnityEngine.LensFlare
 0xcaf6d597a04a03ab -   14625111687138247595 - UnityEditor.ProBuilder.EntityEditor
 0xcb0c3df3672ad84d -   14631137405037107277 - UnityEditor.ShaderGraph.ShaderGraphMetadata
@@ -1107,6 +1130,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0xd4624c8b7359f4db -   15303878645577807067 - UnityEditor.ProBuilder.MaterialPalette
 0xd486b2d6da7dde68 -   15314124218778377832 - UnityEditor.Animations.AnimatorController
 0xd4de75ccc64f6cfc -   15338826903231360252 - UnityEditor.CharacterControllerEditor
+0xd5a225c5bf55afed -   15393908007554625517 - ScoreManager
 0xd5ca71511252ec63 -   15405250068387916899 - UnityEditor.Connect.UnityConnectConsentView
 0xd5d4db00b5d049ba -   15408181021238118842 - UnityEngine.AI.NavMeshObstacle
 0xd6093803886161c8 -   15422919986731114952 - UnityEngine.Experimental.Rendering.Universal.Light2D
@@ -1236,6 +1260,7 @@ ab5480703e7cc4b0390b32447c9c0954 = Assets/Main-TinyPong/TinyPong.unity
 0xec1d377c370e7eba -   17013815973914771130 - Unity.Tiny.Rendering.LightingBGFX
 0xec7ea16f05cac262 -   17041235538227151458 - UnityEditor.EyeDropper
 0xec8672a9dc6ab563 -   17043435913703241059 - UnityEditor.UnityConnectSettings
+0xeca0bbeb92df8790 -   17050834809680529296 - UIElement
 0xecd8a8ed66dc5535 -   17066576525506925877 - UnityEditor.HingeJointTool
 0xed088c8818a898fe -   17080056102959749374 - UnityEditor.LightProbeProxyVolumeEditor
 0xed0f4bb32cc3ccee -   17081955144561839342 - UnityEditor.AudioMixerSnapshotControllerInspector

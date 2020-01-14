@@ -1,17 +1,37 @@
-[ 483/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ab5480703e7cc4b0390b32447c9c0954
-[ 495/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/46b433b264c69cbd39f04ad2e5d12be8
-[ 526/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/1b436f617d6d3bb49aba65ff9f2581c7
-[1008/1017  0s] C_WebGL_wasm artifacts/libil2cpptiny/Wasm-TinyPong/v2jj/Encoding.o
-[1009/1017  0s] Lib_WebGL_wasm artifacts/libil2cpptiny/Wasm-TinyPong/libil2cpptiny.bc
-[1010/1017  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_web/Wasm-TinyPong/lib_unity_tiny_web.bc
-[1011/1017  0s] Lib_WebGL_wasm artifacts/lib_unity_platforms_runloop/Wasm-TinyPong/lib_unity_platforms_runloop.bc
-[1012/1017  0s] Lib_WebGL_wasm artifacts/lib_unity_tiny_input_web/Wasm-TinyPong/lib_unity_tiny_input_web.bc
+Warning: UseBurst specified, but target does not support burst yet. Not using burst.
+[       6s] Executed build program. Created build graph with 1063 nodes.
+[     7s] Build frontend of artifacts/tundra_Wasm-TinyPong_7up.dag ran (folder contents changed: settings)
+[  23/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/5b670003415d5cee62e802c8835f9b6a
+[  24/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/af72d1c4fd8e9b256dff946a8bcfbdfb
+[  25/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/f24cae80b439bd77d3d4a0431ad79207
+[  26/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/46b433b264c69cbd39f04ad2e5d12be8
+[  27/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/65d5fbc38183100ec77bafab84861788
+[  28/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ab5480703e7cc4b0390b32447c9c0954
+[  29/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/6f8a0afafeb011d229556ecb72b64f2b
+[  30/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/fb938b7923ddc981c8055f0083baa709
+[  72/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/1b436f617d6d3bb49aba65ff9f2581c7
+[  73/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/d85957014e39ac2b6633b84bfe644da6
+[  74/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/ad9f50e074e96e6dcb06e0d003872bba
+[  75/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/2de1e48a0df415974f1e4ab70eee6a39
+[  78/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/Data/b428c1199fcb250b43ecc6508f5c7933
+[ 978/1027  0s] Csc artifacts/TinyPong.dll/Wasm-TinyPong/TinyPong.dll (+2 others)
+[ 979/1027  0s] ILPostProcessorRunner artifacts/TinyPong/Wasm-TinyPong/post_ilprocessing/TinyPong.dll (+pdb)
+[ 980/1027  3s] TypeRegGen artifacts/TinyPong/Wasm-TinyPong/post_typereg/TinyPong.dll (+58 others)
+[ 981/1027  2s] UnityLinker artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll (+58 others)
+[BUSY       6s] Il2Cpp artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
+[ 982/1027 10s] Il2Cpp artifacts/TinyPong/Wasm-TinyPong_stripped/TinyPong.dll-il2cpp-sources/driver.cpp (+39 others)
+[1019/1027  1s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/TinyPong.o
+[1020/1027  4s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Il2CppGenericComDefinitions.o
+[BUSY      10s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Generics.o
+[1021/1027 10s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/GenericMethods.o
+[1022/1027 14s] C_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/v8uk/Generics.o
 [BUSY       6s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,js)
-[1013/1017 11s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,js)
+[1023/1027 11s] Link_WebGL_wasm artifacts/TinyPong.il2cpp/Wasm-TinyPong/TinyPong.html (+wasm,js)
 warning: unexpected return type i8* in call to 'SetTempSliceHandle', should be void
 warning: unexpected return type i8* in call to 'SetTempMemSafetyHandle', should be void
 warning: unexpected return type i32 in call to 'Close', should be void
 warning: unexpected return type i32 in call to 'Close', should be void
-[1014/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.js
-[1015/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.wasm
-[1016/1017  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.html
+[1024/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.js
+[1025/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.wasm
+[1026/1027  0s] CopyTool ../../Builds/Wasm-TinyPong/TinyPong.html
+*** Bee build success (50.96 seconds), 26 items updated

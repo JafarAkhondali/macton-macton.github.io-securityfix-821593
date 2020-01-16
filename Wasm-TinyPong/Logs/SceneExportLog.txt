@@ -37,22 +37,25 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
 0x6bb089beaf54bcca -    7759853610037722314 - ScoreManager
 0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
+0x7107dc50024a9b17 -    8144720687316769559 - Unity.Entities.Disabled
 0x76267ad49cbb05b7 -    8513627199171659191 - Direction
 0x7823013f0216322f -    8656764278865801775 - ObstacleBendAngle
 0x796cab47a3abc9f2 -    8749556500251003378 - Unity.Tiny.Rendering.SimpleMeshReference
+0x80f4afbc167241b0 -    9292245153537474992 - SoloSpawner
 0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
 0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
 0x93059436a0bc9a51 -   10594036660804819537 - Unity.Entities.Prefab
-0x933784c6ef2c6e33 -   10608093437245550131 - Unity.Tiny.Rendering.SpotLight
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders
 0x9d9a34562ae5684a -   11356446955059636298 - Unity.Transforms.NonUniformScale
 0x9edc52e294a1bc01 -   11447115485978672129 - Paddle
+0xa033955fccb033f9 -   11543734508569244665 - PowerUpMoreBalls
 0xa9153b234e4c2950 -   12183709389744253264 - Unity.Tiny.Rendering.ShadowmappedLight
 0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
 0xb9547d153f487901 -   13354436325269862657 - AutoKeyTimer
 0xc11ae705501cb44c -   13914688008719479884 - Unity.Tiny.DisplayInfo
 0xc19985ae86f54e0d -   13950328305391848973 - Unity.Entities.SceneSection
 0xc6087c4f5aaf6969 -   14269792099589122409 - AutoKeyConfig
+0xd3ebf8e1883d19e7 -   15270572609066834407 - PowerUp
 0xdc3b018543c6b9a4 -   15869279383849449892 - Unity.Tiny.Rendering.Light
 0xdc59609942ca230a -   15877828172638200586 - LocalBounds
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
@@ -489,6 +492,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x56aabebdc7a37ab0 -    6245013555610090160 - UnityEngine.Rendering.BaseEnvironmentLibrary
 0x5700c615d4c1f8d8 -    6269228478365825240 - UnityEditor.DockArea
 0x57766cb45a002ec5 -    6302344250411462341 - UnityEditorInternal.AssemblyDefinitionImporter
+0x57a8c2d2d9553878 -    6316512688232282232 - PowerUpMoreBallsAuthoring
 0x57e7ccfa64444d4a -    6334256776715980106 - UnityEngine.AudioSource
 0x58109e5961256730 -    6345745981684148016 - UnityEngine.UI.ToggleGroup
 0x582d3019f9a09649 -    6353787537410004553 - JetBrains.Rider.Unity.Editor.Navigation.Window.FindUsagesWindow
@@ -715,6 +719,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x805f82307e47eb3a -    9250255304430971706 - TMPro.EditorUtilities.DropdownEditor
 0x8065b33761309e5f -    9251998059937701471 - UnityEditor.IHVImageFormatImporterInspector
 0x8078b6d793296c1c -    9257350071063243804 - UnityEditor.TargetJoint2DEditor
+0x80f4afbc167241b0 -    9292245153537474992 - SoloSpawner
 0x8121132571d0f894 -    9304739356668393620 - Unity.Entities.RequestSceneLoaded
 0x8139ebf0ee002148 -    9311733124582875464 - UnityEngine.ScriptableObject
 0x813dbd045fdc9abc -    9312807430957865660 - UnityEditor.Experimental.AssetImporters.ScriptedImporterEditor
@@ -803,6 +808,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x93332690356ee4b2 -   10606863948201256114 - UnityEngine.Font
 0x933784c6ef2c6e33 -   10608093437245550131 - Unity.Tiny.Rendering.SpotLight
 0x93e2d77a1c1e235d -   10656316587769733981 - UnityEditor.LightmapPreviewWindow
+0x959fd4e6bdd87923 -   10781570120440903971 - SoloSpawnerAuthoring
 0x95ca4848d267591b -   10793518934551648539 - UnityEditor.MonoScript
 0x95d48ae990532285 -   10796406942467302021 - UnityEngine.Rendering.SortingGroup
 0x9620b8fbc7b1bf23 -   10817849696470548259 - UnityEngine.EventSystems.EventSystem
@@ -863,6 +869,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x9f6903d338d2e9cf -   11486716530311489999 - UnityEditor.EventSystems.Physics2DRaycasterEditor
 0x9f7649ca8025bd7c -   11490452633364577660 - UnityEditor.Networking.PlayerConnection.EditorConnection
 0x9ff3e1f468e6ef79 -   11525804311219466105 - TMPro.TMP_StyleSheet
+0xa033955fccb033f9 -   11543734508569244665 - PowerUpMoreBalls
 0xa03f6e156e925e84 -   11547069007929695876 - Unity.Scenes.SubScene
 0xa046c4151cc09fcb -   11549133889393958859 - UnityEngine.CapsuleCollider
 0xa05c3ac9f5b4d342 -   11555175383010956098 - UnityEditor.EditorWindow
@@ -1127,6 +1134,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xd3bf79fa64e03fe9 -   15258048178895732713 - UnityEngine.AnimatorOverrideController
 0xd3d7db0c4dcdf7b3 -   15264910307887019955 - UnityEditor.Experimental.Rendering.Universal.Light2DEditor
 0xd3e79f43a91e00ac -   15269348174571897004 - UnityEditor.UI.SelfControllerEditor
+0xd3ebf8e1883d19e7 -   15270572609066834407 - PowerUp
 0xd3f8f643d4d039bf -   15274228907420694975 - UnityEngine.AI.NavMeshData
 0xd4178645db8ddee2 -   15282831495099440866 - Unity.Build.Common.BuildManager
 0xd41cd5ffce60d488 -   15284326530044449928 - UnityEngine.AudioReverbFilter

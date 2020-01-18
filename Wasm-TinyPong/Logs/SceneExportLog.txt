@@ -18,6 +18,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x03de176e55caa2ac -     278685989596734124 - Obstacle
 0x05beb96b0ec7249a -     413972085225235610 - Unity.Transforms.Translation
 0x0e7c2c39a91bafdd -    1043757839805034461 - Unity.Tiny.Rendering.FragmentShaderBinData
+0x152d04bb1384d7db -    1525881050281334747 - TouchPoint
 0x1973289d3a305310 -    1833854129021145872 - Unity.Tiny.ConfigurationTag
 0x20b245c491cdefee -    2356022265630289902 - Unity.Transforms.Rotation
 0x265a1e670469f7dd -    2763554749149738973 - Unity.Tiny.Rendering.VertexShaderBinData
@@ -25,6 +26,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x38e07d69650538da -    4098413552527030490 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
 0x3acebd72b403349c -    4237532599746245788 - Unity.Transforms.Parent
 0x42efbfd1d2d19daf -    4823284633843113391 - KeyCodeUp
+0x457c72a9949ed6ea -    5007002958397626090 - PlayArea
 0x54a461637111f936 -    6099106875093154102 - Score
 0x5b03da03aea614c9 -    6558325191731451081 - Unity.Entities.LinkedEntityGroup
 0x5cce910ab1226f12 -    6687441971799289618 - Unity.Tiny.Rendering.DirectionalLight
@@ -187,6 +189,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x14831a363ccccd3b -    1478053922958265659 - UnityEngine.CapsuleCollider2D
 0x14b5ad9ee691c7f1 -    1492289749527939057 - UnityEngine.EdgeCollider2D
 0x14ee7a03d00866fb -    1508277082009396987 - UnityEngine.Rendering.UI.DebugUIHandlerFloatField
+0x152d04bb1384d7db -    1525881050281334747 - TouchPoint
 0x1552faa449751673 -    1536566006400751219 - UnityEditor.FogEditor
 0x1559ccc4c99d3266 -    1538485893291913830 - UnityEngine.ProBuilder.Entity
 0x16322ebf2bf6f48c -    1599392216281183372 - UnityEditorInternal.AnimationWindowKeySelection
@@ -411,6 +414,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0x44fed5743f38c590 -    4971645733917214096 - UnityEditor.MonoScriptImporterInspector
 0x44ff7713c1f88d60 -    4971823440382692704 - UnityEditor.Audio.AudioMixerController
 0x455450186f52a3ef -    4995705952537846767 - UnityEngine.Rendering.UI.DebugUIHandlerGroup
+0x457c72a9949ed6ea -    5007002958397626090 - PlayArea
 0x45c82541fcef0589 -    5028309949305783689 - UnityEngine.Rendering.Universal.ForwardRendererData+CreateForwardRendererAsset
 0x45e0c6f62b245caf -    5035243143988272303 - UnityEditor.FallbackEditorWindow
 0x462704771256b794 -    5055014016201963412 - CompanionGameObjectActiveSystemState
@@ -1161,6 +1165,7 @@ af72d1c4fd8e9b256dff946a8bcfbdfb = Assets/Textures/Number9.png
 0xd82a5347dc481eae -   15576353829317779118 - UnityEditor.EditorSnapSettingsData
 0xd8620c268feaef36 -   15592038219672907574 - UnityEditor.SketchUpImporter
 0xd88036a63fe9b7c4 -   15600529196876150724 - UnityEditor.SceneVisibilityManager
+0xd89a3288cf3e8e30 -   15607843021779799600 - PlayAreaAuthoring
 0xd8ced18744b89102 -   15622654536298565890 - Unity.Entities.EditorRenderData
 0xd91529d8a1e1c2dd -   15642454891146887901 - Unity.Transforms.RotationEulerZYX
 0xd926f11b4bd962b0 -   15647459054884315824 - UnityEngine.Rendering.Universal.Tonemapping

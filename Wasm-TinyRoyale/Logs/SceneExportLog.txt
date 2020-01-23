@@ -27,6 +27,9 @@ d51d8e4e4c7f5b2cc8e67ca2118440ba = Assets/Towers/ArcherTower/Textures/TEX_Archer
 bf1120c1c9a652a2c0f19acdae3ff5c8 = Assets/Towers/MagicTower/Textures/TEX_MagicTower_M.tif
 13fe07000027cbb61dd5ee2f57e25f1a = Assets/Towers/MagicTower/Textures/TEX_MagicTower_N.tif
 ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTower2_D.tif
+6e46e8152223e7251b511b65dd4f8d48 = Assets/UI-Cards/Textures/UI-Cards.png
+9fa77b77f82f25284b333c549ab77d55 = Assets/UI-Logo/Textures/UI-Logo.png
+00877d4e2e561ec4796327fbb9e5e217 = Assets/UI-StoneSlab/Textures/UI-StoneSlab.png
 46b433b264c69cbd39f04ad2e5d12be8 = Configuration
 
 
@@ -43,13 +46,16 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x5cce910ab1226f12 -    6687441971799289618 - Unity.Tiny.Rendering.DirectionalLight
 0x645b5769b50b2b2e -    7231469738194053934 - Unity.Transforms.LocalToWorld
 0x64ce1131e5430fab -    7263762154992635819 - Unity.Tiny.Rendering.Frustum
+0x65677f0977489c6e -    7306948599064599662 - Unity.Tiny.Rendering.SimpleMaterial
 0x670bc8aa6dc5e490 -    7425249044962075792 - Unity.Tiny.Rendering.LitMeshRenderData
 0x6774429a045b4372 -    7454656512470500210 - Unity.Tiny.Scenes.StartupScenes
 0x6ad55b2d91c581d3 -    7698159389337027027 - Unity.Tiny.Rendering.MeshRenderer
 0x6edd745e641dcda7 -    7988669262780550567 - Unity.Tiny.Image2DLoadFromFile
 0x7107dc50024a9b17 -    8144720687316769559 - Unity.Entities.Disabled
 0x76447972026766ed -    8522069925465384685 - Unity.Tiny.Rendering.LitMeshReference
+0x796cab47a3abc9f2 -    8749556500251003378 - Unity.Tiny.Rendering.SimpleMeshReference
 0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
+0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
 0x933784c6ef2c6e33 -   10608093437245550131 - Unity.Tiny.Rendering.SpotLight
 0x9a049d8ca9ce442f -   11098168609217594415 - Tiny3D.Rotate
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders

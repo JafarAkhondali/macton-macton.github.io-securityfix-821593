@@ -1,4 +1,8 @@
 ::Exported Assets::
+21bdf948aebae016bf9c9d59af4741c3 = Assets/Characters/Warrior/Textures/TEX_Warrior_D.tif
+a58b6e9368d8c948c21efc587f85bfc8 = Assets/Characters/Warrior/Textures/TEX_Warrior_M.tif
+806c9f1403972de770386c54d2325caf = Assets/Characters/Warrior/Textures/TEX_Warrior_N.tif
+16c451165e0f8d6784d2724c4a06eccf = Assets/Characters/Warrior/Textures/TEX_Warrior2_D.tif
 64fe29fd47bce6e5f13ac69005988e53 = Assets/Props/ENVground/Textures/ENVGround_MAT_sand2_D.tif
 871745b518709f7bcba9b881e6e36c66 = Assets/Props/ENVground/Textures/ENVGround_MAT_sand2_M.tif
 a4cfc0c6dfee24d98e2d00c376c722e2 = Assets/Props/ENVground/Textures/ENVGround_MAT_sand2_N.tif
@@ -18,15 +22,12 @@ f82d7ae3222ffe0e69c7508c4924744a = Assets/Props/ENVProps/Textures/TEX_ENVProps2_
 a5b2f5df21157e37a7afd6f6641a9a90 = Assets/Props/FarmHouse/Textures/TEX_FarmHouse_D.tif
 7125c3aa94565d1b0a58b4c6fd629826 = Assets/Props/FarmHouse/Textures/TEX_FarmHouse_M.tif
 9c8bfd1980d2821bb2befe1d16b6baf6 = Assets/Props/FarmHouse/Textures/TEX_FarmHouse_N.tif
-34c1c1232ad50de47bde0e4799ae6610 = Assets/Scenes/DOTS Subscene.unity
-1b436f617d6d3bb49aba65ff9f2581c7 = Assets/Scenes/Tiny3D.unity
-9a95c2fc15462a3cb9e247151c2a0a58 = Assets/Towers/ArcherTower/Textures/TEX_ArcherTower_D.tif
-5575b526a68a924d3757eae234e8dfcc = Assets/Towers/ArcherTower/Textures/TEX_ArcherTower_M.tif
-d51d8e4e4c7f5b2cc8e67ca2118440ba = Assets/Towers/ArcherTower/Textures/TEX_ArcherTower_N.tif
-8c227c8f7bf1abbc1846f3795944cf56 = Assets/Towers/ArcherTower/Textures/TEX_ArcherTower2_D.tif
-bf1120c1c9a652a2c0f19acdae3ff5c8 = Assets/Towers/MagicTower/Textures/TEX_MagicTower_M.tif
-13fe07000027cbb61dd5ee2f57e25f1a = Assets/Towers/MagicTower/Textures/TEX_MagicTower_N.tif
-ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTower2_D.tif
+1b436f617d6d3bb49aba65ff9f2581c7 = Assets/Scenes/Main-TinyRoyale.unity
+34c1c1232ad50de47bde0e4799ae6610 = Assets/Scenes/TinyRoyale.unity
+f677c01cd9bafdb255229613b416eddc = Assets/Towers/BarracksTower/Textures/TEX_BarracksTower_D.tif
+575142e1084a0ba0cb66363ac29723e6 = Assets/Towers/BarracksTower/Textures/TEX_BarracksTower_M.tif
+8bdb2a0bf1d6ef5b591f67283c69a8c1 = Assets/Towers/BarracksTower/Textures/TEX_BarracksTower_N.tif
+eb413a7ee8cc0ebf5327e65b214907d2 = Assets/Towers/BarracksTower/Textures/TEX_BarracksTower2_D.tif
 6e46e8152223e7251b511b65dd4f8d48 = Assets/UI-Cards/Textures/UI-Cards.png
 9fa77b77f82f25284b333c549ab77d55 = Assets/UI-Logo/Textures/UI-Logo.png
 00877d4e2e561ec4796327fbb9e5e217 = Assets/UI-StoneSlab/Textures/UI-StoneSlab.png
@@ -40,6 +41,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x20b245c491cdefee -    2356022265630289902 - Unity.Transforms.Rotation
 0x265a1e670469f7dd -    2763554749149738973 - Unity.Tiny.Rendering.VertexShaderBinData
 0x28b1ef9c1c9b0c28 -    2932388286168763432 - Unity.Tiny.Rendering.LitMaterial
+0x33a82fd543fbcc10 -    3722277685036829712 - VirtualCamera
 0x38e07d69650538da -    4098413552527030490 - Unity.Tiny.Rendering.AutoMovingDirectionalLight
 0x3acebd72b403349c -    4237532599746245788 - Unity.Transforms.Parent
 0x5b03da03aea614c9 -    6558325191731451081 - Unity.Entities.LinkedEntityGroup
@@ -56,8 +58,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x796cab47a3abc9f2 -    8749556500251003378 - Unity.Tiny.Rendering.SimpleMeshReference
 0x879bf9259e401d9e -    9771677756474531230 - Unity.Tiny.Image2D
 0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
-0x933784c6ef2c6e33 -   10608093437245550131 - Unity.Tiny.Rendering.SpotLight
-0x9a049d8ca9ce442f -   11098168609217594415 - Tiny3D.Rotate
+0x893cd69197170313 -    9889014802592236307 - VirtualCameraController
 0x9c68852c0ad732e7 -   11270404491701596903 - Unity.Tiny.Rendering.PrecompiledShaders
 0x9d9a34562ae5684a -   11356446955059636298 - Unity.Transforms.NonUniformScale
 0xa9153b234e4c2950 -   12183709389744253264 - Unity.Tiny.Rendering.ShadowmappedLight
@@ -255,9 +256,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x20e937d3a169751e -    2371488060872946974 - Unity.Physics.Authoring.PhysicsBodyAuthoring
 0x20f1fe604d60e0c1 -    2373958168169472193 - UnityEditor.ModeDescriptorImporter
 0x2146335b03ca6457 -    2397660317620003927 - UnityEditor.LineRendererEditorSettings
-0x214d107687d19350 -    2399592277729186640 - UnityEditor.TestTools.TestRunner.Api.TestRunData
 0x216a0493b0d35f96 -    2407741983156297622 - TMPro.EditorUtilities.TMP_SubMesh_Editor
-0x2174ebbd70f2fcde -    2410810899426376926 - UnityEditor.TestTools.TestRunner.EditModeRunner
 0x21cea48fc185ebf5 -    2436065385788074997 - UnityEditor.ProBuilder.UnwrapParametersEditor
 0x21d159816809b214 -    2436827285715268116 - Unity.Transforms.CopyTransformToGameObject
 0x21d993e7cff2b2c5 -    2439143297033351877 - UnityEditor.Collider3DEditorBase
@@ -310,6 +309,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x2c9b25516377e1ad -    3214203790550360493 - UnityEngine.SpeedTreeWindAsset
 0x2cbeb439e49fcfe4 -    3224212543985668068 - UnityEditor.ProBuilder.EditorToolbar
 0x2cd9f21e6b34b5fa -    3231880420076598778 - Unity.Rendering.MaterialColor
+0x2cdf73edbbecc84e -    3233430522372606030 - Packages.Rider.Editor.RiderScriptEditorData
 0x2d4d1697fa1a8f47 -    3264290146905395015 - UnityEditor.Presets.PresetManagerEditor
 0x2d6b548f815b21be -    3272802529542087102 - TMPro.TMP_SpriteAssetImporter
 0x2dc9f640dbcc02fe -    3299438960451519230 - UnityEditor.ReferencesArtifactGenerator
@@ -331,6 +331,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x331dd06067a8b98d -    3683329182733482381 - UnityEditor.UI.GridLayoutGroupEditor
 0x339c079d554b28fd -    3718855764623436029 - UnityEditor.SavedSearchFilters
 0x33a51ac862876849 -    3721410115040405577 - UnityEditor.Graphs.ParameterControllerEditor
+0x33a82fd543fbcc10 -    3722277685036829712 - VirtualCamera
 0x33b3fc22911138cb -    3725598542158444747 - Unity.Tiny.Rendering.UpdateBGFXMaterialTag
 0x33f199a7c29185e7 -    3742941711124497895 - UnityEditor.InspectorWindow
 0x33fc3675f6f8224a -    3745928870347940426 - UnityEditor.EventSystems.EventSystemEditor
@@ -348,6 +349,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x363a36762fead0e7 -    3907495507935285479 - UnityEditor.TestTools.TestRunner.UnityTestProtocol.UnityTestProtocolListener
 0x365f35d3a49f85a7 -    3917909383951910311 - UnityEditor.MonoManager
 0x369f613aa0e2dc53 -    3935971503780322387 - UnityEditor.AudioImporter
+0x36d0319e05d65ae6 -    3949711427976452838 - UnityEditor.TestTools.TestRunner.EditModeRunner
 0x370b076b36b507b7 -    3966272053890582455 - UnityEditor.TextAssetInspector
 0x370e3000f3164027 -    3967161102396440615 - UnityEditor.Rendering.Universal.ForwardRendererDataEditor
 0x3719f7e0f1b9fb08 -    3970477092004035336 - UnityEditor.CapsuleColliderTool
@@ -380,7 +382,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x3bcf5c9422003fdb -    4309765159712210907 - UnityEditor.PlayerConnectionLogReceiver
 0x3c04d71bf769774b -    4324818057297491787 - UnityEngine.AssetBundle
 0x3c47db69639527c7 -    4343681611310901191 - Unity.Rendering.PerInstanceCullingTag
-0x3ca084be5ea8d98a -    4368637591716157834 - UnityEditor.CameraEditor
 0x3ce1f39d029d2104 -    4387055367714840836 - UnityEditor.ShaderGraph.CreateShaderSubGraph
 0x3d1596bcc830442b -    4401589948381152299 - UnityEngine.Networking.PlayerConnection.PlayerConnection
 0x3d48038122861adf -    4415783287801649887 - UnityEditorInternal.PackageManifestImporter
@@ -391,6 +392,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x3edbe82eb2c7a6c7 -    4529469137516734151 - UnityEngine.Audio.AudioMixerGroup
 0x3ef846ac9c2c8640 -    4537454331744257600 - UnityEditor.LineRendererInspector
 0x3f5b61c43db41d7a -    4565350142746828154 - Unity.Entities.GameObjectConversionUtility+DeclaredReferenceObjectsTag
+0x3f7a9ee26a49040e -    4574143066831127566 - UnityEditor.CameraEditor
 0x3f7f9e63748459b3 -    4575549896425494963 - UnityEditor.Brush
 0x3f9a0075cf145b87 -    4582976076788292487 - UnityEditor.TilemapCollider2DEditor
 0x4132236350844f90 -    4697856270760431504 - UnityEditor.Experimental.TerrainAPI.StampTool
@@ -416,6 +418,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x45c82541fcef0589 -    5028309949305783689 - UnityEngine.Rendering.Universal.ForwardRendererData+CreateForwardRendererAsset
 0x45e0c6f62b245caf -    5035243143988272303 - UnityEditor.FallbackEditorWindow
 0x462704771256b794 -    5055014016201963412 - CompanionGameObjectActiveSystemState
+0x4643eb2a467e05e4 -    5063148972898387428 - Packages.Rider.Editor.UnitTesting.CallbackData
 0x46698299489d6a17 -    5073730050069457431 - UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset
 0x469376cd166412ec -    5085539027447452396 - UnityEditor.Build.Reporting.PackedAssets
 0x4709bc66656175a1 -    5118829599456851361 - Unity.Tiny.Image2DRenderToTexture
@@ -436,7 +439,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x498e1970810ebdc1 -    5300201782453910977 - Unity.Scenes.ExternalEntityRef
 0x49c5b95a21298df5 -    5315858731935305205 - UnityEditor.SkinnedMeshRendererEditor
 0x49c9d105f868b212 -    5317010658660233746 - UnityEngine.EventSystems.EventTrigger
-0x49db6b05b20bcc84 -    5321965056874499204 - JetBrains.Rider.Unity.Editor.Utils.RiderScriptableSingleton
 0x4a1e89155681d327 -    5340856932846654247 - UnityEditor.LightmapParameters
 0x4a5974704febd73a -    5357441257459930938 - UnityEngine.Rendering.UI.DebugUIHandlerContainer
 0x4b0edc2874f15de9 -    5408502268837322217 - UnityEditor.ProBuilder.PolyShapeEditor
@@ -465,7 +467,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x516a61114ad52eab -    5866608191501315755 - UnityEngine.ProBuilder.AssetIdRemapUtility.AssetIdRemapEditor
 0x52151028845b9825 -    5914651451826346021 - UnityEngine.Camera
 0x521d0e6f69802c31 -    5916901357108866097 - UnityEditor.TestTools.TestRunner.CommandLineTest.ExitCallbacks
-0x52209a053295fe9c -    5917899257479036572 - UnityEditor.ProBuilder.BooleanEditor
 0x522edf56891f19d2 -    5921916122799479250 - UnityEngine.AudioLowPassFilter
 0x5239dda5f07e4ac5 -    5925010489556748997 - UnityEditor.RelativeJoint2DEditor
 0x52441ca2c63d9b62 -    5927894494962621282 - UnityEditor.OtherRenderingEditor
@@ -491,11 +492,11 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x564711acaffe7ae3 -    6216957243992996579 - UnityEngine.ConstantForce2D
 0x56a58c8d155bc472 -    6243550995995673714 - UnityEngine.TerrainCollider
 0x56a9e7f5211badb3 -    6244777398334369203 - UnityEditor.CollabHistoryWindow
-0x56aabebdc7a37ab0 -    6245013555610090160 - UnityEngine.Rendering.BaseEnvironmentLibrary
 0x5700c615d4c1f8d8 -    6269228478365825240 - UnityEditor.DockArea
 0x57766cb45a002ec5 -    6302344250411462341 - UnityEditorInternal.AssemblyDefinitionImporter
 0x57e7ccfa64444d4a -    6334256776715980106 - UnityEngine.AudioSource
 0x58109e5961256730 -    6345745981684148016 - UnityEngine.UI.ToggleGroup
+0x582d3019f9a09649 -    6353787537410004553 - JetBrains.Rider.Unity.Editor.Navigation.Window.FindUsagesWindow
 0x58900c7498503c55 -    6381614366895127637 - UnityEngine.Rigidbody
 0x58c6f2e264e6ec25 -    6397067374895754277 - UnityEngine.Animations.LookAtConstraint
 0x58e38e43d85e7367 -    6405119517094998887 - UnityEditor.BumpMapSettingsFixingWindow
@@ -548,7 +549,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x62709bf4ef3d70cb -    7093340889396637899 - UnityEngine.AudioChorusFilter
 0x62b30a39f5f616a5 -    7112039480604104357 - UnityEngine.PreloadData
 0x62bb97a3b49dbc27 -    7114446765727530023 - TMPro.TMP_PackageUtilities
-0x62e033a91a0e56a7 -    7124751411879761575 - UnityEngine.Rendering.MiniProfiler
 0x62e791ebb38670c6 -    7126825376852373702 - UnityEditor.CapsuleCollider2DEditor
 0x62ef18cd87380b3a -    7128944006166743866 - Unity.Physics.Authoring.PhysicsMaterialTemplate
 0x636924dcbad95700 -    7163297212755695360 - UnityEditor.ShaderGraph.Internal.ShaderGraphVfxAsset
@@ -564,8 +564,8 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x6523afc4ee6ce591 -    7287861882364159377 - UnityEngine.Rendering.Universal.UniversalAdditionalLightData
 0x65677f0977489c6e -    7306948599064599662 - Unity.Tiny.Rendering.SimpleMaterial
 0x6581d816fbadd4b1 -    7314364863049749681 - UnityEngine.Cubemap
+0x658c51aee0a47435 -    7317313306105246773 - VirtualCameraControllerAuthoring
 0x659d356185e6dee8 -    7322067262148894440 - TMPro.EditorUtilities.TMP_SpriteAssetEditor
-0x65bdf2a2a73bead6 -    7331282548833381078 - Packages.Rider.Editor.RiderScriptEditorData
 0x65f58a241acbc65c -    7346930254797850204 - UnityEditor.AssemblyDefinitionReferenceImporterInspector+AssemblyDefinitionReferenceState
 0x6610784006c34903 -    7354510407882721539 - UnityEngine.SpriteMask
 0x663a5d213620b19e -    7366302537741283742 - UnityEditor.TextureImporter
@@ -620,6 +620,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x700377760c07705d -    8071426306069721181 - UnityEditor.ComputeShaderInspector
 0x70223bde8470efcc -    8080086508346863564 - UnityEditor.ProjectWindowCallback.DoCreateSpritePolygon
 0x703a67f548df06ca -    8086890384084371146 - TMPro.EditorUtilities.TMPro_TextContainerEditor
+0x70403144267f353f -    8088519099530818879 - VirtualCameraAuthoring
 0x70701f07e8947dfc -    8102009848466800124 - UnityEditor.TestTools.TestRunner.RerunCallbackData
 0x70bde1ff9e1cec7a -    8123897790831848570 - UnityEditor.AudioSourceInspector
 0x70c861493604c2d9 -    8126852494656848601 - UnityEngine.UI.AspectRatioFitter
@@ -643,6 +644,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x742fffbc41371c2a -    8372191416318106666 - Unity.Entities.WorldTimeQueue
 0x743e7e4a602ae190 -    8376271214861803920 - UnityEditor.AnimationEditor
 0x74758c5a4d2958d9 -    8391767800144287961 - UnityEditor.ShortcutManagement.PromptWindow
+0x74a81ef0429374f4 -    8406002721744975092 - UnityEngine.UIElements.StyleSheet
 0x74c6709202eaecb4 -    8414536726204837044 - UnityEditor.EditorUserBuildSettings
 0x74f0cf211696012d -    8426462643829997869 - UnityEditor.BillboardAssetInspector
 0x75d374c0c53bd638 -    8490258093815092792 - UnityEditor.Experimental.Rendering.Universal.PixelPerfectCameraEditor
@@ -659,7 +661,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x77553689870eb32e -    8598839027838137134 - Unity.Scenes.Editor.EditorSceneLiveLinkToPlayerSendSystem
 0x77562a07fa9e4a53 -    8599106752268356179 - Unity.Physics.Authoring.PhysicsCategoryNames
 0x778987a4b4398362 -    8613564903790838626 - UnityEngine.Rendering.CameraSwitcher
-0x77d21a794073bc04 -    8633992543697353732 - UnityEditor.TestTools.TestRunner.EditModeRunnerCallback
 0x77d470b60bc12726 -    8634650312759650086 - UnityEngine.Cloth
 0x77fb90f962ac4c4a -    8645663310444514378 - UnityEditor.JointCommonEditor
 0x78032ffec95c5047 -    8647808480827953223 - UnityEditor.AudioMixerGroupEditor
@@ -678,6 +679,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x79c43ba8b53ae1d5 -    8774203569805648341 - Unity.Tiny.Audio.AudioClipLoadFromFile
 0x7a00f860edd54901 -    8791299567817935105 - UnityEngine.UIElements.VisualTreeAsset
 0x7a08d3293f86208d -    8793510446553768077 - UnityEditor.Audio.AudioMixerEffectController
+0x7a0bb3590ec39397 -    8794319892452184983 - UnityEngine.AudioReverbFilter
 0x7a0e3839fbf59306 -    8795028943992623878 - UnityEngine.TextCore.TextSpriteAsset
 0x7a4cab2f48b599b2 -    8812606790428891570 - UnityEngine.Motion
 0x7a855c2df9a4d1a1 -    8828563997061337505 - UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
@@ -695,6 +697,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x7c227296a614020c -    8944837801268216332 - UnityEditor.Presets.PresetEditor
 0x7c89e3e323a41a21 -    8973954297207462433 - UnityEngine.TextAsset
 0x7c8e55db4ed1139b -    8975205507804500891 - UnityEditor.GUIView
+0x7c915301b3895c07 -    8976046799098305543 - UnityEditor.TestTools.TestRunner.Api.TestRunnerApi
 0x7d4a3d870c704ce9 -    9028096053256146153 - UnityEditor.OffMeshLinkInspector
 0x7d9f61fcff078ee7 -    9052061515276324583 - Unity.Scenes.Editor.SubSceneImporter
 0x7da66d7eecdb58ab -    9054044492782065835 - UnityEngine.Tilemaps.TilemapRenderer
@@ -753,10 +756,12 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0x8884a5c469a59a68 -    9837169749088639592 - Unity.Tiny.Rendering.SimpleMeshRenderData
 0x88a0688292a03808 -    9844983695446915080 - UnityEditor.MaterialEditor
 0x88aae5928f79d995 -    9847935952834124181 - Unity.Scenes.LiveLinkPlayerAssetRefreshSystem+SubSceneRequested
+0x893cd69197170313 -    9889014802592236307 - VirtualCameraController
 0x89c04df80a7b407f -    9926019306447650943 - Unity.Tiny.Rendering.RenderNodeShadowMap
 0x89fd563c817ac505 -    9943198370174256389 - UnityEditor.ProBuilder.ShapeEditor
 0x8a284d1e8152b7e1 -    9955291769716520929 - UnityEditor.ProBuilder.LightmapUVEditor
 0x8a3ec7ed39216cb5 -    9961619247469784245 - UnityEditor.Presets.PresetManager
+0x8a74066464121da9 -    9976606102777896361 - UnityEditor.PackageManager.UI.AssetStore.AssetStoreOAuth+AssetStoreOAuthInternal
 0x8a8a54e4cd45bf07 -    9982884865693302535 - UnityEditor.Animations.AnimatorStateTransition
 0x8ab67b6496d2ce35 -    9995312094952738357 - Unity.Scenes.PublicEntityRef
 0x8acf0d4fb3150b74 -   10002227933371239284 - UnityEngine.ComputeShader
@@ -910,7 +915,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xa98d4135cbaafc82 -   12217493063432076418 - UnityEditor.BuildPlayerWindow
 0xa9c5b80720b17b58 -   12233386303574604632 - UnityEditor.ShaderGraph.ShaderSubGraphImporterEditor
 0xa9d822886af79f23 -   12238569956684832547 - UnityEngine.Rendering.UI.DebugUIHandlerIntField
-0xaa794bd8f078de65 -   12283932853749210725 - UnityEditor.PackageManager.UI.AssetStore.AssetStoreOAuth+AssetStoreOAuthInternal
 0xaa9ff1d4e8fdee8a -   12294811404489059978 - UnityEngine.UI.InputField
 0xaaa627f58499e8c9 -   12296559768026867913 - UnityEditor.CharacterJointTool
 0xaab190e7e6eb12f9 -   12299771383011545849 - Unity.Physics.Authoring.PhysicsStepAuthoring
@@ -932,6 +936,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xad5b5569c5cd6c84 -   12491671904220703876 - UnityEngine.AudioClip
 0xad813b1f0ef9eefe -   12502339045138493182 - UnityEditor.CharacterJointEditor
 0xaddfa992ac73c3af -   12528919135791596463 - UnityEditor.Presets.DefaultPresetReorderableList+PresetChanged
+0xade57bfaee3eaff1 -   12530557855897399281 - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
 0xadef596dec32b6c2 -   12533334616644433602 - UnityEditor.Experimental.MultiArtifactTestImporter
 0xadfdfc31fd4d68ab -   12537454229302634667 - UnityEngine.UI.Dropdown
 0xae1ee34300957b6b -   12546715488812890987 - UnityEditor.ReflectionProbeEditor
@@ -966,6 +971,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xb3890dbf50af989c -   12936886519942060188 - UnityEngine.CircleCollider2D
 0xb38d1fb88c3125e8 -   12938032181991777768 - UnityEditor.AvatarPreviewSelection
 0xb38ee750cbd41b58 -   12938533113685089112 - Unity.Tiny.Image2DLoadFromFileGuids
+0xb3a835a4ffa81730 -   12945656111656605488 - UnityEditor.TestTools.TestRunner.EditModeRunnerCallback
 0xb3c6b7853e8de88e -   12954243161085831310 - UnityEditor.NavMeshObstacleInspector
 0xb3eb7d81a7785b7f -   12964593948130040703 - UnityEditor.U2D.SpriteShapeRendererInspector
 0xb437bacd91d984d7 -   12986053442624128215 - Unity.Tiny.Rendering.ChunkWorldBoundingSphere
@@ -1033,11 +1039,11 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xc1add90ac14b6d8f -   13956049460506881423 - UnityEngine.Object
 0xc225d7be285600da -   13989825029216796890 - UnityEngine.Rendering.Universal.ChannelMixer
 0xc2429343dd84b5ed -   13997912511509476845 - Unity.Build.BuildSettings
-0xc279e0bf987618ac -   14013478829041260716 - UnityEditor.TestTools.TestRunner.Api.TestRunnerApi
 0xc294d17eb5783c0a -   14021061882051836938 - UnityEditor.ProBuilder.pb_ObjectArray
 0xc2be421aa07fd632 -   14032726171062359602 - UnityEngine.Rendering.UI.DebugUIHandlerFoldout
 0xc2ce25d768c53a2a -   14037198695666367018 - Unity.Physics.Authoring.PhysicsDebugDisplay
 0xc2e3bd27dcdfd8b5 -   14043276041978370229 - UnityEditor.Audio.AudioMixerGroupController
+0xc2ef8be2cc1b739a -   14046599568995087258 - UnityEditor.TestRunner.TestLaunchers.RemoteTestRunController
 0xc33089913f84849a -   14064892893206971546 - UnityEditor.TextCore.FontAssetEditor
 0xc36cea0323b70a1f -   14081887434085698079 - UnityEditor.PrefabImporterEditor
 0xc373311e6902c857 -   14083654466398242903 - UnityEngine.U2D.SpriteAtlas
@@ -1071,7 +1077,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xc995b782162c3d27 -   14525717942499032359 - UnityEditor.TextScriptImporter
 0xc9a0f5d52e9f73a2 -   14528882693856261026 - UnityEditor.ImportRawHeightmap
 0xc9afcf93db734738 -   14533062756496787256 - UnityEditor.UISystemPreviewWindow
-0xc9d0589a6b756290 -   14542220617030394512 - UnityEngine.UIElements.StyleSheet
 0xc9d3a27b14189dcc -   14543146271211298252 - Unity.Entities.Editor.EntitySelectionProxy
 0xc9db25b4321204c8 -   14545260877387531464 - UnityEditor.ParentConstraintEditor
 0xc9de19f44e330029 -   14546092383527960617 - UnityEditor.TilemapRendererEditor
@@ -1125,7 +1130,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xd3e79f43a91e00ac -   15269348174571897004 - UnityEditor.UI.SelfControllerEditor
 0xd3f8f643d4d039bf -   15274228907420694975 - UnityEngine.AI.NavMeshData
 0xd4178645db8ddee2 -   15282831495099440866 - Unity.Build.Common.BuildManager
-0xd41cd5ffce60d488 -   15284326530044449928 - UnityEngine.AudioReverbFilter
 0xd43c90c6602a85cb -   15293257616334685643 - UnityEditor.VFX.VisualEffectEditorDefault
 0xd4624c8b7359f4db -   15303878645577807067 - UnityEditor.ProBuilder.MaterialPalette
 0xd486b2d6da7dde68 -   15314124218778377832 - UnityEditor.Animations.AnimatorController
@@ -1179,6 +1183,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xdebf94c7e0dbe2b1 -   16050711183163646641 - UnityEditor.Graphs.AnimationStateMachine.InvalidStateMachineBehaviourEditor
 0xded6fe8ff0b5b0a6 -   16057301415608299686 - Unity.Tiny.STB.Image2DSTBLoading
 0xdeeaa09de6800ddc -   16062827621007756764 - Unity.Tiny.Rendering.WorldBounds
+0xdf611b90e2f8c7f0 -   16096176852296058864 - JetBrains.Rider.Unity.Editor.Utils.RiderScriptableSingleton
 0xdf76eeba7bbc19b2 -   16102320002417039794 - UnityEngine.Joint
 0xdf8e4daeaee75df8 -   16108898329804889592 - Unity.Tiny.Rendering.LightingRef
 0xdfa4c5c8cf7a55f0 -   16115222832903509488 - UnityEditor.Searcher.SearcherWindow
@@ -1206,7 +1211,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xe34bb8d12243270c -   16378387678225442572 - UnityEditor.PragmaFixingWindow
 0xe37ae6595e192fa4 -   16391667065273528228 - UnityEngine.CubemapArray
 0xe3b32bad74b9beb1 -   16407505891428515505 - UnityEditorInternal.AnimationClipSelectionItem
-0xe3b9b5348f08e7b5 -   16409345954643765173 - JetBrains.Rider.Unity.Editor.Navigation.Window.FindUsagesWindow
 0xe3c962bfe7795c29 -   16413758893290249257 - UnityEngine.Rendering.UI.DebugUIHandlerColor
 0xe3d9373e6dab13eb -   16418214657823282155 - UnityEngine.NetworkView
 0xe3f4e5d793980ddc -   16426006454983986652 - UnityEngine.UI.ContentSizeFitter
@@ -1277,6 +1281,7 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xefab065f18b08b97 -   17269904201588181911 - UnityEditor.UI.HorizontalOrVerticalLayoutGroupEditor
 0xefca69e8ef992c8d -   17278739369533451405 - Unity.Transforms.PostRotationEulerZYX
 0xf01c64598ca58992 -   17301814204225128850 - UnityEngine.Collider2D
+0xf04b4e6d27291aab -   17315019423071410859 - Packages.Rider.Editor.UnitTesting.TestsCallback
 0xf04d5d660aba5fdc -   17315598835157458908 - UnityEditor.Rendering.DebugStateUInt
 0xf1282d0160794156 -   17377188646145835350 - UnityEditor.Rendering.LookDev.EnvironmentLibrary
 0xf144ee1edf6b9118 -   17385282277921755416 - UnityEditor.SliderJoint2DEditor
@@ -1325,7 +1330,6 @@ ace041477ff5f95e4d222f85470d824b = Assets/Towers/MagicTower/Textures/TEX_MagicTo
 0xf89416c72ac19366 -   17911966662630937446 - UnityEditor.ShaderGraph.ShaderSubGraphImporter
 0xf89fbfd3bd7ec472 -   17915248758841328754 - UnityEditor.GraphicsSettingsWindow+AlwaysIncludedShadersEditor
 0xf8a5ecab24333709 -   17916986912354285321 - Unity.Tiny.Rendering.GizmoObjectBoundingBox
-0xf8da111444327a49 -   17931663645070228041 - UnityEditor.TestRunner.TestLaunchers.RemoteTestRunController
 0xf8fb4647c58ef63a -   17941010814631605818 - TMPro.TMP_Dropdown
 0xf94df982aa884276 -   17964288828252897910 - UnityEditor.RectTool
 0xf992901f443469ca -   17983594726006483402 - UnityEditor.TilemapEditor

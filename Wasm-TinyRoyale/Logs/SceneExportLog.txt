@@ -1,4 +1,5 @@
 ::Exported Assets::
+bbcc3027ed6b3237a89eff421a377b29 = Assets/Cards/Textures/Cards.png
 21bdf948aebae016bf9c9d59af4741c3 = Assets/Characters/Warrior/Textures/TEX_Warrior_D.tif
 a58b6e9368d8c948c21efc587f85bfc8 = Assets/Characters/Warrior/Textures/TEX_Warrior_M.tif
 806c9f1403972de770386c54d2325caf = Assets/Characters/Warrior/Textures/TEX_Warrior_N.tif
